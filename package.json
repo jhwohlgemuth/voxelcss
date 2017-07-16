@@ -1,0 +1,40 @@
+{
+    "name": "voxelcss",
+    "version": "0.0.1",
+    "author": "Jason Wohlgemuth",
+    "license": "MIT",
+    "description": "Building on Voxel.css",
+    "main": "voxelcss.js",
+    "keywords": [],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/some-user/voxelcss.git"
+    },
+    "engines": {
+        "node": "*"
+    },
+    "devDependencies": {
+        "chai": "^3.5.0",
+        "coveralls": "^2.13.1",
+        "eslint": "^3.0.0",
+        "eslint-config-omaha-prime-grade": "^1.0.0",
+        "jest": "^20.0.4",
+        "stmux": "^1.4.17",
+        "watch": "^1.0.2"
+    },
+    "scripts": {
+        "lint": "eslint -c ./.eslintrc.js ./lib/*.js",
+        "lint:watch": "watch 'npm run lint' ./lib",
+        "lint:tests": "eslint -c ./.eslintrc.js ./test/mocha/specs/*.js",
+        "test": "jest test/.*.test.js",
+        "test:watch": "npm test -- --watch",
+        "test:ci": "npm run coverage",
+        "preversion": "npm test",
+        "postversion": "git push && git push --tags",
+        "rest-api": "json-server --port 8080 --watch test/data/db.json",
+        "deploy": "cp -a dist/. dist/.",
+        "coverage": "npm test -- --coverage",
+        "test:travis": "npm test -- --coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
+        "dev": "stmux [ \"npm run test:watch\" .. \"npm run lint:watch\" ]"
+    }
+}
