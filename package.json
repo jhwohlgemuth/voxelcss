@@ -13,28 +13,40 @@
     "engines": {
         "node": "*"
     },
+    "babel": {
+        "presets": [
+            "env",
+            "babili"
+        ]
+    },
     "devDependencies": {
-        "chai": "^3.5.0",
+        "babel-cli": "^6.24.1",
+        "babel-preset-babili": "^0.1.4",
+        "babel-preset-env": "^1.6.0",
+        "browserify": "^14.4.0",
         "coveralls": "^2.13.1",
-        "eslint": "^3.0.0",
-        "eslint-config-omaha-prime-grade": "^1.0.0",
+        "eslint": "^4.2.0",
+        "eslint-config-omaha-prime-grade": "^4.0.0",
+        "eslint-plugin-compat": "^1.0.4",
         "jest": "^20.0.4",
-        "stmux": "^1.4.17",
         "watch": "^1.0.2"
     },
     "scripts": {
+        "demo": "npm run build && firefox ./test/demo.html",
         "lint": "eslint -c ./.eslintrc.js ./lib/*.js",
         "lint:watch": "watch 'npm run lint' ./lib",
         "lint:tests": "eslint -c ./.eslintrc.js ./test/mocha/specs/*.js",
         "test": "jest test/.*.test.js",
         "test:watch": "npm test -- --watch",
-        "test:ci": "npm run coverage",
+        "test:ci": "npm run coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
+        "build": "browserify -e ./lib/index.js ./lib/index.js --standalone Voxelcss -o ./voxelcss.js",
+        "postbuild": "babel ./voxelcss.js --out-file ./voxelcss.js",
         "preversion": "npm test",
         "postversion": "git push && git push --tags",
         "rest-api": "json-server --port 8080 --watch test/data/db.json",
         "deploy": "cp -a dist/. dist/.",
         "coverage": "npm test -- --coverage",
-        "test:travis": "npm test -- --coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
+        "test:travis": "npm run test:ci",
         "dev": "stmux [ \"npm run test:watch\" .. \"npm run lint:watch\" ]"
     }
 }

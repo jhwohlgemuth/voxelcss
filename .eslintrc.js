@@ -1,11 +1,13 @@
 module.exports = {
     env: {
         node: true,
+        browser: true,
         es6: true,
-        mocha: true
+        jest: true
     },
     globals: {
-        sinon: true
+        sinon: true,
+        localStorage: true
     },
     extends: 'omaha-prime-grade'
 };

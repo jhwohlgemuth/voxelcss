@@ -1,0 +1,48 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script src='../voxelcss.js'></script>
+    <link rel='stylesheet' href='voxel.css'></link>
+    <script>
+        var scene;
+        var world;
+        var editor;
+        var lightSource;
+        document.addEventListener('DOMContentLoaded', function() {
+            Init();
+        });
+        function Init() {
+            scene = new Voxelcss.Scene();
+            scene.rotate(-Math.PI / 5, Math.PI / 4, 0);
+            scene.attach(document.body);
+            world = new Voxelcss.World(scene, 'Demo World');
+            editor = new Voxelcss.Editor(world);
+            editor.enableAutoSave();
+            lightSource = new Voxelcss.LightSource(300, 300, 300, 750, 0.2, 1);
+            scene.addLightSource(lightSource);
+            editor.load();
+            if (world.getVoxels().length === 0) {
+                BuildCube();
+            }
+        }
+        function BuildCube() {
+            for (var x = -3; x <= 3; x++) {
+                for (var y = -3; y <= 3; y++) {
+                    for (var z = -3; z <= 3; z++) {
+                        if ([x, y, z].filter(function(value) {return Math.abs(value) === 3}).length >= 2) {
+                            editor.add(new Voxelcss.Voxel(x * 50, y * 50, z * 50, 50, {
+                                mesh: new Voxelcss.Mesh(new Voxelcss.ColorFace('#333333'))
+                            }));
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class='canvas'>
+        <div class='scene'></div>
+    </div>
+</body>
+</html>
