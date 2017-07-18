@@ -1,0 +1,80 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Scene can add and remove light sources 1`] = `
+Array [
+   {
+    "addEventListener": [Function],
+    "getBrightness": [Function],
+    "getPosition": [Function],
+    "getPositionX": [Function],
+    "getPositionY": [Function],
+    "getPositionZ": [Function],
+    "getTravelDistance": [Function],
+    "removeEventListener": [Function],
+    "setBrightness": [Function],
+    "setPosition": [Function],
+    "setPositionX": [Function],
+    "setPositionY": [Function],
+    "setPositionZ": [Function],
+    "setTravelDistance": [Function],
+    "translate": [Function],
+    "translateX": [Function],
+    "translateY": [Function],
+    "translateZ": [Function],
+    "triggerEvent": [Function],
+  },
+]
+`;
+
+exports[`Scene can add and remove voxels 1`] = `
+Array [
+  Voxel {
+    "addEventListener": [Function],
+    "addToScene": [Function],
+    "animDown": [Function],
+    "animUp": [Function],
+    "clone": [Function],
+    "getDimension": [Function],
+    "getDomElement": [Function],
+    "getMesh": [Function],
+    "getPosition": [Function],
+    "getPositionX": [Function],
+    "getPositionY": [Function],
+    "getPositionZ": [Function],
+    "removeEventListener": [Function],
+    "removeFromScene": [Function],
+    "removeParentScene": [Function],
+    "setDimension": [Function],
+    "setMesh": [Function],
+    "setParentScene": [Function],
+    "setPosition": [Function],
+    "setPositionX": [Function],
+    "setPositionY": [Function],
+    "setPositionZ": [Function],
+    "translate": [Function],
+    "translateX": [Function],
+    "translateY": [Function],
+    "translateZ": [Function],
+    "triggerEvent": [Function],
+    "updateLightSource": [Function],
+  },
+]
+`;
+
+exports[`Scene can enable and disable pan 1`] = `
+Object {
+  "x": 0,
+  "y": 0,
+  "z": 0,
+}
+`;
+
+exports[`Scene can enable and disable zoom 1`] = `1`;
+
+exports[`Scene can rotate 1`] = `
+Object {
+  "x": 1,
+  "y": 0,
+  "z": 1,
+}
+`;

@@ -1,3 +1,5 @@
+const ALLOWED_MAGIC_NUMBERS  = [-1, 0, 1, 2, 10, 100, 1000];
+
 module.exports = {
     env: {
         node: true,
@@ -9,5 +11,8 @@ module.exports = {
         sinon: true,
         localStorage: true
     },
-    extends: 'omaha-prime-grade'
+    extends: 'omaha-prime-grade',
+    rules: {
+        'no-magic-numbers': ['warn', {ignore: ALLOWED_MAGIC_NUMBERS}],
+    }
 };
