@@ -28,6 +28,7 @@
         "babel-cli": "^6.24.1",
         "babel-preset-babili": "^0.1.4",
         "babel-preset-env": "^1.6.0",
+        "browser-sync": "^2.18.12",
         "browserify": "^14.4.0",
         "coveralls": "^2.13.1",
         "eslint": "^4.2.0",
@@ -38,7 +39,7 @@
         "watch": "^1.0.2"
     },
     "scripts": {
-        "demo": "npm run build && firefox ./test/demo.html",
+        "demo": "npm run build && browser-sync start -s ./test/demo --serveStatic . -f ./voxelcss.js --open ./test/demo/index.html",
         "lint": "eslint -c ./.eslintrc.js ./lib/*.js",
         "lint:watch": "watch 'npm run lint' ./lib",
         "lint:tests": "eslint -c ./.eslintrc.js ./test/mocha/specs/*.js",
