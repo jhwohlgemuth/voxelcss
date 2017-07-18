@@ -21,7 +21,7 @@
 </p>
 </br>
 
-> Meant to continue the good work started by [Voxel.css](http://www.voxelcss.com/) with modern project architecture, easier contributing, and npm availability.
+> [Voxel.css](http://www.voxelcss.com/) with updated architecture, easier contributing, and npm availability.
 
 Roadmap
 -------

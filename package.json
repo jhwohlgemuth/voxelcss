@@ -20,7 +20,9 @@
         ]
     },
     "jest": {
-        "setupFiles": ["jest-localstorage-mock"]
+        "setupFiles": [
+            "jest-localstorage-mock"
+        ]
     },
     "devDependencies": {
         "babel-cli": "^6.24.1",
