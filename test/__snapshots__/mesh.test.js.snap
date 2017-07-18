@@ -1,0 +1,134 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Mesh can be serialized 1`] = `"{\\"front\\":\\"image(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7)\\",\\"back\\":\\"image(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7)\\",\\"left\\":\\"image(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7)\\",\\"right\\":\\"image(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7)\\",\\"top\\":\\"image(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7)\\",\\"bottom\\":\\"image(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7)\\"}"`;
+
+exports[`Mesh can get and set faces 1`] = `
+Object {
+  "back": ImageFace {
+    "addEventListener": [Function],
+    "clone": [Function],
+    "getSource": [Function],
+    "removeEventListener": [Function],
+    "serialize": [Function],
+    "setSource": [Function],
+    "triggerEvent": [Function],
+  },
+  "bottom": ImageFace {
+    "addEventListener": [Function],
+    "clone": [Function],
+    "getSource": [Function],
+    "removeEventListener": [Function],
+    "serialize": [Function],
+    "setSource": [Function],
+    "triggerEvent": [Function],
+  },
+  "front": ImageFace {
+    "addEventListener": [Function],
+    "clone": [Function],
+    "getSource": [Function],
+    "removeEventListener": [Function],
+    "serialize": [Function],
+    "setSource": [Function],
+    "triggerEvent": [Function],
+  },
+  "left": ImageFace {
+    "addEventListener": [Function],
+    "clone": [Function],
+    "getSource": [Function],
+    "removeEventListener": [Function],
+    "serialize": [Function],
+    "setSource": [Function],
+    "triggerEvent": [Function],
+  },
+  "right": ImageFace {
+    "addEventListener": [Function],
+    "clone": [Function],
+    "getSource": [Function],
+    "removeEventListener": [Function],
+    "serialize": [Function],
+    "setSource": [Function],
+    "triggerEvent": [Function],
+  },
+  "top": ImageFace {
+    "addEventListener": [Function],
+    "clone": [Function],
+    "getSource": [Function],
+    "removeEventListener": [Function],
+    "serialize": [Function],
+    "setSource": [Function],
+    "triggerEvent": [Function],
+  },
+}
+`;
+
+exports[`Mesh can get and set faces 2`] = `
+ImageFace {
+  "addEventListener": [Function],
+  "clone": [Function],
+  "getSource": [Function],
+  "removeEventListener": [Function],
+  "serialize": [Function],
+  "setSource": [Function],
+  "triggerEvent": [Function],
+}
+`;
+
+exports[`Mesh can get and set faces 3`] = `
+ImageFace {
+  "addEventListener": [Function],
+  "clone": [Function],
+  "getSource": [Function],
+  "removeEventListener": [Function],
+  "serialize": [Function],
+  "setSource": [Function],
+  "triggerEvent": [Function],
+}
+`;
+
+exports[`Mesh can get and set faces 4`] = `
+ImageFace {
+  "addEventListener": [Function],
+  "clone": [Function],
+  "getSource": [Function],
+  "removeEventListener": [Function],
+  "serialize": [Function],
+  "setSource": [Function],
+  "triggerEvent": [Function],
+}
+`;
+
+exports[`Mesh can get and set faces 5`] = `
+ImageFace {
+  "addEventListener": [Function],
+  "clone": [Function],
+  "getSource": [Function],
+  "removeEventListener": [Function],
+  "serialize": [Function],
+  "setSource": [Function],
+  "triggerEvent": [Function],
+}
+`;
+
+exports[`Mesh can get and set faces 6`] = `
+ImageFace {
+  "addEventListener": [Function],
+  "clone": [Function],
+  "getSource": [Function],
+  "removeEventListener": [Function],
+  "serialize": [Function],
+  "setSource": [Function],
+  "triggerEvent": [Function],
+}
+`;
+
+exports[`Mesh can get and set faces 7`] = `
+ImageFace {
+  "addEventListener": [Function],
+  "clone": [Function],
+  "getSource": [Function],
+  "removeEventListener": [Function],
+  "serialize": [Function],
+  "setSource": [Function],
+  "triggerEvent": [Function],
+}
+`;
