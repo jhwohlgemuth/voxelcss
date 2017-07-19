@@ -32,22 +32,22 @@ describe('Scene', function() {
         expect(scene.isAttached()).toBeTruthy();
         expect(() => {
             scene.attach(elem);
-        }).toThrow();
+        }).toThrowErrorMatchingSnapshot();
     });
     it('can throw error when trying to detach when already detached', () => {
         let elem = {appendChild: () => {}};
         expect(scene.isAttached()).toBeFalsy();
         expect(() => {
             scene.detach(elem);
-        }).toThrow();
+        }).toThrowErrorMatchingSnapshot();
     });
     it('can rotate', () => {
         const INITIAL_ROTATION = {x: 0, y: 0, z: 0};
         expect(scene.getRotation()).toEqual(INITIAL_ROTATION);
         expect(scene.rotate(1, 0, 1)).toEqual(INITIAL_ROTATION);
         expect(scene.getRotation()).toEqual({x:1, y: 0, z: 1});
-        scene.setRotation(INITIAL_ROTATION);
-        expect(scene.getRotation()).toMatchSnapshot();
+        scene.setRotation(0, 0, 0);
+        expect(scene.getRotation()).toEqual(INITIAL_ROTATION);
     });
     it('can add and remove light sources', () => {
         let lightSource = new LightSource(300, 300, 300, 750, 0.2, 1);

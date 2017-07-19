@@ -8,7 +8,7 @@ describe('World', function() {
     let label;
     let scene;
     let world;
-    beforeEach(function() {
+    beforeEach(() => {
         label = 'Za Worudo';// Jo Jo reference
         scene = new Scene();
         world = new World(scene, label);
@@ -16,7 +16,7 @@ describe('World', function() {
     it('can not be instantiated without Scene instance', () => {
         expect(() => {
             world = new World();
-        }).toThrowError();
+        }).toThrowErrorMatchingSnapshot();
     });
     it('can save and delete state', () => {
         let formName = `savedWorld<${label}>`;
