@@ -43,7 +43,8 @@
         "watch": "^1.0.2"
     },
     "scripts": {
-        "demo": "npm run build && browser-sync start -s ./test/demo --serveStatic . -f ./voxelcss.js --open ./test/demo/index.html",
+        "dev": "stmux [ \"npm run test:watch\" .. \"npm run lint:watch\" ]",
+        "demo": "npm run build && npm run browsersync",
         "lint": "eslint -c ./.eslintrc.js ./lib/*.js",
         "lint:watch": "watch 'npm run lint' ./lib",
         "lint:tests": "eslint -c ./.eslintrc.js ./test/mocha/specs/*.js",
@@ -59,6 +60,6 @@
         "deploy": "cp -a dist/. dist/.",
         "coverage": "npm test -- --coverage",
         "test:travis": "npm run test:ci",
-        "dev": "stmux [ \"npm run test:watch\" .. \"npm run lint:watch\" ]"
+        "browsersync": "browser-sync start -s ./test/demo --serveStatic . -f ./voxelcss.js --open ./test/demo/index.html --port 1337"
     }
 }
