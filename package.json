@@ -19,6 +19,9 @@
             "babili"
         ]
     },
+    "browserify-css": {
+        "autoInject": true
+    },
     "jest": {
         "setupFiles": [
             "jest-localstorage-mock"
@@ -30,6 +33,7 @@
         "babel-preset-env": "^1.6.0",
         "browser-sync": "^2.18.12",
         "browserify": "^14.4.0",
+        "browserify-css": "^0.11.0",
         "coveralls": "^2.13.1",
         "eslint": "^4.2.0",
         "eslint-config-omaha-prime-grade": "^4.0.0",
@@ -46,7 +50,7 @@
         "test": "jest test/.*.test.js",
         "test:watch": "npm test -- --watch",
         "test:ci": "npm run coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
-        "build": "browserify -e ./lib/index.js ./lib/index.js --standalone Voxelcss -o ./voxelcss.js",
+        "build": "browserify -g browserify-css -e ./lib/index.js ./lib/index.js --standalone Voxelcss -o ./voxelcss.js",
         "build:watch": "watch 'npm run build' ./lib",
         "postbuild": "babel ./voxelcss.js --out-file ./voxelcss.js",
         "preversion": "npm test",
