@@ -11,13 +11,13 @@
             Init();
         });
         function Init() {
-            scene = new Voxelcss.Scene();
+            scene = new voxelcss.Scene();
             scene.rotate(-Math.PI / 5, Math.PI / 4, 0);
             scene.attach(document.body);
-            world = new Voxelcss.World(scene, 'Demo World');
-            editor = new Voxelcss.Editor(world);
+            world = new voxelcss.World(scene, 'Demo World');
+            editor = new voxelcss.Editor(world);
             editor.enableAutoSave();
-            lightSource = new Voxelcss.LightSource(300, 300, 300, 750, 0.2, 1);
+            lightSource = new voxelcss.LightSource(300, 300, 300, 750, 0.2, 1);
             scene.addLightSource(lightSource);
             editor.load();
             if (world.getVoxels().length === 0) {
@@ -29,8 +29,8 @@
                 for (var y = -3; y <= 3; y++) {
                     for (var z = -3; z <= 3; z++) {
                         if ([x, y, z].filter(function(value) {return Math.abs(value) === 3}).length >= 2) {
-                            editor.add(new Voxelcss.Voxel(x * 50, y * 50, z * 50, 50, {
-                                mesh: new Voxelcss.Mesh(new Voxelcss.ColorFace('#333333'))
+                            editor.add(new voxelcss.Voxel(x * 50, y * 50, z * 50, 50, {
+                                mesh: new voxelcss.Mesh(new voxelcss.ColorFace('#333333'))
                             }));
                         }
                     }
@@ -44,7 +44,7 @@
         <div class='scene'></div>
     </div>
 <script id="__bs_script__">//<![CDATA[
-    document.write("<script async src='http://HOST:3000/browser-sync/browser-sync-client.js?v=2.18.12'><\/script>".replace("HOST", location.hostname));
+    document.write("<script async src='http://HOST:1337/browser-sync/browser-sync-client.js?v=2.18.12'><\/script>".replace("HOST", location.hostname));
 //]]></script>
 
 </body>

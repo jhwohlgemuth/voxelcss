@@ -1,0 +1,80 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Voxel can be added to and removed from a scene 1`] = `undefined`;
+
+exports[`Voxel can create clones 1`] = `
+Object {
+  "x": 123,
+  "y": 456,
+  "z": 789,
+}
+`;
+
+exports[`Voxel can get and set mesh 1`] = `
+Mesh {
+  "addEventListener": [Function],
+  "getBack": [Function],
+  "getBottom": [Function],
+  "getFaces": [Function],
+  "getFront": [Function],
+  "getLeft": [Function],
+  "getRight": [Function],
+  "getTop": [Function],
+  "removeEventListener": [Function],
+  "serialize": [Function],
+  "setBack": [Function],
+  "setBottom": [Function],
+  "setFaces": [Function],
+  "setFront": [Function],
+  "setLeft": [Function],
+  "setRight": [Function],
+  "setTop": [Function],
+  "triggerEvent": [Function],
+}
+`;
+
+exports[`Voxel can get and set mesh 2`] = `
+Mesh {
+  "addEventListener": [Function],
+  "getBack": [Function],
+  "getBottom": [Function],
+  "getFaces": [Function],
+  "getFront": [Function],
+  "getLeft": [Function],
+  "getRight": [Function],
+  "getTop": [Function],
+  "removeEventListener": [Function],
+  "serialize": [Function],
+  "setBack": [Function],
+  "setBottom": [Function],
+  "setFaces": [Function],
+  "setFront": [Function],
+  "setLeft": [Function],
+  "setRight": [Function],
+  "setTop": [Function],
+  "triggerEvent": [Function],
+}
+`;
+
+exports[`Voxel can update light sources 1`] = `
+Mesh {
+  "addEventListener": [Function],
+  "getBack": [Function],
+  "getBottom": [Function],
+  "getFaces": [Function],
+  "getFront": [Function],
+  "getLeft": [Function],
+  "getRight": [Function],
+  "getTop": [Function],
+  "removeEventListener": [Function],
+  "serialize": [Function],
+  "setBack": [Function],
+  "setBottom": [Function],
+  "setFaces": [Function],
+  "setFront": [Function],
+  "setLeft": [Function],
+  "setRight": [Function],
+  "setTop": [Function],
+  "triggerEvent": [Function],
+}
+`;

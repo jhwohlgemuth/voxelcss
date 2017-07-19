@@ -51,7 +51,7 @@
         "test": "jest test/.*.test.js",
         "test:watch": "npm test -- --watch",
         "test:ci": "npm run coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
-        "build": "browserify -g browserify-css -e ./lib/index.js ./lib/index.js --standalone Voxelcss -o ./voxelcss.js",
+        "build": "browserify -g browserify-css -e ./lib/index.js ./lib/index.js --standalone voxelcss -o ./voxelcss.js",
         "build:watch": "watch 'npm run build' ./lib",
         "postbuild": "babel ./voxelcss.js --out-file ./voxelcss.js",
         "preversion": "npm test",
