@@ -1,5 +1,5 @@
 
-<p align="center" style="text-align: center;">
+<p align="center" style="text-align: center;width: 100%;">
     <img width="50%" alt="applied.js" src="./media/voxelcss_with_letters.png"/>
 </p>
 <p align="center">
