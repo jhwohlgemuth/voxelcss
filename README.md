@@ -1,6 +1,6 @@
 
 <p align="center">
-    <a href="https://github.com/jhwohlgemuth/voxelcss"><img width="50%" alt="applied.js" src="./media/voxelcss_with_letters.png"/></a>
+    <a href="https://github.com/jhwohlgemuth/voxelcss"><img width="50%" alt="voxelcss" src="https://raw.githubusercontent.com/jhwohlgemuth/voxelcss/master/media/voxelcss_with_letters.png"/></a>
 </p>
 </br>
 

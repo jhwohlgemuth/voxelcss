@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>positioned.js - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Classes</li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="module-core_Voxel-Voxel.html">Voxel</a></span></li><li class="nav-heading">Modules</li><li class="nav-heading"><span class="nav-item-type type-module">M</span><span class="nav-item-name"><a href="module-core_ColorFace.html">core/ColorFace</a></span></li><li class="nav-heading"><span class="nav-item-type type-module">M</span><span class="nav-item-name"><a href="module-core_Editor.html">core/Editor</a></span></li><li class="nav-heading"><span class="nav-item-type type-module">M</span><span class="nav-item-name"><a href="module-core_ImageFace.html">core/ImageFace</a></span></li><li class="nav-heading"><span class="nav-item-type type-module">M</span><span class="nav-item-name"><a href="module-core_LightSource.html">core/LightSource</a></span></li><li class="nav-heading"><span class="nav-item-type type-module">M</span><span class="nav-item-name"><a href="module-core_Mesh.html">core/Mesh</a></span></li><li class="nav-heading"><span class="nav-item-type type-module">M</span><span class="nav-item-name"><a href="module-core_Scene.html">core/Scene</a></span></li><li class="nav-heading"><span class="nav-item-type type-module">M</span><span class="nav-item-name"><a href="module-core_Voxel.html">core/Voxel</a></span></li><li class="nav-heading"><span class="nav-item-type type-module">M</span><span class="nav-item-name"><a href="module-core_World.html">core/World</a></span></li><li class="nav-heading"><span class="nav-item-type type-module">M</span><span class="nav-item-name"><a href="module-eventListener.html">eventListener</a></span></li><li class="nav-heading"><span class="nav-item-type type-module">M</span><span class="nav-item-name"><a href="module-meshes.html">meshes</a></span></li><li class="nav-heading"><span class="nav-item-type type-module">M</span><span class="nav-item-name"><a href="module-positioned.html">positioned</a></span></li>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">positioned.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * @file Module to add positioning attributes to an object
+ * @module positioned
+**/
+'use strict';
+
+// EVENTS
+//   onmove
+module.exports = function(obj) {
+    let self = obj || new Function();
+    let position = {x: 0, y: 0, z: 0};
+    let canTriggerEvent = true;
+    Object.assign(self, {
+        setPosition,
+        setPositionX,
+        setPositionY,
+        setPositionZ,
+        getPosition,
+        getPositionX,
+        getPositionY,
+        getPositionZ,
+        translate,
+        translateX,
+        translateY,
+        translateZ
+    });
+    function setPosition(x, y, z) {
+        canTriggerEvent = false;
+        var old = {
+            x: setPositionX(x),
+            y: setPositionY(y),
+            z: setPositionZ(z)
+        };
+        canTriggerEvent = true;
+        self.triggerEvent('move');
+        return old;
+    }
+    function setPositionX(x) {
+        if (x === undefined || typeof x !== 'number') {return position.x;}
+        var old = position.x;
+        position.x = x;
+        if (canTriggerEvent) {self.triggerEvent('move');}
+        return old;
+    }
+    function setPositionY(y) {
+        if (y === undefined || typeof y !== 'number') {return position.y;}
+        var old = position.y;
+        position.y = y;
+        if (canTriggerEvent) {self.triggerEvent('move');}
+        return old;
+    }
+    function setPositionZ(z) {
+        if (z === undefined || typeof z !== 'number') {return position.z;}
+        var old = position.z;
+        position.z = z;
+        if (canTriggerEvent) {self.triggerEvent('move');}
+        return old;
+    }
+    function getPosition() {
+        return {
+            x: position.x,
+            y: position.y,
+            z: position.z
+        };
+    }
+    function getPositionX() {
+        return position.x;
+    }
+    function getPositionY() {
+        return position.y;
+    }
+    function getPositionZ() {
+        return position.z;
+    }
+    function translate(x, y, z) {
+        canTriggerEvent = false;
+        var old = {
+            x: translateX(x),
+            y: translateY(y),
+            z: translateZ(z)
+        };
+        canTriggerEvent = true;
+        self.triggerEvent('move');
+        return old;
+    }
+    function translateX(x) {
+        if (x === undefined || typeof x !== 'number') {return position.x;}
+        return setPositionX(x + position.x);
+    }
+    function translateY(y) {
+        if (y === undefined || typeof y !== 'number') {return position.y;}
+        return setPositionY(y + position.y);
+    }
+    function translateZ(z) {
+        if (z === undefined || typeof z !== 'number') {return position.z;}
+        return setPositionZ(z + position.z);
+    }
+    return self;
+};
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.3</a> on Thu Jul 20 2017 18:34:19 GMT-0500 (CDT) using the Minami theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>

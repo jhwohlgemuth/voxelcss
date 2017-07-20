@@ -14,7 +14,8 @@ describe('Voxel', function() {
         expect(voxel.getDimension()).toEqual(0);
     });
     it('can create clones', function() {
-        let original = new Voxel(123, 456, 789);
+        let [x, y, z] = [123, 456, 789];
+        let original = new Voxel(x, y, z);
         let clone = original.clone();
         expect(clone.getPosition()).toMatchSnapshot();
     });
