@@ -15,6 +15,8 @@
 Installation
 ------------
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/jhwohlgemuth/voxelcss.svg)](https://greenkeeper.io/)
+
 ```bash
 npm install voxelcss
 ```
