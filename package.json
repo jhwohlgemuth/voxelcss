@@ -1,6 +1,6 @@
 {
     "name": "voxelcss",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "author": "Jason Wohlgemuth",
     "license": "MIT",
     "description": "Voxel.css with updated project architecture, easier contributing, and npm availability",
