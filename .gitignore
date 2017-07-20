@@ -2,4 +2,4 @@ nohup.out
 node_modules/
 .yo-rc.json
 /coverage
-./lib/voxelcss.css
+lib/voxelcss.css
