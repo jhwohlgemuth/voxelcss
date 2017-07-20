@@ -1,10 +1,10 @@
 
-<p align="center" style="text-align: center;width: 100%;">
-    <img width="50%" alt="applied.js" src="./media/voxelcss_with_letters.png"/>
+<p align="center">
+    <a href="https://github.com/jhwohlgemuth/voxelcss"><img width="50%" alt="applied.js" src="./media/voxelcss_with_letters.png"/></a>
 </p>
 </br>
 
-> [Voxel.css](http://www.voxelcss.com/) with updated architecture, easier contributing, and npm availability.
+> [Voxel.css](http://www.voxelcss.com/) with updated architecture, easier contributing, and npm availability
 
 [![npm](https://img.shields.io/npm/v/voxelcss.svg)](https://www.npmjs.com/package/voxelcss)
 [![Build Status](https://travis-ci.org/jhwohlgemuth/voxelcss.svg?branch=master)](https://travis-ci.org/jhwohlgemuth/voxelcss)
@@ -61,10 +61,12 @@ Examples
 
 Features
 --------
-- JavaScript and CSS are all bundled together into one file!
 - Completely compatible with [voxel.css](https://github.com/HunterLarco/voxel.css)
 - CSS is processed by [cssnext](http://cssnext.io/) and minified with [cssnano](http://cssnano.co/) to provide auto-prefixed styles with a minimal footprint and maximum compatibility.
-- Code functionality is verified by tests written using [Jest](https://facebook.github.io/jest/) and code standards are enforced by [ESLint](http://eslint.org/) (all run locally and on remote CI servers)
+- Code functionality is verified by tests written using [Jest](https://facebook.github.io/jest/)
+- Code standards are enforced by [ESLint](http://eslint.org/)
+- JavaScript and CSS are all bundled together into one file!
+- Functionality and standards are enforced locally and on remote CI servers!
 
 Contributing
 ------------
