@@ -102,6 +102,10 @@ Credits
 -------
 - [Hunter Larco](http://hunterlarco.com/)  *created Voxel.css*
 - [Robert Jowett](http://www.dafont.com/percy-pixel.font?fpp=100&l%5B%5D=10&l%5B%5D=1&text=voxelcss) *created the font used in the logo*
+- [Browserify](http://browserify.org/) *module bundling*
+- [Babel](https://babeljs.io/) *ES6 transpiling and minification*
+- [JSDoc](http://usejsdoc.org/) *documentation generation*
+- [minami](https://github.com/Nijikokun/minami) *documentation theme*
 
 License
 -------
