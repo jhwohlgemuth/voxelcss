@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Home - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Classes</li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="module-core_Voxel-Voxel.html">Voxel</a></span></li><li class="nav-heading">Modules</li><li class="nav-heading"><span class="nav-item-type type-module">M</span><span class="nav-item-name"><a href="module-core_ColorFace.html">core/ColorFace</a></span></li><li class="nav-heading"><span class="nav-item-type type-module">M</span><span class="nav-item-name"><a href="module-core_Editor.html">core/Editor</a></span></li><li class="nav-heading"><span class="nav-item-type type-module">M</span><span class="nav-item-name"><a href="module-core_ImageFace.html">core/ImageFace</a></span></li><li class="nav-heading"><span class="nav-item-type type-module">M</span><span class="nav-item-name"><a href="module-core_LightSource.html">core/LightSource</a></span></li><li class="nav-heading"><span class="nav-item-type type-module">M</span><span class="nav-item-name"><a href="module-core_Mesh.html">core/Mesh</a></span></li><li class="nav-heading"><span class="nav-item-type type-module">M</span><span class="nav-item-name"><a href="module-core_Scene.html">core/Scene</a></span></li><li class="nav-heading"><span class="nav-item-type type-module">M</span><span class="nav-item-name"><a href="module-core_Voxel.html">core/Voxel</a></span></li><li class="nav-heading"><span class="nav-item-type type-module">M</span><span class="nav-item-name"><a href="module-core_World.html">core/World</a></span></li><li class="nav-heading"><span class="nav-item-type type-module">M</span><span class="nav-item-name"><a href="module-eventListener.html">eventListener</a></span></li><li class="nav-heading"><span class="nav-item-type type-module">M</span><span class="nav-item-name"><a href="module-meshes.html">meshes</a></span></li><li class="nav-heading"><span class="nav-item-type type-module">M</span><span class="nav-item-name"><a href="module-positioned.html">positioned</a></span></li>
+</nav>
+
+<div id="main">
+    
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+    
+
+
+    <section class="readme">
+        <article><p><p align="center">
+    <a href="https://github.com/jhwohlgemuth/voxelcss"><img width="50%" alt="voxelcss" src="https://raw.githubusercontent.com/jhwohlgemuth/voxelcss/master/media/voxelcss_with_letters.png"/></a>
+</p>
+</br></p>
+<blockquote>
+<p><a href="http://www.voxelcss.com/">Voxel.css</a> with updated architecture, easier contributing, and npm availability</p>
+</blockquote>
+<p><a href="https://www.npmjs.com/package/voxelcss"><img src="https://img.shields.io/npm/v/voxelcss.svg" alt="npm"></a>
+<a href="https://travis-ci.org/jhwohlgemuth/voxelcss"><img src="https://travis-ci.org/jhwohlgemuth/voxelcss.svg?branch=master" alt="Build Status"></a>
+<a href="https://coveralls.io/github/jhwohlgemuth/voxelcss?branch=master"><img src="https://coveralls.io/repos/github/jhwohlgemuth/voxelcss/badge.svg?branch=master" alt="Coverage Status"></a>
+<a href="https://www.bithound.io/github/jhwohlgemuth/voxelcss"><img src="https://www.bithound.io/github/jhwohlgemuth/voxelcss/badges/score.svg" alt="bitHound Overall Score"></a>
+<a href="https://snyk.io/test/github/jhwohlgemuth/voxelcss"><img src="https://snyk.io/test/github/jhwohlgemuth/voxelcss/badge.svg" alt="Known Vulnerabilities"></a></p>
+<h2>Installation</h2><pre class="prettyprint source lang-bash"><code>npm install voxelcss</code></pre><blockquote>
+<p><strong>Note:</strong> The associated styles are <a href="https://github.com/jhwohlgemuth/voxelcss/blob/master/lib/index.js#L3">bundled with the JavaScript</a> and <a href="https://github.com/cheton/browserify-css#autoinject">added into the head section at runtime</a>.</p>
+</blockquote>
+<h2>Usage</h2><p><strong>AMD (Require.js)</strong></p>
+<blockquote>
+<p>Add to <a href="http://requirejs.org/docs/api.html#config-paths">paths attrbute of requirejs config file</a> and require in code</p>
+</blockquote>
+<pre class="prettyprint source lang-js"><code>// config.js
+requirejs.config({
+    paths: {
+        voxelcss: 'path/to/node_modules/voxelcss/dist/voxelcss'
+    }
+});
+
+// main.js
+define(function(require) {
+    'use strict';
+    const Voxelcss = require('voxelcss');
+});</code></pre><p><strong>Browser global</strong></p>
+<blockquote>
+<p>Add script tag to your html (code will be available via <code>window.voxelcss</code>)</p>
+</blockquote>
+<pre class="prettyprint source lang-html"><code>&lt;!DOCTYPE html>
+&lt;html lang=&quot;en&quot;>
+    &lt;head>...&lt;/head>
+    &lt;body>
+        &lt;script src=&quot;path/to/node_modules/voxelcss/dist/voxelcss.js&quot;>&lt;/script>
+    &lt;/body>
+&lt;/html></code></pre><h2>Examples</h2><blockquote>
+<p>Under construction</p>
+</blockquote>
+<h2>Features</h2><ul>
+<li>Completely compatible with <a href="https://github.com/HunterLarco/voxel.css">voxel.css</a></li>
+<li>CSS is processed by <a href="http://cssnext.io/">cssnext</a> and minified with <a href="http://cssnano.co/">cssnano</a> to provide auto-prefixed styles with a minimal footprint and maximum compatibility.</li>
+<li>Code functionality is verified by tests written using <a href="https://facebook.github.io/jest/">Jest</a></li>
+<li>Code standards are enforced by <a href="http://eslint.org/">ESLint</a></li>
+<li>JavaScript and CSS are all bundled together into one file!</li>
+<li>Functionality and standards are enforced locally and on remote CI servers!</li>
+</ul>
+<h2>Contributing</h2><blockquote>
+<p>Under construction</p>
+</blockquote>
+<p><strong>Setup</strong></p>
+<pre class="prettyprint source lang-bash"><code># clone repository
+git clone git@github.com/jhwohlgemuth/voxelcss.git
+cd voxelcss
+# install project dependencies
+npm install
+# verify voxelcss installed correctly by running tests
+npm test
+# to use the &quot;demo&quot; and &quot;dev&quot; tasks, install browser-sync and stmux, respectively
+npm install  browser-sync stmux --global</code></pre><p><strong>Workflow Tasks</strong></p>
+<ul>
+<li><code>npm run dev</code> <em>run test and lint tasks in watch mode using <a href="https://github.com/rse/stmux">stmux</a></em></li>
+<li><code>npm test</code> <em>run tests</em></li>
+<li><code>npm run test:watch</code> <em>run tests (watch mode)</em></li>
+<li><code>npm run lint</code> <em>lint code</em></li>
+<li><code>npm run lint:watch</code> <em>lint code (watch mode)</em></li>
+<li><code>npm run demo</code> <em>open browser to demo code</em></li>
+</ul>
+<h2>Roadmap</h2><ul>
+<li>Follow progress on <a href="https://trello.com/b/Q3sVE18k/voxelcss">Trello</a></li>
+</ul>
+<h2>Credits</h2><ul>
+<li><a href="http://hunterlarco.com/">Hunter Larco</a>  <em>created Voxel.css</em></li>
+<li><a href="http://www.dafont.com/percy-pixel.font?fpp=100&amp;l%5B%5D=10&amp;l%5B%5D=1&amp;text=voxelcss">Robert Jowett</a> <em>created the font used in the logo</em></li>
+</ul>
+<h2>License</h2><p><a href="https://app.fossa.io/projects/git%2Bhttps%3A%2F%2Fgithub.com%2Fjhwohlgemuth%2Fvoxelcss?ref=badge_large"><img src="https://app.fossa.io/api/projects/git%2Bhttps%3A%2F%2Fgithub.com%2Fjhwohlgemuth%2Fvoxelcss.svg?type=large" alt="FOSSA Status"></a></p></article>
+    </section>
+
+
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.3</a> on Thu Jul 20 2017 18:34:19 GMT-0500 (CDT) using the Minami theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>
