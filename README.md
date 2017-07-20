@@ -72,6 +72,20 @@ Contributing
 ------------
 > Under construction
 
+**Setup**
+
+```bash
+# clone repository
+git clone git@github.com/jhwohlgemuth/voxelcss.git
+cd voxelcss
+# install project dependencies
+npm install
+# verify voxelcss installed correctly by running tests
+npm test
+# to use the "demo" and "dev" tasks, install browser-sync and stmux, respectively
+npm install  browser-sync stmux --global
+```
+
 **Workflow Tasks**
 - `npm run dev` *run test and lint tasks in watch mode using [stmux](https://github.com/rse/stmux)*
 - `npm test` *run tests*

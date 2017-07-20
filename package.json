@@ -34,7 +34,6 @@
         "babel-cli": "^6.24.1",
         "babel-preset-babili": "^0.1.4",
         "babel-preset-env": "^1.6.0",
-        "browser-sync": "^2.18.12",
         "browserify": "^14.4.0",
         "browserify-css": "^0.11.0",
         "coveralls": "^2.13.1",
