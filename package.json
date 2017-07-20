@@ -58,7 +58,7 @@
         "docs": "jsdoc ./lib/*.js --destination ./docs --readme ./README.md --template ./node_modules/minami",
         "lint": "eslint -c ./.eslintrc.js ./lib/*.js",
         "lint:watch": "watch 'npm run lint' ./lib",
-        "lint:tests": "eslint -c ./.eslintrc.js ./test/mocha/specs/*.js",
+        "lint:tests": "eslint -c ./.eslintrc.js ./test/*.js",
         "test": "jest test/.*.test.js",
         "test:watch": "npm test -- --watch",
         "test:ci": "npm run coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",

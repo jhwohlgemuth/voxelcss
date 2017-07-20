@@ -45,12 +45,16 @@ describe('Scene', function() {
         const INITIAL_ROTATION = {x: 0, y: 0, z: 0};
         expect(scene.getRotation()).toEqual(INITIAL_ROTATION);
         expect(scene.rotate(1, 0, 1)).toEqual(INITIAL_ROTATION);
-        expect(scene.getRotation()).toEqual({x:1, y: 0, z: 1});
+        expect(scene.getRotation()).toEqual({x: 1, y: 0, z: 1});
         scene.setRotation(0, 0, 0);
         expect(scene.getRotation()).toEqual(INITIAL_ROTATION);
     });
     it('can add and remove light sources', () => {
-        let lightSource = new LightSource(300, 300, 300, 750, 0.2, 1);
+        let dim = 300;
+        let distance = 750;
+        let dark = 0.2;
+        let light = 1;
+        let lightSource = new LightSource(dim, dim, dim, distance, dark, light);
         expect(scene.getLightSources()).toEqual([]);
         scene.addLightSource(lightSource);
         expect(scene.getLightSources()).not.toEqual([]);

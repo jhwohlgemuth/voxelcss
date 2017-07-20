@@ -15,7 +15,7 @@ describe('Mesh', function() {
         expect(mesh.serialize()).toMatchSnapshot();
     });
     it('can be loaded from serialized string', () => {
-        let testMesh = new Mesh(new ColorFace('#333'))
+        let testMesh = new Mesh(new ColorFace('#333'));
         let meshString = testMesh.serialize();
         mesh = Mesh.loadFromSerial(meshString);
         expect(mesh.serialize()).toEqual(meshString);

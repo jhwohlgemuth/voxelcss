@@ -14,20 +14,22 @@ describe('Voxel', function() {
         expect(voxel.getDimension()).toEqual(0);
     });
     it('can create clones', function() {
-        let [x, y, z] = [123, 456, 789];
+        let x = 123;
+        let y = 456;
+        let z = 789;
         let original = new Voxel(x, y, z);
         let clone = original.clone();
         expect(clone.getPosition()).toMatchSnapshot();
     });
     it('can get and set mesh', () => {
         let oldmesh = voxel.getMesh();
-        let newMesh = new Mesh(new ColorFace('#333'))
+        let newMesh = new Mesh(new ColorFace('#333'));
         expect(oldmesh).toMatchSnapshot();
         voxel.setMesh(newMesh);
         expect(voxel.getMesh()).toMatchSnapshot();
     });
     it('can update light sources', () => {
-        let mesh = new Mesh(new ColorFace('#333'))
+        let mesh = new Mesh(new ColorFace('#333'));
         voxel.updateLightSource(new LightSource());
         voxel.setMesh(mesh);
         expect(voxel.getMesh()).toMatchSnapshot();
