@@ -3,9 +3,15 @@
     "version": "0.0.1",
     "author": "Jason Wohlgemuth",
     "license": "MIT",
-    "description": "Building on Voxel.css",
+    "description": "Voxel.css with updated project architecture, easier contributing, and npm availability",
     "main": "./dist/voxelcss.js",
-    "keywords": [],
+    "keywords": [
+        "voxel",
+        "voxels",
+        "css",
+        "fun",
+        "browser"
+    ],
     "repository": {
         "type": "git",
         "url": "https://github.com/jhwohlgemuth/voxelcss.git"
