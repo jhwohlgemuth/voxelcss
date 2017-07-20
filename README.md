@@ -3,9 +3,9 @@
     <img width="50%" alt="applied.js" src="./media/voxelcss_with_letters.png"/>
 </p>
 <p align="center">
-    <!-- <a href="https://www.npmjs.com/package/voxelcss">
+    <a href="https://www.npmjs.com/package/voxelcss">
       <img src="https://img.shields.io/npm/v/voxelcss.svg"/>
-    </a> -->
+    </a>
     <a href="https://travis-ci.org/jhwohlgemuth/voxelcss">
       <img src="https://travis-ci.org/jhwohlgemuth/voxelcss.svg?branch=master"/>
     </a>
