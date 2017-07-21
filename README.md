@@ -1,5 +1,5 @@
 
-<p align="center">
+<p align="left">
     <a href="https://github.com/jhwohlgemuth/voxelcss"><img width="300px" alt="voxelcss" src="https://raw.githubusercontent.com/jhwohlgemuth/voxelcss/master/media/voxelcss_with_letters.png"/></a>
 </p>
 </br>
