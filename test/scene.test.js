@@ -33,6 +33,8 @@ describe('Scene', function() {
         expect(scene.canOrbit()).toBeTruthy();
         scene.disableOrbit();
         expect(scene.canOrbit()).not.toBeTruthy();
+        scene.enableOrbit();
+        expect(scene.canOrbit()).toBeTruthy();
     });
     it('can throw error when trying to attach when already attached', () => {
         let elem = {appendChild: () => {}};
@@ -59,13 +61,29 @@ describe('Scene', function() {
         expect(scene.getZoom()).toEqual(10);
         scene.zoom(1000);
         expect(scene.getZoom()).toMatchSnapshot();
+        scene.zoom();
+        expect(scene.getZoom()).toMatchSnapshot();
+        scene.zoom('Not a number');
+        expect(scene.getZoom()).toMatchSnapshot();
     });
-    it('can get, set, and apply pan', function() {
+    it('can get, set pan', function() {
         let voxel = new Voxel(0, 0, 0, 10);
         scene.add(voxel);
         expect(scene.getPan()).toEqual(INITIAL_PAN);
         expect(scene.pan()).toEqual(INITIAL_PAN);
         expect(scene.pan(1, 10, 1000)).toEqual(INITIAL_PAN);
+        expect(scene.getPan()).toMatchSnapshot();
+    });
+    it('can apply pan', function() {
+        let x = 1;
+        let y = 2;
+        let z = 3;
+        let voxel = new Voxel(0, 0, 0, 10);
+        scene.add(voxel);
+        expect(scene.getPan()).toEqual(INITIAL_PAN);
+        scene.setPan();
+        expect(scene.getPan()).toEqual(INITIAL_PAN);
+        scene.setPan(x, y, z);
         expect(scene.getPan()).toMatchSnapshot();
     });
     it('can rotate', () => {
@@ -90,6 +108,12 @@ describe('Scene', function() {
     });
     it('can add and remove voxels', () => {
         let voxel = new Voxel(10, 10, 10, 10);
+        let dim = 300;
+        let distance = 750;
+        let dark = 0.2;
+        let light = 1;
+        let lightSource = new LightSource(dim, dim, dim, distance, dark, light);
+        scene.addLightSource(lightSource);
         expect(scene.getVoxels()).toEqual([]);
         scene.add(voxel);
         expect(scene.getVoxels()).not.toEqual([]);

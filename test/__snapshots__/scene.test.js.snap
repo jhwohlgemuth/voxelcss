@@ -61,6 +61,14 @@ Array [
 ]
 `;
 
+exports[`Scene can apply pan 1`] = `
+Object {
+  "x": 1,
+  "y": 2,
+  "z": 3,
+}
+`;
+
 exports[`Scene can enable and disable pan 1`] = `
 Object {
   "x": 0,
@@ -73,7 +81,11 @@ exports[`Scene can enable and disable zoom 1`] = `1`;
 
 exports[`Scene can get and set zoom 1`] = `1010`;
 
-exports[`Scene can get, set, and apply pan 1`] = `
+exports[`Scene can get and set zoom 2`] = `1010`;
+
+exports[`Scene can get and set zoom 3`] = `1010`;
+
+exports[`Scene can get, set pan 1`] = `
 Object {
   "x": 1,
   "y": 10,
