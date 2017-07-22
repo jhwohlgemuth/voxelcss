@@ -58,18 +58,18 @@ describe('Voxel', function() {
             add: jest.fn(),
             remove: jest.fn()
         };
-        voxel.addToScene(scene);
+        voxel.animUp(scene);
         expect(scene.add).toHaveBeenCalledWith(voxel);
     });
     it('can be added to a scene via animDown', function() {
         expect(() => {
-            voxel.animUp();
+            voxel.animDown();
         }).toThrowErrorMatchingSnapshot();
         let scene = {
             add: jest.fn(),
             remove: jest.fn()
         };
-        voxel.addToScene(scene);
+        voxel.animDown(scene);
         expect(scene.add).toHaveBeenCalledWith(voxel);
     });
     it('can get and set dimensions', function() {

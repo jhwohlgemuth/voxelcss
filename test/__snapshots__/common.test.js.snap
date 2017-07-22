@@ -1,0 +1,181 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Common utilities can generate rotation matrices 1`] = `
+Array [
+  Array [
+    1,
+    0,
+    0,
+  ],
+  Array [
+    0,
+    1,
+    0,
+  ],
+  Array [
+    0,
+    0,
+    1,
+  ],
+]
+`;
+
+exports[`Common utilities can generate rotation matrices 2`] = `
+Array [
+  Array [
+    1,
+    1.224646799147353e-16,
+    1.2246467991473535e-16,
+  ],
+  Array [
+    -1.2246467991473532e-16,
+    1,
+    1.224646799147353e-16,
+  ],
+  Array [
+    -1.2246467991473532e-16,
+    -1.2246467991473532e-16,
+    1,
+  ],
+]
+`;
+
+exports[`Common utilities can generate rotation matrices 3`] = `
+Array [
+  Array [
+    1,
+    0,
+    0,
+  ],
+  Array [
+    0,
+    -1,
+    -1.2246467991473532e-16,
+  ],
+  Array [
+    0,
+    1.2246467991473532e-16,
+    -1,
+  ],
+]
+`;
+
+exports[`Common utilities can generate rotation matrices 4`] = `
+Array [
+  Array [
+    -1,
+    0,
+    1.2246467991473532e-16,
+  ],
+  Array [
+    0,
+    1,
+    0,
+  ],
+  Array [
+    -1.2246467991473532e-16,
+    0,
+    -1,
+  ],
+]
+`;
+
+exports[`Common utilities can generate rotation matrices 5`] = `
+Array [
+  Array [
+    -1,
+    -1.2246467991473532e-16,
+    0,
+  ],
+  Array [
+    1.2246467991473532e-16,
+    -1,
+    0,
+  ],
+  Array [
+    0,
+    0,
+    1,
+  ],
+]
+`;
+
+exports[`Common utilities can generate rotation matrices 6`] = `
+Array [
+  Array [
+    1,
+    -1.2246467991473535e-16,
+    -1.224646799147353e-16,
+  ],
+  Array [
+    1.2246467991473532e-16,
+    1,
+    -1.2246467991473535e-16,
+  ],
+  Array [
+    1.2246467991473532e-16,
+    1.2246467991473532e-16,
+    1,
+  ],
+]
+`;
+
+exports[`Common utilities can perform matrix multiplication (3x3) 1`] = `
+Array [
+  Array [
+    0,
+    0,
+    1,
+  ],
+  Array [
+    0,
+    1,
+    0,
+  ],
+  Array [
+    1,
+    0,
+    0,
+  ],
+]
+`;
+
+exports[`Common utilities can perform matrix multiplication (3x3) 2`] = `
+Array [
+  Array [
+    0,
+    0,
+    1,
+  ],
+  Array [
+    1,
+    0,
+    0,
+  ],
+  Array [
+    0,
+    1,
+    0,
+  ],
+]
+`;
+
+exports[`Common utilities can perform matrix multiplication (3x3) 3`] = `
+Array [
+  Array [
+    0,
+    1,
+    0,
+  ],
+  Array [
+    1,
+    0,
+    0,
+  ],
+  Array [
+    0,
+    0,
+    1,
+  ],
+]
+`;
