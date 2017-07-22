@@ -29,12 +29,21 @@ describe('Scene', function() {
         scene.enableZoom();
         expect(scene.canZoom()).toBeTruthy();
     });
-    it('can enable and disable orbit', function() {
+    it('can enable and disable orbit', () => {
         expect(scene.canOrbit()).toBeTruthy();
         scene.disableOrbit();
         expect(scene.canOrbit()).not.toBeTruthy();
         scene.enableOrbit();
         expect(scene.canOrbit()).toBeTruthy();
+    });
+    it('can attach and detach', () => {
+        let elem = {appendChild: () => {}};
+        expect(scene.isAttached()).toBeFalsy();
+        scene.attach(elem);
+        expect(scene.isAttached()).toBeTruthy();
+        expect(scene.getParentElement()).toEqual(elem);
+        // scene.detach();
+        // expect(scene.isAttached()).toBeFalsy();
     });
     it('can throw error when trying to attach when already attached', () => {
         let elem = {appendChild: () => {}};
@@ -50,10 +59,10 @@ describe('Scene', function() {
         let elem = {appendChild: () => {}};
         expect(scene.isAttached()).toBeFalsy();
         expect(() => {
-            scene.detach(elem);
+            scene.detach();
         }).toThrowErrorMatchingSnapshot();
     });
-    it('can get and set zoom', function() {
+    it('can get and set zoom', () => {
         expect(scene.getZoom()).toEqual(INITIAL_ZOOM);
         expect(scene.setZoom()).toEqual(INITIAL_ZOOM);
         expect(scene.setZoom('Not a number')).toEqual(INITIAL_ZOOM);
@@ -66,7 +75,7 @@ describe('Scene', function() {
         scene.zoom('Not a number');
         expect(scene.getZoom()).toMatchSnapshot();
     });
-    it('can get, set pan', function() {
+    it('can get, set pan', () => {
         let voxel = new Voxel(0, 0, 0, 10);
         scene.add(voxel);
         expect(scene.getPan()).toEqual(INITIAL_PAN);
@@ -74,7 +83,7 @@ describe('Scene', function() {
         expect(scene.pan(1, 10, 1000)).toEqual(INITIAL_PAN);
         expect(scene.getPan()).toMatchSnapshot();
     });
-    it('can apply pan', function() {
+    it('can apply pan', () => {
         let x = 1;
         let y = 2;
         let z = 3;

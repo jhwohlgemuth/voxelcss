@@ -55,7 +55,7 @@
         "watch": "^1.0.2"
     },
     "scripts": {
-        "dev": "stmux [ \"npm run test:watch\" .. \"npm run lint:watch\" ]",
+        "dev": "stmux [ [ \"npm run test:watch\" : \"npm run build:watch\" ] .. \"npm run lint:watch\" ]",
         "demo": "npm run build && npm run browsersync",
         "docs": "jsdoc ./lib/*.js --destination ./docs --readme ./README.md --template ./node_modules/minami",
         "lint": "eslint -c ./.eslintrc.js ./lib/*.js",
