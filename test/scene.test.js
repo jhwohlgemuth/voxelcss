@@ -16,25 +16,37 @@ describe('Scene', function() {
     it('can enable and disable pan', () => {
         expect(scene.getPan()).toMatchSnapshot();
         expect(scene.canPan()).toBeTruthy();
-        scene.disablePan();
-        expect(scene.canPan()).not.toBeTruthy();
-        scene.enablePan();
-        expect(scene.canPan()).toBeTruthy();
+        [1, 2].forEach(() => {
+            scene.disablePan();
+            expect(scene.canPan()).not.toBeTruthy();
+        });
+        [1, 2].forEach(() => {
+            scene.enablePan();
+            expect(scene.canPan()).toBeTruthy();
+        });
     });
     it('can enable and disable zoom', () => {
         expect(scene.getZoom()).toMatchSnapshot();
         expect(scene.canZoom()).toBeTruthy();
-        scene.disableZoom();
-        expect(scene.canZoom()).not.toBeTruthy();
-        scene.enableZoom();
-        expect(scene.canZoom()).toBeTruthy();
+        [1, 2].forEach(() => {
+            scene.disableZoom();
+            expect(scene.canZoom()).not.toBeTruthy();
+        });
+        [1, 2].forEach(() => {
+            scene.enableZoom();
+            expect(scene.canZoom()).toBeTruthy();
+        });
     });
     it('can enable and disable orbit', () => {
         expect(scene.canOrbit()).toBeTruthy();
-        scene.disableOrbit();
-        expect(scene.canOrbit()).not.toBeTruthy();
-        scene.enableOrbit();
-        expect(scene.canOrbit()).toBeTruthy();
+        [1, 2].forEach(() => {
+            scene.disableOrbit();
+            expect(scene.canOrbit()).not.toBeTruthy();
+        });
+        [1, 2].forEach(() => {
+            scene.enableOrbit();
+            expect(scene.canOrbit()).toBeTruthy();
+        });
     });
     it('can attach and detach', () => {
         let elem = {appendChild: () => {}};
@@ -99,7 +111,16 @@ describe('Scene', function() {
         expect(scene.getRotation()).toEqual(INITIAL_ROTATION);
         expect(scene.rotate(1, 0, 1)).toEqual(INITIAL_ROTATION);
         expect(scene.getRotation()).toEqual({x: 1, y: 0, z: 1});
+        scene.rotate();
+        expect(scene.getRotation()).toEqual({x: 1, y: 0, z: 1});
+        const NOT_A_NUMBER = 'Not a number';
+        scene.rotate(NOT_A_NUMBER, NOT_A_NUMBER, NOT_A_NUMBER);
+        expect(scene.getRotation()).toEqual({x: 1, y: 0, z: 1});
         scene.setRotation(0, 0, 0);
+        expect(scene.getRotation()).toEqual(INITIAL_ROTATION);
+        scene.setRotation();
+        expect(scene.getRotation()).toEqual(INITIAL_ROTATION);
+        scene.setRotation(NOT_A_NUMBER, NOT_A_NUMBER, NOT_A_NUMBER);
         expect(scene.getRotation()).toEqual(INITIAL_ROTATION);
     });
     it('can add and remove light sources', () => {
