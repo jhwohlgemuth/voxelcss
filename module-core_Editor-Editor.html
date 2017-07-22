@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>core/ImageFace - Documentation</title>
+    <title>Editor - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,7 +29,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">core/ImageFace</h1>
+    <h1 class="page-title">Editor</h1>
     
 
     
@@ -41,8 +41,11 @@
 
 <header>
     
+        <h2>
+            <span class="ancestors"><a href="module-core_Editor.html">core/Editor</a>~</span>
         
-            
+        Editor
+        </h2>
         
     
 </header>
@@ -51,12 +54,13 @@
     <div class="container-overview">
     
         
-            <div class="description">Image faces for voxels</div>
-        
-
-        
-            
 <div class="section-method">
+
+    
+
+    <h4 class="name" id="Editor"><span class="type-signature"></span>new Editor<span class="signature">(_world, options)</span><span class="type-signature"></span></h4>
+
+    
 
 
 
@@ -93,7 +97,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ImageFace.js.html">ImageFace.js</a>, <a href="ImageFace.js.html#line1">line 1</a>
+        <a href="Editor.js.html">Editor.js</a>, <a href="Editor.js.html#line8">line 8</a>
     </li></ul></dd>
     
 
@@ -112,6 +116,153 @@
 
 
 
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>_world</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code><a href="module-core_World-World.html">module:core/World~World</a></code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                World to edit
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>options</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>object</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                Options to configure editor
+                
+                    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>autosave</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>boolean</code></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    true
+                
+                </td>
+            
+
+            <td class="description last">
+                Flag to enable auto saving functionality
+                
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+                
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
 
 
 
@@ -125,29 +276,38 @@
 
 
 
+
+
+
+<div class="section-examples">
+<h5>Examples</h5>
+
+        <p class="code-caption">Create an editor and add a voxel</p>
+    
+    <pre class="prettyprint"><code>const Voxelcss = require('voxelcss');
+let scene = new Voxelcss.Scene();
+let world = new Voxelcss.World(scene);
+scene.attach(document.body);
+let editor = new Voxelcss.Editor(world);
+let dimensions = [0, 0, 0, 100];
+editor.add(new Voxelcss.Voxel(...dimensions));</code></pre>
+
+        <p class="code-caption">Add a voxel with grass mesh</p>
+    
+    <pre class="prettyprint"><code>let mesh = Voxelcss.meshes.grass;
+let grass = new Voxelcss.Voxel(..dimensions, {mesh});
+editor.add(grass);</code></pre>
 
 </div>
-        
+
+</div>
     
     </div>
 
     
 
     
-        <h3 class="subsection-title">Requires</h3>
 
-        <ul>
-            <li><a href="module-eventListener.html">module:eventListener</a></li>
-        </ul>
-    
-
-    
-        <h3 class="subsection-title">Classes</h3>
-
-        <dl>
-            <dt><a href="module-core_ImageFace-ImageFace.html">ImageFace</a></dt>
-            <dd></dd>
-        </dl>
     
 
      
