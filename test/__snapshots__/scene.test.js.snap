@@ -71,6 +71,16 @@ Object {
 
 exports[`Scene can enable and disable zoom 1`] = `1`;
 
+exports[`Scene can get and set zoom 1`] = `1010`;
+
+exports[`Scene can get, set, and apply pan 1`] = `
+Object {
+  "x": 1,
+  "y": 10,
+  "z": 1000,
+}
+`;
+
 exports[`Scene can throw error when trying to attach when already attached 1`] = `undefined`;
 
 exports[`Scene can throw error when trying to detach when already detached 1`] = `undefined`;

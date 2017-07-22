@@ -1,5 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Voxel can be added to a scene via animDown 1`] = `undefined`;
+
+exports[`Voxel can be added to a scene via animUp 1`] = `undefined`;
+
 exports[`Voxel can be added to and removed from a scene 1`] = `undefined`;
 
 exports[`Voxel can create clones 1`] = `
