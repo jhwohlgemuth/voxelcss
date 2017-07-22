@@ -29,11 +29,17 @@ describe('Scene', function() {
         scene.enableZoom();
         expect(scene.canZoom()).toBeTruthy();
     });
+    it('can enable and disable orbit', function() {
+        expect(scene.canOrbit()).toBeTruthy();
+        scene.disableOrbit();
+        expect(scene.canOrbit()).not.toBeTruthy();
+    });
     it('can throw error when trying to attach when already attached', () => {
         let elem = {appendChild: () => {}};
         expect(scene.isAttached()).toBeFalsy();
         scene.attach(elem);
         expect(scene.isAttached()).toBeTruthy();
+        expect(scene.getParentElement()).toEqual(elem);
         expect(() => {
             scene.attach(elem);
         }).toThrowErrorMatchingSnapshot();
