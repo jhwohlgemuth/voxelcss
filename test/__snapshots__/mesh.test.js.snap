@@ -132,3 +132,62 @@ ImageFace {
   "triggerEvent": [Function],
 }
 `;
+
+exports[`Mesh can trigger change event when a face is changed 1`] = `
+Object {
+  "back": ImageFace {
+    "addEventListener": [Function],
+    "clone": [Function],
+    "getSource": [Function],
+    "removeEventListener": [Function],
+    "serialize": [Function],
+    "setSource": [Function],
+    "triggerEvent": [Function],
+  },
+  "bottom": ImageFace {
+    "addEventListener": [Function],
+    "clone": [Function],
+    "getSource": [Function],
+    "removeEventListener": [Function],
+    "serialize": [Function],
+    "setSource": [Function],
+    "triggerEvent": [Function],
+  },
+  "front": ImageFace {
+    "addEventListener": [Function],
+    "clone": [Function],
+    "getSource": [Function],
+    "removeEventListener": [Function],
+    "serialize": [Function],
+    "setSource": [Function],
+    "triggerEvent": [Function],
+  },
+  "left": ImageFace {
+    "addEventListener": [Function],
+    "clone": [Function],
+    "getSource": [Function],
+    "removeEventListener": [Function],
+    "serialize": [Function],
+    "setSource": [Function],
+    "triggerEvent": [Function],
+  },
+  "right": ImageFace {
+    "addEventListener": [Function],
+    "clone": [Function],
+    "getSource": [Function],
+    "removeEventListener": [Function],
+    "serialize": [Function],
+    "setSource": [Function],
+    "triggerEvent": [Function],
+  },
+  "top": ImageFace {
+    "addEventListener": [Function],
+    "clone": [Function],
+    "getSource": [Function],
+    "removeEventListener": [Function],
+    "serialize": [Function],
+    "setSource": [Function],
+    "triggerEvent": [Function],
+  },
+}
+`;

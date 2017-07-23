@@ -29,4 +29,22 @@ describe('Mesh', function() {
         expect(mesh.getTop()).toMatchSnapshot();
         expect(mesh.getBottom()).toMatchSnapshot();
     });
+    it('can do nothing when invalid face data is passed', function() {
+        let invalidFaceData = 'Not a valid face';
+        expect(mesh.setFront(invalidFaceData)).toBeUndefined();
+        expect(mesh.setBack(invalidFaceData)).toBeUndefined();
+        expect(mesh.setLeft(invalidFaceData)).toBeUndefined();
+        expect(mesh.setRight(invalidFaceData)).toBeUndefined();
+        expect(mesh.setTop(invalidFaceData)).toBeUndefined();
+        expect(mesh.setBottom(invalidFaceData)).toBeUndefined();
+    });
+    it('can trigger change event when a face is changed', function() {
+        let faces = mesh.getFaces();
+        let front = mesh.getFront();
+        expect(mesh.setFaces()).toMatchSnapshot();
+        mesh.setFaces(faces);
+        mesh.setFront(front);
+        expect(mesh.getFront()).toEqual(front);
+        front.triggerEvent('change');
+    });
 });

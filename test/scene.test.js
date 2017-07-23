@@ -152,9 +152,9 @@ describe('Scene', function() {
         let dark = 0.2;
         let light = 1;
         let lightSource = new LightSource(dim, dim, dim, distance, dark, light);
-        scene.addLightSource(lightSource);
         expect(scene.getVoxels()).toEqual([]);
         scene.add(voxel);
+        scene.addLightSource(lightSource);
         expect(scene.getVoxels()).not.toEqual([]);
         expect(scene.getVoxels()).toMatchSnapshot();
         scene.remove(voxel);

@@ -58,7 +58,7 @@
         "dev": "stmux --mouse --title 'Voxelcss dev task' [ [ \"npm run lint:watch\" : [ \"npm run build:watch\" .. \"npm run demo\" ] ] .. \"npm run test:watch -- --coverage\" ]",
         "demo": "npm run build && npm run browsersync",
         "docs": "jsdoc ./lib/*.js --destination ./docs --readme ./README.md --template ./node_modules/minami",
-        "lint": "eslint -c ./.eslintrc.js ./lib/*.js",
+        "lint": "eslint -c ./.eslintrc.js ./lib/*.js --fix",
         "lint:watch": "watch 'npm run lint' ./lib",
         "lint:tests": "eslint -c ./.eslintrc.js ./test/*.js",
         "test": "jest test/.*.test.js",
