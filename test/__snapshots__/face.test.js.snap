@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ColorFace can be cloned 1`] = `
+Object {
+  "a": 1,
+  "b": 51,
+  "g": 51,
+  "r": 51,
+}
+`;
+
+exports[`ColorFace can be created without color parameter 1`] = `
+Object {
+  "a": 1,
+  "b": 0,
+  "g": 0,
+  "r": 0,
+}
+`;
+
+exports[`ColorFace can get hex and RGBA color values 1`] = `"333333"`;
+
+exports[`ColorFace can get hex and RGBA color values 2`] = `
+Object {
+  "a": 1,
+  "b": 51,
+  "g": 51,
+  "r": 51,
+}
+`;
+
+exports[`ImageFace can be cloned 1`] = `"data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"`;
+
+exports[`ImageFace can be created with default image 1`] = `"data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"`;

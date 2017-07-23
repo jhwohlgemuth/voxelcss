@@ -33,6 +33,8 @@ Scene {
   "enableOrbit": [Function],
   "enablePan": [Function],
   "enableZoom": [Function],
+  "getElement": [Function],
+  "getInteractionState": [Function],
   "getLightSources": [Function],
   "getPan": [Function],
   "getParentElement": [Function],
@@ -64,6 +66,7 @@ Scene {
   "setRotationZ": [Function],
   "setZoom": [Function],
   "triggerEvent": [Function],
+  "unbind": [Function],
   "zoom": [Function],
 }
 `;

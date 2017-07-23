@@ -15,6 +15,7 @@ describe('Common utilities', function() {
         expect(hexToRgb('333')).toMatchSnapshot();
         expect(hexToRgb('#f00ba2')).toMatchSnapshot();
         expect(hexToRgb('#F00BA2')).toMatchSnapshot();
+        expect(hexToRgb('Not a valid hex string')).toBeNull();
     });
     it('can convert RGB to HEX', function() {
         expect(rgbToHex(51, 51, 51)).toMatchSnapshot();

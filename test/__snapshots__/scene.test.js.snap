@@ -93,6 +93,82 @@ Object {
 }
 `;
 
+exports[`Scene can respond to mouse interaction 1`] = `5`;
+
+exports[`Scene can respond to mouse interaction 2`] = `5`;
+
+exports[`Scene can respond to mouse interaction 3`] = `
+Object {
+  "current": Object {
+    "x": 0,
+    "y": 0,
+  },
+  "lastMove": Object {
+    "x": 0,
+    "y": 0,
+  },
+  "shiftDown": false,
+  "start": Object {
+    "x": 0,
+    "y": 0,
+  },
+}
+`;
+
+exports[`Scene can respond to mouse interaction 4`] = `
+Object {
+  "current": Object {
+    "x": 1000,
+    "y": 1000,
+  },
+  "lastMove": Object {
+    "x": 0,
+    "y": 0,
+  },
+  "shiftDown": false,
+  "start": Object {
+    "x": 1000,
+    "y": 1000,
+  },
+}
+`;
+
+exports[`Scene can respond to mouse interaction 5`] = `
+Object {
+  "current": Object {
+    "x": 1000,
+    "y": 1000,
+  },
+  "lastMove": Object {
+    "x": 0,
+    "y": 0,
+  },
+  "shiftDown": false,
+  "start": Object {
+    "x": 1000,
+    "y": 1000,
+  },
+}
+`;
+
+exports[`Scene can respond to pressing and releasing SHIFT 1`] = `
+Object {
+  "current": Object {
+    "x": 0,
+    "y": 0,
+  },
+  "lastMove": Object {
+    "x": 0,
+    "y": 0,
+  },
+  "shiftDown": false,
+  "start": Object {
+    "x": 0,
+    "y": 0,
+  },
+}
+`;
+
 exports[`Scene can throw error when trying to attach when already attached 1`] = `undefined`;
 
 exports[`Scene can throw error when trying to detach when already detached 1`] = `undefined`;

@@ -7,11 +7,15 @@ const Scene       = require('../lib/Scene');
 const INITIAL_ZOOM = 1;
 const INITIAL_PAN = {x: 0, y: 0, z: 0};
 const INITIAL_ROTATION = {x: 0, y: 0, z: 0};
+const SHIFT_KEYCODE = 16;
 
 describe('Scene', function() {
     let scene;
     beforeEach(() => {
         scene = new Scene();
+    });
+    afterEach(function() {
+        scene.unbind();
     });
     it('can enable and disable pan', () => {
         expect(scene.getPan()).toMatchSnapshot();
@@ -54,8 +58,8 @@ describe('Scene', function() {
         scene.attach(elem);
         expect(scene.isAttached()).toBeTruthy();
         expect(scene.getParentElement()).toEqual(elem);
-        // scene.detach();
-        // expect(scene.isAttached()).toBeFalsy();
+        scene.detach();
+        expect(scene.isAttached()).toBeFalsy();
     });
     it('can throw error when trying to attach when already attached', () => {
         let elem = {appendChild: () => {}};
@@ -149,5 +153,55 @@ describe('Scene', function() {
         expect(scene.getVoxels()).toMatchSnapshot();
         scene.remove(voxel);
         expect(scene.getVoxels()).toEqual([]);
+    });
+    it('can respond to pressing and releasing SHIFT', () => {
+        let keyCode = SHIFT_KEYCODE;
+        let which = SHIFT_KEYCODE;
+        let pressShift = new window.KeyboardEvent('keydown', {keyCode});
+        let releaseShift = new window.KeyboardEvent('keyup', {keyCode});
+        expect(scene.getInteractionState()).toMatchSnapshot();
+        expect(scene.getInteractionState('shiftDown')).toBeFalsy();
+        window.dispatchEvent(pressShift);
+        expect(scene.getInteractionState('shiftDown')).toBeTruthy();
+        window.dispatchEvent(releaseShift);
+        expect(scene.getInteractionState('shiftDown')).toBeFalsy();
+        pressShift = new window.KeyboardEvent('keydown', {which});
+        releaseShift = new window.KeyboardEvent('keyup', {which});
+        expect(scene.getInteractionState('shiftDown')).toBeFalsy();
+        window.dispatchEvent(pressShift);
+        expect(scene.getInteractionState('shiftDown')).toBeTruthy();
+        window.dispatchEvent(releaseShift);
+        expect(scene.getInteractionState('shiftDown')).toBeFalsy();
+    });
+    it('can respond to mouse interaction', () => {
+        //
+        // Mouse scroll --> zoom
+        //
+        let mousewheel = new window.MouseEvent('mousewheel');
+        let wheel = new window.MouseEvent('wheel');
+        mousewheel.deltaY = 1000;
+        wheel.deltaY = 1000;
+        expect(scene.getZoom()).toEqual(1);
+        scene.getElement().dispatchEvent(mousewheel);
+        scene.getElement().dispatchEvent(wheel);
+        expect(scene.getZoom()).toMatchSnapshot();
+        scene.disableZoom();
+        scene.getElement().dispatchEvent(mousewheel);
+        scene.getElement().dispatchEvent(wheel);
+        expect(scene.getZoom()).toMatchSnapshot();
+        //
+        // Mouse down --> start pan/rotate
+        //
+        let x = 1000;
+        let y = 1000;
+        let mousedown = new window.MouseEvent('mousedown');
+        let mouseup = new window.MouseEvent('mouseup');
+        Object.assign(mousedown, {x, y});
+        Object.assign(mouseup, {x, y});
+        expect(scene.getInteractionState()).toMatchSnapshot();
+        scene.getElement().dispatchEvent(mousedown);
+        expect(scene.getInteractionState()).toMatchSnapshot();
+        window.dispatchEvent(mouseup);
+        expect(scene.getInteractionState()).toMatchSnapshot();
     });
 });
