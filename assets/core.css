@@ -1,4 +1,4 @@
-.scene {
+.voxelcss-scene {
     position: absolute;
     top: 0px;
     left: 0px;
@@ -19,31 +19,32 @@
         transform-style: preserve-3d;
     }
 }
-.cube {
+.voxelcss-cube {
     position: absolute;
     transform-style: preserve-3d;
     &:hover {
         & img {
             visibility: hidden !important;
         }
-        & .face {
+        & .voxelcss-face {
             background: rgba(0, 0, 0, 0.3) !important;
             & .shader {
                 opacity: 0 !important;
             }
         }
     }
-    & .anim {
+    & .animated-up,
+    & .animated-down {
         transform-style: preserve-3d;
-        &.down {
-            animation: falldown 1000ms linear both;
-        }
-        &.up {
-            animation: fallup 1000ms linear both;
-        }
+    }
+    & .animated-up {
+        animation: fallup 1000ms linear both;
+    }
+    & .animated-down {
+        animation: falldown 1000ms linear both;
     }
 }
-.face {
+.voxelcss-face {
     display: block;
     position: absolute;
     outline: none;
