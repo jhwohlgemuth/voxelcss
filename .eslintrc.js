@@ -1,4 +1,4 @@
-const ALLOWED_MAGIC_NUMBERS  = [-1, 0, 1, 2, 10, 100, 1000];
+const ALLOWED_MAGIC_NUMBERS  = [-1, 0, 1, 2, 3, 10, 100, 1000];
 
 module.exports = {
     env: {

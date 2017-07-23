@@ -22,6 +22,8 @@
             editor.enableAutoSave();
             lightSource = new voxelcss.LightSource(300, 300, 300, 750, 0.2, 1);
             scene.addLightSource(lightSource);
+            // lightSource2 = new voxelcss.LightSource(-300, 0, 0, 750, 0.2, 1);
+            // scene.addLightSource(lightSource2);
             editor.load();
             if (world.getVoxels().length === 0) {
                 BuildCube();

@@ -27,11 +27,9 @@ describe('Voxel', function() {
         expect(oldmesh).toMatchSnapshot();
         voxel.setMesh(newMesh);
         expect(voxel.getMesh()).toMatchSnapshot();
-    });
-    it('can update light sources', () => {
-        let mesh = new Mesh(new ColorFace('#333'));
-        voxel.updateLightSource(new LightSource());
-        voxel.setMesh(mesh);
+        voxel.setMesh();
+        expect(voxel.getMesh()).toMatchSnapshot();
+        voxel.setMesh('Not a mesh');
         expect(voxel.getMesh()).toMatchSnapshot();
     });
     it('can be added to and removed from a scene', function() {
