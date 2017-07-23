@@ -59,7 +59,6 @@ const FACETYPES = {
 
 module.exports = Mesh;
 
-// events -> onchange
 /**
  * @name Mesh
  * @constructor
@@ -74,6 +73,7 @@ function Mesh() {
     let top;
     let bottom;
     let canTriggerEvent = true;
+    let isInvalid = face => (face === undefined || !containsFaceType(face));
     Object.assign(self, {
         setFront,
         setBack,
@@ -81,87 +81,83 @@ function Mesh() {
         setRight,
         setTop,
         setBottom,
-        getFront,
-        getBack,
-        getLeft,
-        getRight,
-        getTop,
-        getBottom,
         setFaces,
         getFaces,
-        serialize
+        serialize,
+        getFront: () => front,
+        getBack: () => back,
+        getLeft: () => left,
+        getRight: () => right,
+        getTop: () => top,
+        getBottom: () => bottom
     });
+    function getFaceKeyByType(type) {
+        /* eslint-disable guard-for-in */
+        for (var key in FACETYPES) {
+            var value = FACETYPES[key];
+            if (value === type) {
+                return key;
+            }
+        }
+        /* eslint-enable guard-for-in */
+        return null;
+    }
+    function containsFaceType(face) {
+        return !!getFaceKeyByType(face.constructor);
+    }
     function setFront(face) {
-        if (face === undefined || !containsFaceType(face)) {return;}
+        if (isInvalid(face)) {return;}
         var old = front;
         if (!!old) {old.removeEventListener('change', onFaceChangeEvent);}
         front = face;
         front.addEventListener('change', onFaceChangeEvent);
-        if (canTriggerEvent) {triggerChangeEvent();}
+        canTriggerEvent &amp;&amp; triggerChangeEvent();
         return old;
     }
     function setBack(face) {
-        if (face === undefined || !containsFaceType(face)) {return;}
+        if (isInvalid(face)) {return;}
         var old = back;
         if (!!old) {old.removeEventListener('change', onFaceChangeEvent);}
         back = face;
         back.addEventListener('change', onFaceChangeEvent);
-        if (canTriggerEvent) {triggerChangeEvent();}
+        canTriggerEvent &amp;&amp; triggerChangeEvent();
         return old;
     }
     function setLeft(face) {
-        if (face === undefined || !containsFaceType(face)) {return;}
+        if (isInvalid(face)) {return;}
         var old = left;
         if (!!old) {old.removeEventListener('change', onFaceChangeEvent);}
         left = face;
         left.addEventListener('change', onFaceChangeEvent);
-        if (canTriggerEvent) {triggerChangeEvent();}
+        canTriggerEvent &amp;&amp; triggerChangeEvent();
         return old;
     }
     function setRight(face) {
-        if (face === undefined || !containsFaceType(face)) {return;}
+        if (isInvalid(face)) {return;}
         var old = right;
         if (!!old) {old.removeEventListener('change', onFaceChangeEvent);}
         right = face;
         right.addEventListener('change', onFaceChangeEvent);
-        if (canTriggerEvent) {triggerChangeEvent();}
+        canTriggerEvent &amp;&amp; triggerChangeEvent();
         return old;
     }
     function setTop(face) {
-        if (face === undefined || !containsFaceType(face)) {return;}
+        if (isInvalid(face)) {return;}
         var old = top;
         if (!!old) {old.removeEventListener('change', onFaceChangeEvent);}
         top = face;
         top.addEventListener('change', onFaceChangeEvent);
-        if (canTriggerEvent) {triggerChangeEvent();}
+        canTriggerEvent &amp;&amp; triggerChangeEvent();
         return old;
     }
     function setBottom(face) {
-        if (face === undefined || !containsFaceType(face)) {return;}
+        if (isInvalid(face)) {return;}
         var old = bottom;
         if (!!old) {old.removeEventListener('change', onFaceChangeEvent);}
         bottom = face;
         bottom.addEventListener('change', onFaceChangeEvent);
-        if (canTriggerEvent) {triggerChangeEvent();}
+        canTriggerEvent &amp;&amp; triggerChangeEvent();
         return old;
-    }
-    function getFront() {
-        return front;
-    }
-    function getBack() {
-        return back;
-    }
-    function getLeft() {
-        return left;
-    }
-    function getRight() {
-        return right;
-    }
-    function getTop() {
-        return top;
-    }
-    function getBottom() {
-        return bottom;
     }
     function setFaces(faces) {
         var old = getFaces();
@@ -202,20 +198,6 @@ function Mesh() {
     }
     function serializeFace(face) {
         return getFaceKeyByType(face.constructor) + '(' + face.serialize() + ')';
-    }
-    function containsFaceType(face) {
-        return !!getFaceKeyByType(face.constructor);
-    }
-    function getFaceKeyByType(type) {
-        /* eslint-disable guard-for-in */
-        for (var key in FACETYPES) {
-            var value = FACETYPES[key];
-            if (value === type) {
-                return key;
-            }
-        }
-        /* eslint-enable guard-for-in */
-        return null;
     }
     function onFaceChangeEvent() {
         triggerChangeEvent();
@@ -264,7 +246,7 @@ function loadFaceFromSerial(compositeSerial) {
 <br class="clear">
 
 <footer>
-    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.3</a> on Sun Jul 23 2017 15:45:34 GMT-0500 (CDT) using the Minami theme.
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.3</a> on Sun Jul 23 2017 15:57:45 GMT-0500 (CDT) using the Minami theme.
 </footer>
 
 <script>prettyPrint();</script>
