@@ -9,6 +9,6 @@ describe('ColorFace', function() {
     });
     it('can get hex and RGBA color values', function() {
         expect(face.getHex()).toMatchSnapshot();
-        expect(face.getRGBA()).toMatchSnapshot();
+        expect(face.getColor()).toMatchSnapshot();
     });
 });

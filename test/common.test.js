@@ -1,12 +1,25 @@
 'use strict';
 
 const {
+    hexToRgb,
+    rgbToHex,
     multiplyMatrices,
     generateRotationMatrix
 } = require('../lib/common');
 const {PI} = Math;
 
 describe('Common utilities', function() {
+    it('can convert color from HEX to RGB', function() {
+        expect(hexToRgb('#333')).toMatchSnapshot();
+        expect(hexToRgb('#333333')).toMatchSnapshot();
+        expect(hexToRgb('333')).toMatchSnapshot();
+        expect(hexToRgb('#f00ba2')).toMatchSnapshot();
+        expect(hexToRgb('#F00BA2')).toMatchSnapshot();
+    });
+    it('can convert RGB to HEX', function() {
+        expect(rgbToHex(51, 51, 51)).toMatchSnapshot();
+        expect(rgbToHex(255, 51, 153)).toMatchSnapshot();
+    });
     it('can perform matrix multiplication (3x3)', function() {
         let x = [1, 0, 0];
         let y = [0, 1, 0];

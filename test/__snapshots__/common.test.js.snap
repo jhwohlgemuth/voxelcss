@@ -1,5 +1,49 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Common utilities can convert RGB to HEX 1`] = `"333333"`;
+
+exports[`Common utilities can convert RGB to HEX 2`] = `"ff3399"`;
+
+exports[`Common utilities can convert color from HEX to RGB 1`] = `
+Object {
+  "b": 51,
+  "g": 51,
+  "r": 51,
+}
+`;
+
+exports[`Common utilities can convert color from HEX to RGB 2`] = `
+Object {
+  "b": 51,
+  "g": 51,
+  "r": 51,
+}
+`;
+
+exports[`Common utilities can convert color from HEX to RGB 3`] = `
+Object {
+  "b": 51,
+  "g": 51,
+  "r": 51,
+}
+`;
+
+exports[`Common utilities can convert color from HEX to RGB 4`] = `
+Object {
+  "b": 162,
+  "g": 11,
+  "r": 240,
+}
+`;
+
+exports[`Common utilities can convert color from HEX to RGB 5`] = `
+Object {
+  "b": 162,
+  "g": 11,
+  "r": 240,
+}
+`;
+
 exports[`Common utilities can generate rotation matrices 1`] = `
 Array [
   Array [
