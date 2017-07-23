@@ -13,10 +13,19 @@ describe('World', function() {
         scene = new Scene();
         world = new World(scene, label);
     });
+    afterEach(() => {
+        localStorage.setItem.mockClear();
+        localStorage.getItem.mockClear();
+    });
     it('can not be instantiated without Scene instance', () => {
         expect(() => {
             world = new World();
         }).toThrowErrorMatchingSnapshot();
+    });
+    it('can be instantiated without a label', () => {
+        world = new World(scene);
+        world.save();
+        expect(localStorage.setItem).toHaveBeenLastCalledWith('savedWorld<*>', '[]');
     });
     it('can save and delete state', () => {
         let formName = `savedWorld<${label}>`;
@@ -39,12 +48,17 @@ describe('World', function() {
         expect(world.export()).toEqual(voxelString);
     });
     it('can load from the browser', function() {
+        let formName = `savedWorld<${label}>`;
         let voxel = new Voxel();
         world.add(voxel);
         expect(world.getVoxels()).toMatchSnapshot();
         world.save();
         world.remove(voxel);
         expect(world.getVoxels()).toEqual([]);
+        world.load();
+        expect(world.getVoxels()).toMatchSnapshot();
+        expect(localStorage.getItem).toHaveBeenCalledTimes(1);
+        localStorage.removeItem(formName);
         world.load();
         expect(world.getVoxels()).toMatchSnapshot();
     });

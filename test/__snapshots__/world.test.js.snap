@@ -176,4 +176,6 @@ Array [
 ]
 `;
 
+exports[`World can load from the browser 3`] = `Array []`;
+
 exports[`World can not be instantiated without Scene instance 1`] = `undefined`;
