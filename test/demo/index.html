@@ -27,7 +27,9 @@
             editor.load();
             if (world.getVoxels().length === 0) {
                 BuildCube();
+                TestMeshes();
             }
+
         }
         function BuildCube() {
             for (var x = -3; x <= 3; x++) {
@@ -41,6 +43,18 @@
                     }
                 }
             }
+        }
+        function TestMeshes() {
+            let {grass, dirt, treeTrunk, treeLeaves, water, waterFall, waterFallTop, waterFallCrash} = voxelcss.meshes;
+            editor.add(new voxelcss.Voxel(-200, 0, 0, 50, {mesh: grass}));
+            editor.add(new voxelcss.Voxel(-150, 0, 0, 50, {mesh: dirt}));
+            editor.add(new voxelcss.Voxel(-100, 0, 0, 50, {mesh: treeTrunk}));
+            editor.add(new voxelcss.Voxel(-50, 0, 0, 50, {mesh: treeLeaves}));
+            editor.add(new voxelcss.Voxel(0, 0, 0, 50, {mesh: water}));
+            editor.add(new voxelcss.Voxel(50, 0, 0, 50, {mesh: waterFall}));
+            editor.add(new voxelcss.Voxel(100, 0, 0, 50, {mesh: waterFallTop}));
+            editor.add(new voxelcss.Voxel(150, 0, 0, 50, {mesh: waterFallCrash}));
+            editor.add(new voxelcss.Voxel(200, 0, 0, 50, {mesh: new voxelcss.Mesh(new voxelcss.ColorFace(102,201,215))}));
         }
     </script>
 </head>
