@@ -38,6 +38,16 @@ describe('World', function() {
         world.import(voxelString);
         expect(world.export()).toEqual(voxelString);
     });
+    it('can load from the browser', function() {
+        let voxel = new Voxel();
+        world.add(voxel);
+        expect(world.getVoxels()).toMatchSnapshot();
+        world.save();
+        world.remove(voxel);
+        expect(world.getVoxels()).toEqual([]);
+        world.load();
+        expect(world.getVoxels()).toMatchSnapshot();
+    });
     it('can get scene and voxels', () => {
         expect(world.getScene()).toMatchSnapshot();
         expect(world.getVoxels()).toEqual([]);
@@ -51,5 +61,6 @@ describe('World', function() {
         let success = world.remove(voxel);
         expect(success).toBeTruthy();
         expect(world.export()).toEqual('[]');
+        expect(world.remove()).toBeFalsy();
     });
 });

@@ -1,9 +1,8 @@
 'use strict';
 
-const ColorFace   = require('../lib/ColorFace');
-const LightSource = require('../lib/LightSource');
-const Mesh        = require('../lib/Mesh');
-const Voxel       = require('../lib/Voxel');
+const ColorFace = require('../lib/ColorFace');
+const Mesh      = require('../lib/Mesh');
+const Voxel     = require('../lib/Voxel');
 
 describe('Voxel', function() {
     let voxel;

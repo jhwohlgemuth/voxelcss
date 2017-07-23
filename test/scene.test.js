@@ -68,7 +68,6 @@ describe('Scene', function() {
         }).toThrowErrorMatchingSnapshot();
     });
     it('can throw error when trying to detach when already detached', () => {
-        let elem = {appendChild: () => {}};
         expect(scene.isAttached()).toBeFalsy();
         expect(() => {
             scene.detach();
