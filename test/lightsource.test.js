@@ -6,7 +6,7 @@ describe('Light Source', function() {
     let lightsource;
     let position = [1, 2, 3];
     beforeEach(function() {
-        lightsource = new LightSource(...position);
+        lightsource = new LightSource(position);
     });
     it('can set travel distance', function() {
         expect(lightsource.getTravelDistance()).toMatchSnapshot();

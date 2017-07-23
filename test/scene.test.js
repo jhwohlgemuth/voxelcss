@@ -134,10 +134,11 @@ describe('Scene', function() {
     });
     it('can add and remove light sources', () => {
         let dim = 300;
+        let position = [dim, dim, dim];
         let distance = 750;
         let dark = 0.2;
         let light = 1;
-        let lightSource = new LightSource(dim, dim, dim, distance, dark, light);
+        let lightSource = new LightSource(position, distance, dark, light);
         expect(scene.getLightSources()).toEqual([]);
         scene.addLightSource(lightSource);
         expect(scene.getLightSources()).not.toEqual([]);
@@ -147,11 +148,12 @@ describe('Scene', function() {
     });
     it('can add and remove voxels', () => {
         let voxel = new Voxel(10, 10, 10, 10);
+        let position = [dim, dim, dim];
         let dim = 300;
         let distance = 750;
         let dark = 0.2;
         let light = 1;
-        let lightSource = new LightSource(dim, dim, dim, distance, dark, light);
+        let lightSource = new LightSource(position, distance, dark, light);
         expect(scene.getVoxels()).toEqual([]);
         scene.add(voxel);
         scene.addLightSource(lightSource);

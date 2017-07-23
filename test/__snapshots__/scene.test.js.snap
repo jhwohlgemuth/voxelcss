@@ -210,8 +210,6 @@ Object {
   "lastMove": Object {
     "dx": 100,
     "dy": 100,
-    "x": 0,
-    "y": 0,
   },
   "shiftDown": true,
   "start": Object {

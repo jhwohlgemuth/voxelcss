@@ -20,7 +20,7 @@
             world = new voxelcss.World(scene, 'Demo World');
             editor = new voxelcss.Editor(world);
             editor.enableAutoSave();
-            lightSource = new voxelcss.LightSource(300, 300, 300, 750, 0.2, 1);
+            lightSource = new voxelcss.LightSource([300, 300, 300], 750, 0.2, 1);
             scene.addLightSource(lightSource);
             // lightSource2 = new voxelcss.LightSource(-300, 0, 0, 750, 0.2, 1);
             // scene.addLightSource(lightSource2);
