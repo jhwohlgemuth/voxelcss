@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Light Source can get and set brightness 1`] = `
+Array [
+  1,
+  2,
+]
+`;
+
+exports[`Light Source can set travel distance 1`] = `500`;
+
+exports[`Light Source can set travel distance 2`] = `500`;
+
+exports[`Light Source can set travel distance 3`] = `500`;
+
+exports[`Light Source can set travel distance 4`] = `1000`;
