@@ -55,7 +55,7 @@
         "watch": "^1.0.2"
     },
     "scripts": {
-        "dev": "stmux --mouse --title 'voxelcss dev' [ [ \"npm run lint:watch\" : [ \"npm run build:watch\" .. \"npm run demo\" ] ] .. \"npm run test:watch\" ]",
+        "dev": "stmux --mouse --title 'Voxelcss dev task' [ [ \"npm run lint:watch\" : [ \"npm run build:watch\" .. \"npm run demo\" ] ] .. \"npm run test:watch -- --coverage\" ]",
         "demo": "npm run build && npm run browsersync",
         "docs": "jsdoc ./lib/*.js --destination ./docs --readme ./README.md --template ./node_modules/minami",
         "lint": "eslint -c ./.eslintrc.js ./lib/*.js",

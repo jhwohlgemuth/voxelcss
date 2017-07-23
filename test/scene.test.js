@@ -9,6 +9,12 @@ const INITIAL_PAN = {x: 0, y: 0, z: 0};
 const INITIAL_ROTATION = {x: 0, y: 0, z: 0};
 const SHIFT_KEYCODE = 16;
 
+
+let keyCode = SHIFT_KEYCODE;
+let which = SHIFT_KEYCODE;
+let pressShift = new window.KeyboardEvent('keydown', {keyCode});
+let releaseShift = new window.KeyboardEvent('keyup', {keyCode});
+
 describe('Scene', function() {
     let scene;
     beforeEach(() => {
@@ -155,10 +161,6 @@ describe('Scene', function() {
         expect(scene.getVoxels()).toEqual([]);
     });
     it('can respond to pressing and releasing SHIFT', () => {
-        let keyCode = SHIFT_KEYCODE;
-        let which = SHIFT_KEYCODE;
-        let pressShift = new window.KeyboardEvent('keydown', {keyCode});
-        let releaseShift = new window.KeyboardEvent('keyup', {keyCode});
         expect(scene.getInteractionState()).toMatchSnapshot();
         expect(scene.getInteractionState('shiftDown')).toBeFalsy();
         window.dispatchEvent(pressShift);
@@ -189,11 +191,9 @@ describe('Scene', function() {
         scene.getElement().dispatchEvent(mousewheel);
         scene.getElement().dispatchEvent(wheel);
         expect(scene.getZoom()).toMatchSnapshot();
-        //
-        // Mouse down --> start pan/rotate
-        //
         let x = 1000;
         let y = 1000;
+        let d = 100;
         let mousedown = new window.MouseEvent('mousedown');
         let mouseup = new window.MouseEvent('mouseup');
         Object.assign(mousedown, {x, y});
@@ -203,5 +203,29 @@ describe('Scene', function() {
         expect(scene.getInteractionState()).toMatchSnapshot();
         window.dispatchEvent(mouseup);
         expect(scene.getInteractionState()).toMatchSnapshot();
+        //
+        // Mouse down & Mouse move --> rotate
+        //
+        let mousemove = new window.MouseEvent('mousemove');
+        expect(scene.getPan()).toEqual(INITIAL_PAN);
+        expect(scene.getRotation()).toMatchSnapshot();
+        scene.getElement().dispatchEvent(mousedown);
+        expect(scene.getInteractionState()).toMatchSnapshot();
+        Object.assign(mousemove, {x: x + d, y: y + d});
+        window.dispatchEvent(mousemove);
+        expect(scene.getPan()).toEqual(INITIAL_PAN);
+        expect(scene.getRotation()).toMatchSnapshot();
+        //
+        // Mouse down (SHIFT) & Mouse move --> pan
+        //
+        window.dispatchEvent(pressShift);
+        expect(scene.getPan()).toMatchSnapshot();
+        expect(scene.getRotation()).toMatchSnapshot();
+        scene.getElement().dispatchEvent(mousedown);
+        expect(scene.getInteractionState()).toMatchSnapshot();
+        Object.assign(mousemove, {x: x + d, y: y + d});
+        window.dispatchEvent(mousemove);
+        expect(scene.getPan()).toMatchSnapshot();
+        expect(scene.getRotation()).toMatchSnapshot();
     });
 });
