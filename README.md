@@ -7,6 +7,7 @@
 
 [![npm](https://img.shields.io/npm/v/voxelcss.svg)](https://www.npmjs.com/package/voxelcss)
 [![Build Status](https://travis-ci.org/jhwohlgemuth/voxelcss.svg?branch=master)](https://travis-ci.org/jhwohlgemuth/voxelcss)
+[![Build status](https://ci.appveyor.com/api/projects/status/y9imj7j6x1ptva5o/branch/master?svg=true)](https://ci.appveyor.com/project/jhwohlgemuth/voxelcss/branch/master) 
 [![Coverage Status](https://coveralls.io/repos/github/jhwohlgemuth/voxelcss/badge.svg?branch=master)](https://coveralls.io/github/jhwohlgemuth/voxelcss?branch=master)
 [![bitHound Overall Score](https://www.bithound.io/github/jhwohlgemuth/voxelcss/badges/score.svg)](https://www.bithound.io/github/jhwohlgemuth/voxelcss)
 [![Known Vulnerabilities](https://snyk.io/test/github/jhwohlgemuth/voxelcss/badge.svg)](https://snyk.io/test/github/jhwohlgemuth/voxelcss)
