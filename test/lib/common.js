@@ -1,5 +1,4 @@
-'use strict';
-
+/* global scene */
 'use strict';
 
 const {join} = require('path');
@@ -33,7 +32,7 @@ function captureScreenshots(url, name) {
     let rotateY = () => scene.rotate(0, Math.PI / 2);
     let rotateZ = () => scene.rotate(0, 0, Math.PI / 2);
     let panLeft = () => scene.pan(100);
-    let panRight = () => scene.pan(-100);
+    let panRight = () => scene.pan(-1 * 100);
     let zoomIn = () => scene.zoom(1 / 2);
     let zoomOut = () => scene.zoom(-1 / 2);
     let show = false;
