@@ -81,7 +81,7 @@ cd voxelcss
 npm install
 # verify voxelcss installed correctly by running tests
 npm test
-# to use the "demo" and "dev" tasks, install browser-sync and stmux, respectively
+# to use the "design" and "dev" tasks, install browser-sync and stmux, respectively
 npm install  browser-sync stmux --global
 ```
 
@@ -91,7 +91,7 @@ npm install  browser-sync stmux --global
 - `npm run test:watch` *run tests (watch mode)*
 - `npm run lint` *lint code*
 - `npm run lint:watch` *lint code (watch mode)*
-- `npm run demo` *open browser to demo code*
+- `npm run design` *open browser to see "live" changes*
 
 Roadmap
 -------
