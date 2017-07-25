@@ -1,6 +1,6 @@
 {
     "name": "voxelcss",
-    "version": "0.1.11",
+    "version": "0.1.12",
     "homepage": "https://voxelcss.js.org",
     "author": "Jason Wohlgemuth",
     "license": "MIT",
@@ -27,7 +27,9 @@
         ]
     },
     "jest": {
-        "testMatch": ["**/test**/*.js"],
+        "testMatch": [
+            "**/test**/*.js"
+        ],
         "setupFiles": [
             "jest-localstorage-mock"
         ]
