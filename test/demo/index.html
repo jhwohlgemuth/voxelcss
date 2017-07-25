@@ -5,57 +5,89 @@
     <script type="text/javascript" src="justice.min.js"></script>
     <script type="text/javascript" src='../../dist/voxelcss.js'></script>
     <script>
+        /* global voxelcss */
+        'use strict';
+        //
+        // un-comment to view page metrics (fps, etc...)
+        //
         // Justice.init();
-        var scene;
-        var world;
-        var editor;
-        var lightSource;
-        document.addEventListener('DOMContentLoaded', function() {
-            Init();
-        });
-        function Init() {
-            scene = new voxelcss.Scene();
-            scene.rotate(-Math.PI / 5, Math.PI / 4, 0);
-            scene.attach(document.body);
-            world = new voxelcss.World(scene, 'Demo World');
-            editor = new voxelcss.Editor(world);
-            editor.enableAutoSave();
-            lightSource = new voxelcss.LightSource([300, 300, 300], 750, 0.2, 1);
-            scene.addLightSource(lightSource);
-            // lightSource2 = new voxelcss.LightSource(-300, 0, 0, 750, 0.2, 1);
-            // scene.addLightSource(lightSource2);
-            editor.load();
-            if (world.getVoxels().length === 0) {
-                BuildCube();
-                TestMeshes();
-            }
+        const {abs, PI} = Math;
+        const {
+            ColorFace,
+            Editor,
+            LightSource,
+            Mesh,
+            meshes,
+            Scene,
+            Voxel,
+            World
+        } = voxelcss;
 
-        }
-        function BuildCube() {
-            for (var x = -3; x <= 3; x++) {
-                for (var y = -3; y <= 3; y++) {
-                    for (var z = -3; z <= 3; z++) {
-                        if ([x, y, z].filter(function(value) {return Math.abs(value) === 3}).length >= 2) {
-                            editor.add(new voxelcss.Voxel(x * 50, y * 50, z * 50, 50, {
-                                mesh: new voxelcss.Mesh(new voxelcss.ColorFace('#0000FF'))
-                            }));
-                        }
-                    }
-                }
+        let scene;
+        let world;
+        let editor;
+        let lightSource;
+        document.addEventListener('DOMContentLoaded', () => {
+            let x = 300;
+            let y = 300;
+            let z = 300;
+            let distance = 750;
+            let dark = 0.2;
+            let light = 1;
+            lightSource = new LightSource([x, y, z], distance, dark, light);
+            scene = new Scene();/* eslint-disable no-magic-numbers */
+            world = new World(scene, 'Demo World');
+            editor = new Editor(world);
+            scene.addLightSource(lightSource);
+            scene.rotate(-PI / 5, PI / 4, 0);/* eslint-enable no-magic-numbers */
+            scene.attach(document.body);
+            editor.enableAutoSave();
+            //
+            // un-comment to test multiple light sources
+            //
+            // let lightSource2 = new LightSource([-x, 0, 0], distance, dark, light);
+            // scene.addLightSource(lightSource2);
+            //
+            // un-comment to test loading
+            //
+            // editor.load();
+            if (world.getVoxels().length === 0) {
+                buildCube();
+                testMeshes();
             }
+        });
+        function buildCube() {
+            let size = 50;/* eslint-disable no-magic-numbers */
+            let sides = [-3, -2, -1, 0, 1, 2, 3];/* eslint-enable no-magic-numbers */
+            let mesh = new Mesh(new ColorFace('#1CAF55'));
+            sides.forEach(x => {
+                sides.forEach(y => {
+                    sides.forEach(z => {
+                        if ([x, y, z].filter(val => (abs(val) === 3)).length >= 2) {
+                            let position = [x, y, z].map(val => (size * val));
+                            editor.add(new Voxel(...position, size, {mesh}));
+                        }
+                    });
+                });
+            });
         }
-        function TestMeshes() {
-            let {grass, dirt, treeTrunk, treeLeaves, water, waterFall, waterFallTop, waterFallCrash} = voxelcss.meshes;
-            editor.add(new voxelcss.Voxel(-200, 0, 0, 50, {mesh: grass}));
-            editor.add(new voxelcss.Voxel(-150, 0, 0, 50, {mesh: dirt}));
-            editor.add(new voxelcss.Voxel(-100, 0, 0, 50, {mesh: treeTrunk}));
-            editor.add(new voxelcss.Voxel(-50, 0, 0, 50, {mesh: treeLeaves}));
-            editor.add(new voxelcss.Voxel(0, 0, 0, 50, {mesh: water}));
-            editor.add(new voxelcss.Voxel(50, 0, 0, 50, {mesh: waterFall}));
-            editor.add(new voxelcss.Voxel(100, 0, 0, 50, {mesh: waterFallTop}));
-            editor.add(new voxelcss.Voxel(150, 0, 0, 50, {mesh: waterFallCrash}));
-            editor.add(new voxelcss.Voxel(200, 0, 0, 50, {mesh: new voxelcss.Mesh(new voxelcss.ColorFace(102,201,215))}));
-        }
+        function testMeshes() {/* eslint-disable no-magic-numbers */
+            let size = 50;
+            let r = 102;
+            let g = 201;
+            let b = 215;
+            let color = [r, g, b];
+            let {grass, dirt, treeTrunk, treeLeaves, water, waterFall, waterFallTop, waterFallCrash} = meshes;
+            editor.add(new Voxel(-200, 0, 0, size, {mesh: grass}));
+            editor.add(new Voxel(-150, 0, 0, size, {mesh: dirt}));
+            editor.add(new Voxel(-100, 0, 0, size, {mesh: treeTrunk}));
+            editor.add(new Voxel(-50, 0, 0, size, {mesh: treeLeaves}));
+            editor.add(new Voxel(0, 0, 0, size, {mesh: water}));
+            editor.add(new Voxel(50, 0, 0, size, {mesh: waterFall}));
+            editor.add(new Voxel(100, 0, 0, size, {mesh: waterFallTop}));
+            editor.add(new Voxel(150, 0, 0, size, {mesh: waterFallCrash}));
+            editor.add(new Voxel(200, 0, 0, size, {mesh: new Mesh(new ColorFace(...color))}));
+        }/* eslint-enable no-magic-numbers */
     </script>
 </head>
 <body>
@@ -63,7 +95,8 @@
         <div class='scene'></div>
     </div>
 <script id="__bs_script__">//<![CDATA[
-    document.write("<script async src='http://HOST:1337/browser-sync/browser-sync-client.js?v=2.18.12'><\/script>".replace("HOST", location.hostname));
+    'use strict';
+    document.write('<script async src="http://HOST:1337/browser-sync/browser-sync-client.js?v=2.18.12"><\/script>'.replace('HOST', location.hostname));
 //]]></script>
 </body>
 </html>

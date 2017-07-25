@@ -19,7 +19,8 @@ describe('Positioned module', function() {
         item.setPosition(position);
         item.translate(1, 2, 3);
         expect(item.getPosition()).toMatchSnapshot();
-        item.translate(-2, -4, -6);
+        let restore = [1, 2, 3].map(val => (-1 * 2 * val));
+        item.translate(...restore);
         expect(item.getPosition()).toEqual({x: 0, y: 0, z: 0});
     });
     it('can only translate number values', () => {

@@ -12,6 +12,9 @@ module.exports = {
         localStorage: true
     },
     extends: 'omaha-prime-grade',
+    plugins: [
+        'html'
+    ],
     rules: {
         'no-magic-numbers': ['warn', {ignore: ALLOWED_MAGIC_NUMBERS}],
     }
