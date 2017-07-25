@@ -89,7 +89,7 @@
         "delete:docs": "git rm -r --cached docs",
         "predelete": "npm run delete:remote",
         "delete": "npm run delete:docs",
-        "predeploy": "npm run docs && cp CNAME docs && git add docs -f && git commit -m Deployment",
+        "predeploy": "npm run docs && cp CNAME docs && git add docs -f && git commit -m 'voxelcss.js.org deployment'",
         "deploy": "git subtree push --prefix docs origin gh-pages",
         "coverage": "npm test -- --coverage",
         "server:start": "nohup http-server -p 1337 &",
