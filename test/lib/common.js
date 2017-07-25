@@ -34,8 +34,8 @@ function captureScreenshots(url, name) {
     let rotateZ = () => scene.rotate(0, 0, Math.PI / 2);
     let panLeft = () => scene.pan(100);
     let panRight = () => scene.pan(-100);
-    let zoomIn = () => scene.zoom(0.5);
-    let zoomOut = () => scene.zoom(-0.5);
+    let zoomIn = () => scene.zoom(1 / 2);
+    let zoomOut = () => scene.zoom(-1 / 2);
     let show = false;
     let openDevTools = {detach: true};
     let SCREEN_WIDTH = 600;
