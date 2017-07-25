@@ -17,10 +17,10 @@ describe('Common utilities', function() {
         expect(hexToRgb('#F00BA2')).toMatchSnapshot();
         expect(hexToRgb('Not a valid hex string')).toBeNull();
     });
-    it('can convert RGB to HEX', function() {
+    it('can convert RGB to HEX', function() {/* eslint-disable no-magic-numbers */
         expect(rgbToHex(51, 51, 51)).toMatchSnapshot();
         expect(rgbToHex(255, 51, 153)).toMatchSnapshot();
-    });
+    });/* eslint-enable no-magic-numbers */
     it('can perform matrix multiplication (3x3)', function() {
         let x = [1, 0, 0];
         let y = [0, 1, 0];
