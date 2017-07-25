@@ -4,7 +4,7 @@
     "homepage": "https://voxelcss.js.org",
     "author": "Jason Wohlgemuth",
     "license": "MIT",
-    "description": "Voxel.css with updated project architecture, easier contributing, and npm availability",
+    "description": "Voxel.css with updated project architecture, robust tests, and npm availability",
     "main": "./dist/voxelcss.js",
     "keywords": [
         "voxel",
@@ -27,6 +27,7 @@
         ]
     },
     "jest": {
+        "testMatch": ["**/test**/*.js"],
         "setupFiles": [
             "jest-localstorage-mock"
         ]
@@ -66,9 +67,9 @@
         "lint": "eslint -c ./.eslintrc.js ./lib/*.js --fix",
         "lint:watch": "watch 'npm run lint' ./lib",
         "lint:tests": "eslint -c ./.eslintrc.js ./test/*.js",
-        "test": "jest",
+        "test": "jest .*.test.js",
         "pretest:visual": "npm run capture",
-        "test:visual": "npm test -- ./test/visual-regression.check.js",
+        "test:visual": "jest visual-regression",
         "test:watch": "npm test -- --watch",
         "precapture": "npm run server:start",
         "capture": "node ./test/lib/captureScreenshots",
