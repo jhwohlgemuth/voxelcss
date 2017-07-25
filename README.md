@@ -3,7 +3,7 @@
     <a href="https://github.com/jhwohlgemuth/voxelcss"><img width="300px" alt="voxelcss" src="https://raw.githubusercontent.com/jhwohlgemuth/voxelcss/master/media/voxelcss_with_letters.png"/></a>
 </p>
 
-> [Voxel.css](http://www.voxelcss.com/) with updated architecture, easier contributing, and npm availability
+> [Voxel.css](http://www.voxelcss.com/) with updated architecture, robust tests, and npm availability
 
 [![npm](https://img.shields.io/npm/v/voxelcss.svg)](https://www.npmjs.com/package/voxelcss)
 [![Build Status](https://travis-ci.org/jhwohlgemuth/voxelcss.svg?branch=master)](https://travis-ci.org/jhwohlgemuth/voxelcss)
@@ -61,11 +61,11 @@ Examples
 Features
 --------
 - Completely compatible with [voxel.css](https://github.com/HunterLarco/voxel.css)
+- JavaScript and CSS are all bundled together into one file!
 - CSS is processed by [cssnext](http://cssnext.io/) and minified with [cssnano](http://cssnano.co/) to provide auto-prefixed styles with a minimal footprint and maximum compatibility.
 - Code functionality is verified by tests written using [Jest](https://facebook.github.io/jest/)
 - Code standards are enforced by [ESLint](http://eslint.org/)
-- JavaScript and CSS are all bundled together into one file!
-- Functionality and standards are enforced locally and on remote CI servers!
+- Functionality and standards are enforced locally and on remote CI servers (including visual regression tests)!
 
 Contributing
 ------------

@@ -9,7 +9,6 @@ const INITIAL_PAN = {x: 0, y: 0, z: 0};
 const INITIAL_ROTATION = {x: 0, y: 0, z: 0};
 const SHIFT_KEYCODE = 16;
 
-
 let keyCode = SHIFT_KEYCODE;
 let which = SHIFT_KEYCODE;
 let pressShift = new window.KeyboardEvent('keydown', {keyCode});
@@ -148,8 +147,8 @@ describe('Scene', function() {
     });
     it('can add and remove voxels', () => {
         let voxel = new Voxel(10, 10, 10, 10);
-        let position = [dim, dim, dim];
         let dim = 300;
+        let position = [dim, dim, dim];
         let distance = 750;
         let dark = 0.2;
         let light = 1;
