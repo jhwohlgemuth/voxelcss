@@ -7,7 +7,7 @@
 
 [![npm](https://img.shields.io/npm/v/voxelcss.svg)](https://www.npmjs.com/package/voxelcss)
 [![Build Status](https://travis-ci.org/jhwohlgemuth/voxelcss.svg?branch=master)](https://travis-ci.org/jhwohlgemuth/voxelcss)
-[![Build status](https://ci.appveyor.com/api/projects/status/y9imj7j6x1ptva5o/branch/master?svg=true)](https://ci.appveyor.com/project/jhwohlgemuth/voxelcss/branch/master) 
+[![Build status](https://ci.appveyor.com/api/projects/status/y9imj7j6x1ptva5o/branch/master?svg=true)](https://ci.appveyor.com/project/jhwohlgemuth/voxelcss/branch/master)
 [![Coverage Status](https://coveralls.io/repos/github/jhwohlgemuth/voxelcss/badge.svg?branch=master)](https://coveralls.io/github/jhwohlgemuth/voxelcss?branch=master)
 [![bitHound Overall Score](https://www.bithound.io/github/jhwohlgemuth/voxelcss/badges/score.svg)](https://www.bithound.io/github/jhwohlgemuth/voxelcss)
 [![Known Vulnerabilities](https://snyk.io/test/github/jhwohlgemuth/voxelcss/badge.svg)](https://snyk.io/test/github/jhwohlgemuth/voxelcss)
@@ -70,29 +70,7 @@ Features
 
 Contributing
 ------------
-> Under construction
-
-**Setup**
-
-```bash
-# clone repository
-git clone git@github.com/jhwohlgemuth/voxelcss.git
-cd voxelcss
-# install project dependencies
-npm install
-# verify voxelcss installed correctly by running tests
-npm test
-# to use the "design" and "dev" tasks, install browser-sync and stmux, respectively
-npm install  browser-sync stmux --global
-```
-
-**Workflow Tasks**
-- `npm run dev` *run test and lint tasks in watch mode using [stmux](https://github.com/rse/stmux)*
-- `npm test` *run tests*
-- `npm run test:watch` *run tests (watch mode)*
-- `npm run lint` *lint code*
-- `npm run lint:watch` *lint code (watch mode)*
-- `npm run design` *open browser to see "live" changes*
+> Please read the [contributing guide](.github/CONTRIBUTING.md)
 
 Roadmap
 -------
