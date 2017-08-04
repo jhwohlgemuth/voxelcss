@@ -40,9 +40,8 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>/**
- * @file Module for creating an editor
- * @description Creates all the mouse events necessary to allow the user to add and remove blocks from a World with the added option to autosave all changes.
  * @module core/Editor
+ * @description Creates all the mouse events necessary to allow the user to add and remove blocks from a World with the added option to autosave all changes.
 **/
 'use strict';
 
@@ -69,165 +68,72 @@ module.exports = function(world, options) {
     if (world === undefined) {
         throw 'Editor requires World instance for initialization';
     }
-    if (options !== undefined &amp;&amp; options.autosave === true) {
-        enableAutoSave();
-    }
-    var self = this;
-    var canAutoSave = false;
-    var isEnabled = true;
-    var tool = {mesh: {}};
-    self.enable = Enable;
-    self.disable = Disable;
-    self.isEnabled = IsEnabled;
-    self.enableAutoSave = enableAutoSave;
-    self.disableAutoSave = DisableAutoSave;
-    self.canAutoSave = CanAutoSave;
-    self.save = save;
-    self.load = Load;
-    self.isSaved = IsSaved;
-    self.deleteSave = DeleteSave;
-    self.export = Export;
-    self.import = Import;
-    self.add = addVoxel;
-    self.remove = removeVoxel;
-    self.getWorld = GetWorld;
-    self.setToolMesh = SetToolMesh;
+    let self = this;
+    let canAutoSave = (options !== undefined &amp;&amp; options.autosave === true);
+    let isEnabled = true;
+    let onMeshChange = () => (self.canAutoSave() &amp;&amp; self.save());
+    let onVoxelClick = e => (self.isEnabled() &amp;&amp; remove(e.target));
+    let onTopClick = e => performAddativeShift(e, [0, 1, 0]);
+    let onBottomClick = e => performAddativeShift(e, [0, -1, 0]);
+    let onFrontClick = e => performAddativeShift(e, [0, 0, 1]);
+    let onBackClick = e => performAddativeShift(e, [0, 0, -1]);
+    let onLeftClick = e => performAddativeShift(e, [-1, 0, 0]);
+    let onRightClick = e => performAddativeShift(e, [1, 0, 0]);
+    let listeners = [
+        ['VoxelClick', onVoxelClick],
+        ['MeshChange', onMeshChange],
+        ['TopClick', onTopClick],
+        ['BottomClick', onBottomClick],
+        ['FrontClick', onFrontClick],
+        ['BackClick', onBackClick],
+        ['LeftClick', onLeftClick],
+        ['RightClick', onRightClick]
+    ];
+    let bindVoxel = voxel => listeners.forEach(pair => voxel.addEventListener(...pair));
+    let unBindVoxel = voxel => listeners.forEach(pair => voxel.removeEventListener(...pair));
+    let loadWorldVoxels = () => world.getVoxels().forEach(voxel => bindVoxel(voxel));
+    Object.assign(self, {
+        add,
+        remove,
+        getWorld: () => world,
+        isEnabled: () => isEnabled,
+        enable: () => (isEnabled = true),
+        disable: () => (isEnabled = false),
+        canAutoSave: () => canAutoSave,
+        enableAutoSave: () => (canAutoSave = true),
+        disableAutoSave: () => (canAutoSave = false),
+        isSaved: () => world.isSaved(),
+        deleteSave: () => world.deleteSave(),
+        export: () => world.export(),
+        import: (data) => {
+            world.import(data);
+            loadWorldVoxels();
+        },
+        save: () => world.save(),
+        load: () => {
+            world.load();
+            loadWorldVoxels();
+        }
+    });
     loadWorldVoxels();
-    function Enable() {
-        isEnabled = true;
-    }
-    function Disable() {
-        isEnabled = false;
-    }
-    function IsEnabled() {
-        return isEnabled;
-    }
-    function enableAutoSave() {
-        canAutoSave = true;
-    }
-    function DisableAutoSave() {
-        canAutoSave = false;
-    }
-    function CanAutoSave() {
-        return canAutoSave;
-    }
-    function save() {
-        world.save();
-    }
-    function Load() {
-        var response = world.load();
-        loadWorldVoxels();
-        return response;
-    }
-    function IsSaved() {
-        return world.isSaved();
-    }
-    function DeleteSave() {
-        return world.deleteSave();
-    }
-    function Export() {
-        return world.export();
-    }
-    function Import(string) {
-        var response = world.import(string);
-        loadWorldVoxels();
-        return response;
-    }
-    function addVoxel(voxel) {
+    function add(voxel) {
         bindVoxel(voxel);
-        var response = world.add(voxel);
-        if (canAutoSave) {
-            save();
+        world.add(voxel);
+        self.canAutoSave() &amp;&amp; world.save();
+        return self;
+    }
+    function remove(voxel) {
+        world.remove(voxel) &amp;&amp; unBindVoxel(voxel);
+        self.canAutoSave() &amp;&amp; world.save();
+        return self;
+    }
+    function performAddativeShift(event, position) {
+        if (self.isEnabled()) {
+            let voxel = event.target;
+            let dimension = voxel.getDimension();
+            position = position.map(val => val * dimension);
+            add(voxel.clone().translate(...position));
         }
-        return response;
-    }
-    function removeVoxel(voxel) {
-        var success = world.remove(voxel);
-        if (success) {
-            unBindVoxel(voxel);
-        }
-        if (canAutoSave) {
-            save();
-        }
-        return success;
-    }
-    function GetWorld() {
-        return world;
-    }
-    function SetToolMesh(mesh) {
-        if (mesh === undefined) {return tool.mesh;}
-
-        var old = tool.mesh;
-        tool.mesh = mesh;
-        return old;
-    }
-    function bindVoxel(voxel) {
-        voxel.addEventListener('VoxelClick', OnVoxelClick);
-        voxel.addEventListener('TopClick', OnTopClick);
-        voxel.addEventListener('BottomClick', OnBottomClick);
-        voxel.addEventListener('FrontClick', OnFrontClick);
-        voxel.addEventListener('BackClick', OnBackClick);
-        voxel.addEventListener('LeftClick', OnLeftClick);
-        voxel.addEventListener('RightClick', OnRightClick);
-        voxel.addEventListener('MeshChange', function() {
-            if (canAutoSave) {
-                save();
-            }
-        });
-    }
-    function unBindVoxel(voxel) {
-        voxel.removeEventListener('VoxelClick', OnVoxelClick);
-        voxel.removeEventListener('TopClick', OnTopClick);
-        voxel.removeEventListener('BottomClick', OnBottomClick);
-        voxel.removeEventListener('FrontClick', OnFrontClick);
-        voxel.removeEventListener('BackClick', OnBackClick);
-        voxel.removeEventListener('LeftClick', OnLeftClick);
-        voxel.removeEventListener('RightClick', OnRightClick);
-    }
-    function OnVoxelClick(event) {
-        if (!isEnabled) {return;}
-        var voxel = event.target;
-        removeVoxel(voxel);
-    }
-    function OnTopClick(event) {
-        if (!isEnabled) {return;}
-        var voxel = event.target;
-        performAddativeShift(voxel, 0, 1, 0);
-    }
-    function OnBottomClick(event) {
-        if (!isEnabled) {return;}
-        var voxel = event.target;
-        performAddativeShift(voxel, 0, -1, 0);
-    }
-    function OnFrontClick(event) {
-        if (!isEnabled) {return;}
-        var voxel = event.target;
-        performAddativeShift(voxel, 0, 0, 1);
-    }
-    function OnBackClick(event) {
-        if (!isEnabled) {return;}
-        var voxel = event.target;
-        performAddativeShift(voxel, 0, 0, -1);
-    }
-    function OnLeftClick(event) {
-        if (!isEnabled) {return;}
-        var voxel = event.target;
-        performAddativeShift(voxel, -1, 0, 0);
-    }
-    function OnRightClick(event) {
-        if (!isEnabled) {return;}
-        var voxel = event.target;
-        performAddativeShift(voxel, 1, 0, 0);
-    }
-    function performAddativeShift(voxel, x, y, z) {
-        var newVoxel = voxel.clone();
-        var dim = newVoxel.getDimension();
-        newVoxel.setMesh(tool.mesh);
-        newVoxel.translate(x * dim, y * dim, z * dim);
-        addVoxel(newVoxel);
-    }
-    function loadWorldVoxels() {
-        for (var i = 0, voxel; voxel = world.getVoxels()[i++];) {bindVoxel(voxel);}
     }
 };
 </code></pre>
@@ -242,7 +148,7 @@ module.exports = function(world, options) {
 <br class="clear">
 
 <footer>
-    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.3</a> on Thu Aug 03 2017 19:39:54 GMT-0500 (CDT) using the Minami theme.
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.3</a> on Sat Aug 05 2017 20:58:46 GMT-0500 (CDT) using the Minami theme.
 </footer>
 
 <script>prettyPrint();</script>
