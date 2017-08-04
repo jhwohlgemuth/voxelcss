@@ -16,6 +16,15 @@ describe('ColorFace', function() {
         expect(face.getHex()).toMatchSnapshot();
         expect(face.getColor()).toMatchSnapshot();
     });
+    it('will only update valid RGBA values', function() {
+        expect(face.getColor()).toMatchSnapshot();
+        expect(() => {
+            face.setColor({r: 1, g: 'not valid', b: 3});
+        }).toThrowErrorMatchingSnapshot();
+        expect(face.getColor()).toMatchSnapshot();
+        face.setColor({r: 1, g: 2, b: 3, a: 'not valid'});
+        expect(face.getColor()).toMatchSnapshot();
+    });
     it('can be cloned', () => {
         let newFace = face.clone();
         expect(newFace.getColor()).toMatchSnapshot();

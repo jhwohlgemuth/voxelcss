@@ -76,7 +76,7 @@
             let r = 102;
             let g = 201;
             let b = 215;
-            let color = [r, g, b];
+            let color = {r, g, b};
             let {grass, dirt, treeTrunk, treeLeaves, water, waterFall, waterFallTop, waterFallCrash} = meshes;
             editor.add(new Voxel(-200, 0, 0, size, {mesh: grass}));
             editor.add(new Voxel(-150, 0, 0, size, {mesh: dirt}));
@@ -86,7 +86,7 @@
             editor.add(new Voxel(50, 0, 0, size, {mesh: waterFall}));
             editor.add(new Voxel(100, 0, 0, size, {mesh: waterFallTop}));
             editor.add(new Voxel(150, 0, 0, size, {mesh: waterFallCrash}));
-            editor.add(new Voxel(200, 0, 0, size, {mesh: new Mesh(new ColorFace(...color))}));
+            editor.add(new Voxel(200, 0, 0, size, {mesh: new Mesh(new ColorFace(color))}));
         }/* eslint-enable no-magic-numbers */
     </script>
 </head>

@@ -29,6 +29,35 @@ Object {
 }
 `;
 
+exports[`ColorFace will only update valid RGBA values 1`] = `
+Object {
+  "a": 1,
+  "b": 51,
+  "g": 51,
+  "r": 51,
+}
+`;
+
+exports[`ColorFace will only update valid RGBA values 2`] = `undefined`;
+
+exports[`ColorFace will only update valid RGBA values 3`] = `
+Object {
+  "a": 1,
+  "b": 51,
+  "g": 51,
+  "r": 51,
+}
+`;
+
+exports[`ColorFace will only update valid RGBA values 4`] = `
+Object {
+  "a": 1,
+  "b": 3,
+  "g": 2,
+  "r": 1,
+}
+`;
+
 exports[`ImageFace can be cloned 1`] = `"data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"`;
 
 exports[`ImageFace can be created with default image 1`] = `"data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"`;
