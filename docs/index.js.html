@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>positioned.js - Documentation</title>
+    <title>index.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,7 +29,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">positioned.js</h1>
+    <h1 class="page-title">index.js</h1>
     
 
     
@@ -39,92 +39,92 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>/**
- * @module positioned
- * @requires common
-**/
-'use strict';
+            <pre class="prettyprint source linenums"><code>'use strict';
 
-const {isNumber} = require('./common');
+require('../dist/voxelcss.css');
+const ColorFace     = require('./ColorFace');
+const Editor        = require('./Editor');
+const eventListener = require('./eventListener');
+const ImageFace     = require('./ImageFace');
+const LightSource   = require('./LightSource');
+const Mesh          = require('./Mesh');
+const meshes        = require('./meshes');
+const Positioned    = require('./positioned');
+const Scene         = require('./Scene');
+const Voxel         = require('./Voxel');
+const World         = require('./World');
 
-module.exports = function(obj) {
-    let self = obj || new Function();
-    let position = {x: 0, y: 0, z: 0};
-    let canTriggerEvent = true;
-    Object.assign(self, {
-        setPosition,
-        setPositionX,
-        setPositionY,
-        setPositionZ,
-        getPosition,
-        getPositionX,
-        getPositionY,
-        getPositionZ,
-        translate,
-        translateX,
-        translateY,
-        translateZ
-    });
-    function setPosition(position) {
-        let [x, y, z] = position;
-        canTriggerEvent = false;
-        setPositionX(x);
-        setPositionY(y);
-        setPositionZ(z);
-        canTriggerEvent = true;
-        self.triggerEvent('move');
-        return self;
-    }
-    function setPositionX(x) {
-        if (!isNumber(x)) {return position.x;}
-        position.x = x;
-        if (canTriggerEvent) {self.triggerEvent('move');}
-    }
-    function setPositionY(y) {
-        if (!isNumber(y)) {return position.y;}
-        position.y = y;
-        if (canTriggerEvent) {self.triggerEvent('move');}
-    }
-    function setPositionZ(z) {
-        if (!isNumber(z)) {return position.z;}
-        position.z = z;
-        if (canTriggerEvent) {self.triggerEvent('move');}
-    }
-    function getPosition() {
-        return position;
-    }
-    function getPositionX() {
-        return position.x;
-    }
-    function getPositionY() {
-        return position.y;
-    }
-    function getPositionZ() {
-        return position.z;
-    }
-    function translate(x, y, z) {
-        canTriggerEvent = false;
-        translateX(x);
-        translateY(y);
-        translateZ(z);
-        canTriggerEvent = true;
-        self.triggerEvent('move');
-        return self;
-    }
-    function translateX(x) {
-        if (!isNumber(x)) {return position.x;}
-        return setPositionX(x + position.x);
-    }
-    function translateY(y) {
-        if (!isNumber(y)) {return position.y;}
-        return setPositionY(y + position.y);
-    }
-    function translateZ(z) {
-        if (!isNumber(z)) {return position.z;}
-        return setPositionZ(z + position.z);
-    }
-    return self;
+module.exports = {
+    ColorFace,
+    Editor,
+    eventListener,
+    ImageFace,
+    LightSource,
+    Mesh,
+    meshes,
+    Positioned,
+    Scene,
+    Voxel,
+    World
 };
+/**
+ * @event module:core/ColorFace~change
+ * @description Fired when face is changed
+ * @type {object}
+ * @prop {object} target Object that triggered event
+**/
+/**
+ * @event module:core/ImageFace~change
+ * @description Fired when face is changed
+ * @type {object}
+ * @prop {object} target Object that triggered event
+**/
+/**
+ * @event module:core/LightSource~change
+ * @description Fired when travelDistance, dark, or light is changed
+ * @type {object}
+ * @prop {object} target Object that triggered event
+**/
+/**
+ * @event module:core/Mesh~change
+ * @description Fired when face is changed
+ * @type {object}
+ * @prop {object} target Object that triggered event
+ * @prop {object} faces Face data
+ * @prop {object} faces.front Data for front face
+ * @prop {object} faces.back Data for back face
+ * @prop {object} faces.left Data for left face
+ * @prop {object} faces.right Data for right face
+ * @prop {object} faces.top Data for top face
+ * @prop {object} faces.bottom Data for bottom face
+**/
+/**
+ * @event module:core/Scene~orbit
+ * @description Fired on scene rotation (mouse drag)
+ * @type {object}
+ * @prop {object} rotation Scene rotation object
+ * @prop {object} pan Scene pan object
+ * @prop {number} zoom Scene zoom
+ * @prop {object} target Object that triggered event
+**/
+/**
+ * @event module:core/Scene~pan
+ * @description Fired on scene pan (mouse drag with shift pressed)
+ * @type {object}
+ * @prop {object} rotation Scene rotation object
+ * @prop {object} pan Scene pan object
+ * @prop {number} zoom Scene zoom
+ * @prop {object} target Object that triggered event
+**/
+/**
+ * @event module:core/Scene~zoom
+ * @description Fired on scene zoom (mouse wheel scroll)
+ * @type {object}
+ * @prop {object} rotation Scene rotation object
+ * @prop {object} pan Scene pan object
+ * @prop {number} zoom Scene zoom
+ * @prop {object} target Object that triggered event
+**/
 </code></pre>
         </article>
     </section>
