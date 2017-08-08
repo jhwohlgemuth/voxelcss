@@ -32,9 +32,7 @@
             let y = 300;
             let z = 300;
             let distance = 750;
-            let dark = 0.2;
-            let light = 1;
-            lightSource = new LightSource([x, y, z], distance, dark, light);
+            lightSource = new LightSource([x, y, z], distance);
             scene = new Scene();/* eslint-disable no-magic-numbers */
             world = new World(scene, 'Demo World');
             editor = new Editor(world);
