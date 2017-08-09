@@ -164,6 +164,14 @@ Array [
 ]
 `;
 
+exports[`Common utilities can map over object values 1`] = `
+Object {
+  "a": true,
+  "b": true,
+  "c": true,
+}
+`;
+
 exports[`Common utilities can perform matrix multiplication (3x3) 1`] = `
 Array [
   Array [

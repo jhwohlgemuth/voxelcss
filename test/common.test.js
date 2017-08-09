@@ -3,12 +3,22 @@
 const {
     hexToRgb,
     rgbToHex,
+    mapValues,
     multiplyMatrices,
     generateRotationMatrix
 } = require('../lib/common');
 const {PI} = Math;
 
 describe('Common utilities', function() {
+    it('can map over object values', function() {
+        let o = {
+            a: 'A',
+            b: 'B',
+            c: 'C'
+        };
+        let constant = val => () => val;
+        expect(mapValues(o, constant(true))).toMatchSnapshot();
+    });
     it('can convert color from HEX to RGB', function() {
         expect(hexToRgb('#333')).toMatchSnapshot();
         expect(hexToRgb('#333333')).toMatchSnapshot();
