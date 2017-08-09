@@ -7,6 +7,7 @@ describe('Mesh', function() {
     let mesh;
     beforeEach(() => {
         mesh = new Mesh();
+        mesh.triggerEvent = jest.fn();
     });
     afterEach(() => {
         mesh = undefined;
@@ -31,12 +32,13 @@ describe('Mesh', function() {
     });
     it('can do nothing when invalid face data is passed', function() {
         let invalidFaceData = 'Not a valid face';
-        expect(mesh.setFront(invalidFaceData)).toBeUndefined();
-        expect(mesh.setBack(invalidFaceData)).toBeUndefined();
-        expect(mesh.setLeft(invalidFaceData)).toBeUndefined();
-        expect(mesh.setRight(invalidFaceData)).toBeUndefined();
-        expect(mesh.setTop(invalidFaceData)).toBeUndefined();
-        expect(mesh.setBottom(invalidFaceData)).toBeUndefined();
+        mesh.setFront(invalidFaceData);
+        mesh.setBack(invalidFaceData);
+        mesh.setLeft(invalidFaceData);
+        mesh.setRight(invalidFaceData);
+        mesh.setTop(invalidFaceData);
+        mesh.setBottom(invalidFaceData);
+        expect(mesh.triggerEvent).not.toHaveBeenCalled();
     });
     it('can trigger change event when a face is changed', function() {
         let faces = mesh.getFaces();
@@ -45,6 +47,8 @@ describe('Mesh', function() {
         mesh.setFaces(faces);
         mesh.setFront(front);
         expect(mesh.getFront()).toEqual(front);
+        front.triggerEvent('change');
+        mesh.setFront(front.clone());
         front.triggerEvent('change');
     });
 });
