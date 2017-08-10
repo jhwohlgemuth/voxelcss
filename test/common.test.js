@@ -1,25 +1,45 @@
 'use strict';
 
 const {
+    constant,
+    findKeyWithValue,
+    generateRotationMatrix,
     hexToRgb,
-    rgbToHex,
+    identity,
+    isNumber,
     mapValues,
     multiplyMatrices,
-    generateRotationMatrix
+    not,
+    rgbToHex
 } = require('../lib/common');
 const {PI} = Math;
 
 describe('Common utilities', function() {
-    it('can map over object values', function() {
-        let o = {
-            a: 'A',
-            b: 'B',
-            c: 'C'
-        };
-        let constant = val => () => val;
-        expect(mapValues(o, constant(true))).toMatchSnapshot();
+    let o = {
+        a: 'A',
+        b: 'B',
+        c: 'C'
+    };
+    it('can find keys with value equal to passed value', () => {
+        expect(findKeyWithValue(o, 'A')).toEqual('a');
+        expect(findKeyWithValue(o, 'C')).toEqual('c');
+        expect(findKeyWithValue(o, 'not in o')).toBeUndefined();
     });
-    it('can convert color from HEX to RGB', function() {
+    it('can negate functions', () => {
+        let truthy = constant(true);
+        let isNotNumber = not(isNumber);
+        expect(truthy()).toEqual(true);
+        expect(not(truthy)()).toEqual(false);
+        expect(isNumber(3)).toEqual(true);
+        expect(isNotNumber(3)).toEqual(false);
+        expect(isNotNumber(1000)).toEqual(false);
+        expect(isNotNumber('not a number')).toEqual(true);
+    });
+    it('can map over object values', () => {
+        expect(mapValues(o, constant(true))).toMatchSnapshot();
+        expect(mapValues(o, identity)).toMatchSnapshot();
+    });
+    it('can convert color from HEX to RGB', () => {
         expect(hexToRgb('#333')).toMatchSnapshot();
         expect(hexToRgb('#333333')).toMatchSnapshot();
         expect(hexToRgb('333')).toMatchSnapshot();
@@ -27,11 +47,11 @@ describe('Common utilities', function() {
         expect(hexToRgb('#F00BA2')).toMatchSnapshot();
         expect(hexToRgb('Not a valid hex string')).toBeNull();
     });
-    it('can convert RGB to HEX', function() {/* eslint-disable no-magic-numbers */
+    it('can convert RGB to HEX', () => {/* eslint-disable no-magic-numbers */
         expect(rgbToHex({r: 51, g: 51, b: 51})).toMatchSnapshot();
         expect(rgbToHex({r: 255, g: 51, b: 153})).toMatchSnapshot();
     });/* eslint-enable no-magic-numbers */
-    it('can perform matrix multiplication (3x3)', function() {
+    it('can perform matrix multiplication (3x3)', () => {
         let x = [1, 0, 0];
         let y = [0, 1, 0];
         let z = [0, 0, 1];
@@ -42,7 +62,7 @@ describe('Common utilities', function() {
         expect(multiplyMatrices(a, c)).toMatchSnapshot();
         expect(multiplyMatrices(b, c)).toMatchSnapshot();
     });
-    it('can generate rotation matrices', function() {
+    it('can generate rotation matrices', () => {
         expect(generateRotationMatrix(0, 0, 0)).toMatchSnapshot();
         expect(generateRotationMatrix(PI, PI, PI)).toMatchSnapshot();
         expect(generateRotationMatrix(PI, 0, 0)).toMatchSnapshot();
