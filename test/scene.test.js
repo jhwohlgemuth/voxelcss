@@ -46,15 +46,15 @@ describe('Scene', function() {
             expect(scene.canZoom()).toBeTruthy();
         });
     });
-    it('can enable and disable orbit', () => {
-        expect(scene.canOrbit()).toBeTruthy();
+    it('can enable and disable rotation', () => {
+        expect(scene.canRotate()).toBeTruthy();
         [1, 2].forEach(() => {
-            scene.disableOrbit();
-            expect(scene.canOrbit()).not.toBeTruthy();
+            scene.disableRotate();
+            expect(scene.canRotate()).not.toBeTruthy();
         });
         [1, 2].forEach(() => {
-            scene.enableOrbit();
-            expect(scene.canOrbit()).toBeTruthy();
+            scene.enableRotate();
+            expect(scene.canRotate()).toBeTruthy();
         });
     });
     it('can attach and detach', () => {
@@ -82,26 +82,24 @@ describe('Scene', function() {
             scene.detach();
         }).toThrowErrorMatchingSnapshot();
     });
-    it('can get and set zoom', () => {
-        expect(scene.getZoom()).toEqual(INITIAL_ZOOM);
-        expect(scene.setZoom()).toEqual(INITIAL_ZOOM);
-        expect(scene.setZoom('Not a number')).toEqual(INITIAL_ZOOM);
-        expect(scene.setZoom(10)).toEqual(10);
-        expect(scene.getZoom()).toEqual(10);
-        scene.zoom(1000);
-        expect(scene.getZoom()).toMatchSnapshot();
-        scene.zoom();
-        expect(scene.getZoom()).toMatchSnapshot();
-        scene.zoom('Not a number');
-        expect(scene.getZoom()).toMatchSnapshot();
+    it('can rotate', () => {
+        const NOT_A_NUMBER = 'Not a number';
+        expect(scene.getRotation()).toEqual(INITIAL_ROTATION);
+        scene.rotate(1, 0, 1);
+        expect(scene.getRotation()).toEqual({x: 1, y: 0, z: 1});
+        scene.rotate();
+        expect(scene.getRotation()).toEqual({x: 1, y: 0, z: 1});
+        scene.rotate(NOT_A_NUMBER, NOT_A_NUMBER, NOT_A_NUMBER);
+        expect(scene.getRotation()).toEqual({x: 1, y: 0, z: 1});
+        scene.setRotation(0, 0, 0);
+        expect(scene.getRotation()).toEqual(INITIAL_ROTATION);
+        scene.setRotation();
+        expect(scene.getRotation()).toEqual(INITIAL_ROTATION);
+        scene.setRotation(NOT_A_NUMBER, NOT_A_NUMBER, NOT_A_NUMBER);
+        expect(scene.getRotation()).toEqual(INITIAL_ROTATION);
     });
-    it('can get, set pan', () => {
-        let voxel = new Voxel(0, 0, 0, 10);
-        scene.add(voxel);
-        expect(scene.getPan()).toEqual(INITIAL_PAN);
-        expect(scene.pan()).toEqual(INITIAL_PAN);
-        expect(scene.pan(1, 10, 1000)).toEqual(INITIAL_PAN);
-        expect(scene.getPan()).toMatchSnapshot();
+    it('can set rotation', () => {
+
     });
     it('can apply pan', () => {
         let x = 1;
@@ -115,21 +113,26 @@ describe('Scene', function() {
         scene.setPan(x, y, z);
         expect(scene.getPan()).toMatchSnapshot();
     });
-    it('can rotate', () => {
-        expect(scene.getRotation()).toEqual(INITIAL_ROTATION);
-        expect(scene.rotate(1, 0, 1)).toEqual(INITIAL_ROTATION);
-        expect(scene.getRotation()).toEqual({x: 1, y: 0, z: 1});
-        scene.rotate();
-        expect(scene.getRotation()).toEqual({x: 1, y: 0, z: 1});
-        const NOT_A_NUMBER = 'Not a number';
-        scene.rotate(NOT_A_NUMBER, NOT_A_NUMBER, NOT_A_NUMBER);
-        expect(scene.getRotation()).toEqual({x: 1, y: 0, z: 1});
-        scene.setRotation(0, 0, 0);
-        expect(scene.getRotation()).toEqual(INITIAL_ROTATION);
-        scene.setRotation();
-        expect(scene.getRotation()).toEqual(INITIAL_ROTATION);
-        scene.setRotation(NOT_A_NUMBER, NOT_A_NUMBER, NOT_A_NUMBER);
-        expect(scene.getRotation()).toEqual(INITIAL_ROTATION);
+    it('can get and set pan', () => {
+        let voxel = new Voxel(0, 0, 0, 10);
+        scene.add(voxel);
+        expect(scene.getPan()).toEqual(INITIAL_PAN);
+        scene.pan();
+        scene.pan(1, 10, 1000);
+        expect(scene.getPan()).toMatchSnapshot();
+    });
+    it('can get and set zoom', () => {
+        expect(scene.getZoom()).toEqual(INITIAL_ZOOM);
+        scene.setZoom();
+        scene.setZoom('Not a number');
+        scene.setZoom(10);
+        expect(scene.getZoom()).toEqual(10);
+        scene.zoom(1000);
+        expect(scene.getZoom()).toMatchSnapshot();
+        scene.zoom();
+        expect(scene.getZoom()).toMatchSnapshot();
+        scene.zoom('Not a number');
+        expect(scene.getZoom()).toMatchSnapshot();
     });
     it('can add and remove light sources', () => {
         let dim = 300;

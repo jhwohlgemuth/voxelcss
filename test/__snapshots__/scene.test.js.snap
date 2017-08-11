@@ -79,19 +79,19 @@ Object {
 
 exports[`Scene can enable and disable zoom 1`] = `1`;
 
-exports[`Scene can get and set zoom 1`] = `1010`;
-
-exports[`Scene can get and set zoom 2`] = `1010`;
-
-exports[`Scene can get and set zoom 3`] = `1010`;
-
-exports[`Scene can get, set pan 1`] = `
+exports[`Scene can get and set pan 1`] = `
 Object {
   "x": 1,
   "y": 10,
   "z": 1000,
 }
 `;
+
+exports[`Scene can get and set zoom 1`] = `1010`;
+
+exports[`Scene can get and set zoom 2`] = `1010`;
+
+exports[`Scene can get and set zoom 3`] = `1010`;
 
 exports[`Scene can respond to mouse interaction 1`] = `5`;
 
