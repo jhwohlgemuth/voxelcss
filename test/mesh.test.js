@@ -47,8 +47,29 @@ describe('Mesh', function() {
         mesh.setFaces(faces);
         mesh.setFront(front);
         expect(mesh.getFront()).toEqual(front);
-        front.triggerEvent('change');
-        mesh.setFront(front.clone());
-        front.triggerEvent('change');
+        mesh.triggerEvent = jest.fn();
+        let setMethods = [
+            'setFront',
+            'setBack',
+            'setLeft',
+            'setRight',
+            'setTop',
+            'setBottom'
+        ];
+        let getMethods = [
+            'getFront',
+            'getBack',
+            'getLeft',
+            'getRight',
+            'getTop',
+            'getBottom'
+        ];
+        setMethods.forEach(method => mesh[method](front.clone()));
+        let count = setMethods.length;
+        expect(mesh.triggerEvent).toHaveBeenCalledTimes(count);
+        getMethods.forEach(method => {
+            mesh[method]().triggerEvent('change');
+            expect(mesh.triggerEvent).toHaveBeenCalledTimes(++count);
+        });
     });
 });
