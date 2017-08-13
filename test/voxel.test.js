@@ -3,6 +3,7 @@
 const ColorFace = require('../lib/ColorFace');
 const Mesh      = require('../lib/Mesh');
 const Voxel     = require('../lib/Voxel');
+const Scene     = require('../lib/Scene');
 
 describe('Voxel', function() {
     let voxel;
@@ -31,7 +32,7 @@ describe('Voxel', function() {
         voxel.setMesh('Not a mesh');
         expect(voxel.getMesh()).toMatchSnapshot();
     });
-    it('can be added to and removed from a scene', function() {
+    it('can be added to and removed from a scene', () => {
         expect(() => {
             voxel.addToScene();
         }).toThrowErrorMatchingSnapshot();
@@ -47,7 +48,35 @@ describe('Voxel', function() {
         voxel.removeFromScene();
         expect(scene.remove).toHaveBeenCalledTimes(1);
     });
-    it('can be added to a scene via animUp', function() {
+    it('can handle left click events', () => {
+        const NUMBER_OF_SIDES = 6;
+        let leftClick = new window.MouseEvent('click');
+        let scene = new Scene();
+        let a = new Voxel();
+        a.triggerEvent = jest.fn();
+        scene.add(a);
+        a.getAnimatedElement().childNodes.forEach(face => face.dispatchEvent(leftClick));
+        expect(a.triggerEvent).toHaveBeenCalledTimes(NUMBER_OF_SIDES);
+        expect(a.triggerEvent.mock.calls).toMatchSnapshot();
+    });
+    it('can handle right click events', () => {
+        let rightClick = new window.MouseEvent('contextmenu');
+        let scene = new Scene();
+        let a = new Voxel();
+        a.triggerEvent = jest.fn();
+        scene.add(a);
+        a.getAnimatedElement().childNodes[0].dispatchEvent(rightClick);
+        expect(a.triggerEvent).toHaveBeenCalledTimes(1);
+        expect(a.triggerEvent.mock.calls).toMatchSnapshot();
+    });
+    it('can handle mesh change events', () => {
+        let a = new Voxel();
+        let mesh = a.getMesh();
+        a.triggerEvent = jest.fn();
+        mesh.triggerEvent('change');
+        expect(a.triggerEvent.mock.calls).toMatchSnapshot();
+    });
+    it('can be added to a scene via animUp', () => {
         expect(() => {
             voxel.animUp();
         }).toThrowErrorMatchingSnapshot();
@@ -58,7 +87,7 @@ describe('Voxel', function() {
         voxel.animUp(scene);
         expect(scene.add).toHaveBeenCalledWith(voxel);
     });
-    it('can be added to a scene via animDown', function() {
+    it('can be added to a scene via animDown', () => {
         expect(() => {
             voxel.animDown();
         }).toThrowErrorMatchingSnapshot();
@@ -69,7 +98,7 @@ describe('Voxel', function() {
         voxel.animDown(scene);
         expect(scene.add).toHaveBeenCalledWith(voxel);
     });
-    it('can get and set dimensions', function() {
+    it('can get and set dimensions', () => {
         let dim = 42;
         expect(voxel.getDimension()).toEqual(0);
         voxel.setDimension(dim);

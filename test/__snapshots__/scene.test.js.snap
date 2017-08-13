@@ -34,6 +34,7 @@ Array [
     "animDown": [Function],
     "animUp": [Function],
     "clone": [Function],
+    "getAnimatedElement": [Function],
     "getDimension": [Function],
     "getDomElement": [Function],
     "getMesh": [Function],
