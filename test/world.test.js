@@ -46,8 +46,17 @@ describe('World', function() {
         let voxelString = world.export();
         world.import(voxelString);
         expect(world.export()).toEqual(voxelString);
+        expect(() => {
+            world.import(100);// not a string
+        }).toThrowErrorMatchingSnapshot();
+        expect(world.export()).toEqual(voxelString);
+        expect(() => {
+            world.import('');
+        }).toThrowErrorMatchingSnapshot();
+        expect(world.export()).not.toEqual(voxelString);// clear is called
+        expect(world.export()).toMatchSnapshot();
     });
-    it('can load from the browser', function() {
+    it('can load from the browser', () => {
         let formName = `savedWorld<${label}>`;
         let voxel = new Voxel();
         world.add(voxel);

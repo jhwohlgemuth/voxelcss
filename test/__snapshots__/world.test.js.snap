@@ -3,6 +3,7 @@
 exports[`World can add and remove voxels 1`] = `
 World {
   "add": [Function],
+  "clear": [Function],
   "deleteSave": [Function],
   "export": [Function],
   "getScene": [Function],
@@ -106,6 +107,12 @@ Array [
   },
 ]
 `;
+
+exports[`World can import voxels 1`] = `undefined`;
+
+exports[`World can import voxels 2`] = `undefined`;
+
+exports[`World can import voxels 3`] = `"[]"`;
 
 exports[`World can load from the browser 1`] = `
 Array [
