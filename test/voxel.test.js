@@ -5,19 +5,21 @@ const Mesh      = require('../lib/Mesh');
 const Voxel     = require('../lib/Voxel');
 const Scene     = require('../lib/Scene');
 
+const DEFAULT_SIZE = 50;
+
 describe('Voxel', function() {
     let voxel;
     beforeEach(() => {
         voxel = new Voxel();
     });
-    it('can be instantiated with dimension 0', () => {
-        expect(voxel.getDimension()).toEqual(0);
+    it('can be instantiated with dimension default size', () => {
+        expect(voxel.getDimension()).toEqual(DEFAULT_SIZE);
     });
     it('can create clones', function() {
         let x = 123;
         let y = 456;
         let z = 789;
-        let original = new Voxel(x, y, z);
+        let original = new Voxel([x, y, z]);
         let clone = original.clone();
         expect(clone.getPosition()).toMatchSnapshot();
     });
@@ -100,7 +102,7 @@ describe('Voxel', function() {
     });
     it('can get and set dimensions', () => {
         let dim = 42;
-        expect(voxel.getDimension()).toEqual(0);
+        expect(voxel.getDimension()).toEqual(DEFAULT_SIZE);
         voxel.setDimension(dim);
         expect(voxel.getDimension()).toEqual(dim);
         voxel.setDimension('not a number');

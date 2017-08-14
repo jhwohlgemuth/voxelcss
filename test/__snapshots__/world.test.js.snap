@@ -16,7 +16,7 @@ World {
 }
 `;
 
-exports[`World can export voxels 1`] = `"[{\\"position\\":{\\"x\\":0,\\"y\\":0,\\"z\\":0},\\"dimension\\":0,\\"mesh\\":\\"{\\\\\\"front\\\\\\":\\\\\\"image(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7)\\\\\\",\\\\\\"back\\\\\\":\\\\\\"image(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7)\\\\\\",\\\\\\"left\\\\\\":\\\\\\"image(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7)\\\\\\",\\\\\\"right\\\\\\":\\\\\\"image(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7)\\\\\\",\\\\\\"top\\\\\\":\\\\\\"image(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7)\\\\\\",\\\\\\"bottom\\\\\\":\\\\\\"image(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7)\\\\\\"}\\"}]"`;
+exports[`World can export voxels 1`] = `"[{\\"position\\":{\\"x\\":0,\\"y\\":0,\\"z\\":0},\\"dimension\\":50,\\"mesh\\":\\"{\\\\\\"front\\\\\\":\\\\\\"image(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7)\\\\\\",\\\\\\"back\\\\\\":\\\\\\"image(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7)\\\\\\",\\\\\\"left\\\\\\":\\\\\\"image(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7)\\\\\\",\\\\\\"right\\\\\\":\\\\\\"image(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7)\\\\\\",\\\\\\"top\\\\\\":\\\\\\"image(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7)\\\\\\",\\\\\\"bottom\\\\\\":\\\\\\"image(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7)\\\\\\"}\\"}]"`;
 
 exports[`World can get scene and voxels 1`] = `
 Scene {

@@ -105,7 +105,7 @@ describe('Scene', function() {
         let x = 1;
         let y = 2;
         let z = 3;
-        let voxel = new Voxel(0, 0, 0, 10);
+        let voxel = new Voxel([0, 0, 0], 10);
         scene.add(voxel);
         expect(scene.getPan()).toEqual(INITIAL_PAN);
         scene.setPan();
@@ -114,7 +114,7 @@ describe('Scene', function() {
         expect(scene.getPan()).toMatchSnapshot();
     });
     it('can get and set pan', () => {
-        let voxel = new Voxel(0, 0, 0, 10);
+        let voxel = new Voxel([0, 0, 0], 10);
         scene.add(voxel);
         expect(scene.getPan()).toEqual(INITIAL_PAN);
         scene.pan();
@@ -149,7 +149,7 @@ describe('Scene', function() {
         expect(scene.getLightSources()).toEqual([]);
     });
     it('can add and remove voxels', () => {
-        let voxel = new Voxel(10, 10, 10, 10);
+        let voxel = new Voxel([10, 10, 10], 10);
         let dim = 300;
         let position = [dim, dim, dim];
         let distance = 750;

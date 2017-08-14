@@ -61,7 +61,7 @@ Examples
 
 Features
 --------
-- Completely compatible with [voxel.css](https://github.com/HunterLarco/voxel.css)
+- ~~Completely~~ *Mostly* compatible with [voxel.css](https://github.com/HunterLarco/voxel.css)
 - JavaScript and CSS are all bundled together into one file!
 - CSS is processed by [cssnext](http://cssnext.io/) and minified with [cssnano](http://cssnano.co/) to provide auto-prefixed styles with a minimal footprint and maximum compatibility.
 - Code functionality is verified by tests written using [Jest](https://facebook.github.io/jest/)
