@@ -46,6 +46,12 @@ describe('Events Module', function() {
         o.trigger('foo bar');
         expect(foo).toHaveBeenCalledTimes(1);
         expect(bar).toHaveBeenCalledTimes(1);
+        o.off();
+        o.on({
+            'foo baz': baz
+        });
+        o.trigger('baz');
+        expect(baz).toHaveBeenCalledTimes(1);
     });
     it('can create listeners for all events', () => {
         o.on('all', foo);
@@ -163,6 +169,25 @@ describe('Events Module', function() {
         a.listenToOnce(b, 'foo', foo);
         b.trigger('foo');
         b.trigger('foo');
+        expect(foo).toHaveBeenCalledTimes(1);
+    });
+    it('can be used with other on/off interfaces', () => {
+        let _events = {};
+        let other = {
+            on: (name, callback) => (_events[name] = callback),
+            off: name => (_events[name] = null),
+            trigger: (name, args) => {
+                let cb = _events[name];
+                typeof cb === 'function'  && cb(args);
+            }
+        };
+        o.listenTo(other, 'foo', foo);
+        other.trigger('foo');
+        expect(foo).toHaveBeenCalledTimes(1);
+        expect(o._listeningTo).toMatchSnapshot();
+        o.stopListening(other, 'foo');
+        other.trigger('foo');
+        expect(o._listeningTo).toMatchSnapshot();
         expect(foo).toHaveBeenCalledTimes(1);
     });
 });

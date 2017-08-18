@@ -1,5 +1,70 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Events Module can be used with other on/off interfaces 1`] = `
+Object {
+  "l9": Listening {
+    "_events": Object {
+      "foo": Array [
+        Object {
+          "callback": [Function],
+          "context": undefined,
+          "ctx": [Circular],
+          "listening": undefined,
+        },
+      ],
+    },
+    "count": 0,
+    "id": "l10",
+    "interop": true,
+    "listener": Object {
+      "_listenId": "l10",
+      "_listeningTo": [Circular],
+      "listenTo": [Function],
+      "listenToOnce": [Function],
+      "off": [Function],
+      "on": [Function],
+      "once": [Function],
+      "stopListening": [Function],
+      "trigger": [Function],
+    },
+    "obj": Object {
+      "_listenId": "l9",
+      "off": [Function],
+      "on": [Function],
+      "trigger": [Function],
+    },
+  },
+}
+`;
+
+exports[`Events Module can be used with other on/off interfaces 2`] = `
+Object {
+  "l9": Listening {
+    "_events": Object {},
+    "count": 0,
+    "id": "l10",
+    "interop": true,
+    "listener": Object {
+      "_listenId": "l10",
+      "_listeningTo": [Circular],
+      "listenTo": [Function],
+      "listenToOnce": [Function],
+      "off": [Function],
+      "on": [Function],
+      "once": [Function],
+      "stopListening": [Function],
+      "trigger": [Function],
+    },
+    "obj": Object {
+      "_listenId": "l9",
+      "off": [Function],
+      "on": [Function],
+      "trigger": [Function],
+    },
+  },
+}
+`;
+
 exports[`Events Module can do nothing with stopListening is called with no listeners 1`] = `
 Object {
   "listenTo": [Function],
