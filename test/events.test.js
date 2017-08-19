@@ -241,7 +241,7 @@ describe('Events Module', function() {
             off: name => (_events[name] = null),
             trigger: (name, args) => {
                 let cb = _events[name];
-                typeof cb === 'function'  && cb(args);
+                typeof cb === 'function' && cb(args);
             }
         };
         o.listenTo(other, 'foo', foo);
