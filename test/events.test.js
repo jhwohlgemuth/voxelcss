@@ -40,6 +40,24 @@ describe('Events Module', function() {
         o.off('baz');
         o.trigger('baz');
         expect(baz).toHaveBeenCalledTimes(1);
+        foo.mockClear();
+        o.on('one two three', foo);
+        o.off('one two');
+        o.trigger('one');
+        o.trigger('two');
+        o.trigger('three');
+        expect(foo).toHaveBeenCalledTimes(1);
+    });
+    it('can bind triggering with context', () => {
+        function increment() {this.count += 1;}
+        let context = {count: 0};
+        o.on({increment}, context);
+        o.trigger('increment');
+        expect(context).toMatchSnapshot();
+        o.off();
+        o.on('a b c', increment, context);
+        o.trigger('a b');
+        expect(context).toMatchSnapshot();
     });
     it('can add listeners using map syntax', () => {
         o.on({foo, bar});
@@ -65,6 +83,32 @@ describe('Events Module', function() {
         o.trigger('bar');
         expect(foo).toHaveBeenCalledTimes(3);
     });
+    it('can throw an error with "truthy" non-function callbacks', () => {
+        o.on('foo', 'not a valid callback');
+        expect(() => {
+            o.trigger('foo');
+        }).toThrowErrorMatchingSnapshot();
+    });
+    it('can remove events for specific context', () => {
+        let context = {count: 0};
+        o.on('foo', foo);
+        o.on('foo', foo, context);
+        o.on('bar', bar, context);
+        o.off(null, null, context);
+        o.trigger('foo bar');
+        expect(foo).toHaveBeenCalledTimes(1);
+        expect(bar).not.toHaveBeenCalled();
+    });
+    it('can remove events for specific context (map syntax)', () => {
+        let context = {count: 0};
+        o.on({foo});
+        o.on({foo}, context);
+        o.on({bar}, context);
+        o.off(null, null, context);
+        o.trigger('foo bar');
+        expect(foo).toHaveBeenCalledTimes(1);
+        expect(bar).not.toHaveBeenCalled();
+    });
     it('can trigger multiple events', () => {
         o.on('foo bar', foo);
         o.on('baz', baz);
@@ -81,6 +125,25 @@ describe('Events Module', function() {
             o.trigger('foo', ...payload);
         });
         expect(foo.mock.calls).toMatchSnapshot();
+    });
+    it('can use "this" as default context', () => {
+        let a = assign({count: 0}, events);
+        function inc() {this.count += 1;}
+        a.on({inc});
+        a.trigger('inc');
+        a.trigger('inc');
+        expect(a.count).toEqual(2);
+    });
+    it('can remove listeners in midst of triggering', () => {
+        let a = assign({count: 0}, events);
+        let inc = () => {
+            a.count += 1;
+            a.off();
+        };
+        a.on('inc', inc);
+        a.trigger('inc');
+        a.trigger('inc');
+        expect(a.count).toEqual(1);
     });
     it('can remove all listeners using off with no arguments', () => {
         o.off();// does nothing
@@ -189,5 +252,46 @@ describe('Events Module', function() {
         other.trigger('foo');
         expect(o._listeningTo).toMatchSnapshot();
         expect(foo).toHaveBeenCalledTimes(1);
+    });
+    it('can listen to all events on another object', () => {
+        let a = assign({}, events);
+        let b = assign({}, events);
+        a.listenTo(b, 'all', foo);
+        b.trigger('foo');
+        b.trigger('bar');
+        b.trigger('baz');
+        expect(foo).toHaveBeenCalledTimes(3);
+    });
+    it('can listen to itself', () => {
+        o.listenTo(o, 'foo', foo);
+        o.listenTo(o, {baz});
+        o.trigger('foo');
+        o.trigger('baz');
+        expect(foo).toHaveBeenCalledTimes(1);
+        expect(baz).toHaveBeenCalledTimes(1);
+        o.stopListening(o, {foo});
+        o.stopListening(o, 'baz', baz);
+        o.trigger('foo');
+        o.trigger('baz');
+        expect(foo).toHaveBeenCalledTimes(1);
+        expect(baz).toHaveBeenCalledTimes(1);
+    });
+    it('can clean up all listeners', () => {
+        o.listenTo(o, 'foo', foo);
+        o.listenTo(o, {baz});
+        o.stopListening();
+        o.trigger('foo');
+        o.trigger('baz');
+        expect(foo).not.toHaveBeenCalled();
+        expect(baz).not.toHaveBeenCalled();
+    });
+    it('will not throw error if listenTo is called without callback', () => {
+        o.listenTo(o, 'foo', null);
+    });
+    it('can clean up all listeners with off', () => {
+        o.listenTo(o, {foo});
+        expect(o._listeners).toMatchSnapshot();
+        o.off();
+        expect(o._listeners).toEqual({});
     });
 });

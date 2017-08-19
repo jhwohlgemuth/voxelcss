@@ -1,6 +1,7 @@
 'use strict';
 
 const {assign} = Object;
+const events   = require('../lib/events');
 const Scene    = require('../lib/Scene');
 const World    = require('../lib/World');
 
@@ -11,7 +12,7 @@ module.exports = {
 };
 
 function createVoxelMock() {
-    return assign(document.createElement('div'), {
+    return assign(document.createElement('div'), events, {
         getDimension: jest.fn().mockReturnValue(100),
         clone: jest.fn().mockReturnThis(),
         translate: jest.fn().mockReturnThis(),

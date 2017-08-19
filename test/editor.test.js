@@ -107,13 +107,13 @@ describe('Editor', function() {
         editor.add(b);
         editor.remove(a);
         expect(world.save).not.toHaveBeenCalled();
-        expect(a.off).toHaveBeenCalledTimes(allEvents.length);
+        expect(a.off).toHaveBeenCalledTimes(2);
         editor.enableAutoSave();
         editor.remove(b);
         expect(world.save).toHaveBeenCalledTimes(1);
-        expect(b.off).toHaveBeenCalledTimes(allEvents.length);
+        expect(b.off).toHaveBeenCalledTimes(2);
     });
-    xit('can bind and unbind event handlers to voxels', () => {
+    it('can bind and unbind event handlers to voxels', () => {
         let voxel = new Voxel();
         let target = createVoxelMock();
         editor.add(voxel);
