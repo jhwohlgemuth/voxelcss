@@ -7,7 +7,7 @@ describe('Mesh', function() {
     let mesh;
     beforeEach(() => {
         mesh = new Mesh();
-        mesh.triggerEvent = jest.fn();
+        mesh.trigger = jest.fn();
     });
     afterEach(() => {
         mesh = undefined;
@@ -38,7 +38,7 @@ describe('Mesh', function() {
         mesh.setRight(invalidFaceData);
         mesh.setTop(invalidFaceData);
         mesh.setBottom(invalidFaceData);
-        expect(mesh.triggerEvent).not.toHaveBeenCalled();
+        expect(mesh.trigger).not.toHaveBeenCalled();
     });
     it('can trigger change event when a face is changed', function() {
         let faces = mesh.getFaces();
@@ -47,7 +47,7 @@ describe('Mesh', function() {
         mesh.setFaces(faces);
         mesh.setFront(front);
         expect(mesh.getFront()).toEqual(front);
-        mesh.triggerEvent = jest.fn();
+        mesh.trigger = jest.fn();
         let setMethods = [
             'setFront',
             'setBack',
@@ -66,10 +66,10 @@ describe('Mesh', function() {
         ];
         setMethods.forEach(method => mesh[method](front.clone()));
         let count = setMethods.length;
-        expect(mesh.triggerEvent).toHaveBeenCalledTimes(count);
+        expect(mesh.trigger).toHaveBeenCalledTimes(count);
         getMethods.forEach(method => {
-            mesh[method]().triggerEvent('change');
-            expect(mesh.triggerEvent).toHaveBeenCalledTimes(++count);
+            mesh[method]().trigger('change');
+            expect(mesh.trigger).toHaveBeenCalledTimes(++count);
         });
     });
 });

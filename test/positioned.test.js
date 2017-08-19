@@ -1,13 +1,14 @@
 'use strict';
 
-const eventListener = require('../lib/eventListener');
-const positioned    = require('../lib/positioned');
+const {assign}   = Object;
+const events     = require('../lib/events');
+const positioned = require('../lib/positioned');
 
 describe('Positioned module', function() {
     let item;
     let position = [1, 2, 3];
     beforeEach(() => {
-        item = positioned(eventListener({}));
+        item = positioned(assign({}, events));
     });
     it('can get and set position', () => {
         expect(item.getPosition()).toEqual({x: 0, y: 0, z: 0});

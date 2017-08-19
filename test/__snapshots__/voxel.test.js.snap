@@ -16,7 +16,16 @@ Object {
 
 exports[`Voxel can get and set mesh 1`] = `
 Mesh {
-  "addEventListener": [Function],
+  "_events": Object {
+    "change": Array [
+      Object {
+        "callback": [Function],
+        "context": undefined,
+        "ctx": [Circular],
+        "listening": undefined,
+      },
+    ],
+  },
   "getBack": [Function],
   "getBottom": [Function],
   "getFaces": [Function],
@@ -24,7 +33,11 @@ Mesh {
   "getLeft": [Function],
   "getRight": [Function],
   "getTop": [Function],
-  "removeEventListener": [Function],
+  "listenTo": [Function],
+  "listenToOnce": [Function],
+  "off": [Function],
+  "on": [Function],
+  "once": [Function],
   "serialize": [Function],
   "setBack": [Function],
   "setBottom": [Function],
@@ -33,13 +46,23 @@ Mesh {
   "setLeft": [Function],
   "setRight": [Function],
   "setTop": [Function],
-  "triggerEvent": [Function],
+  "stopListening": [Function],
+  "trigger": [Function],
 }
 `;
 
 exports[`Voxel can get and set mesh 2`] = `
 Mesh {
-  "addEventListener": [Function],
+  "_events": Object {
+    "change": Array [
+      Object {
+        "callback": [Function],
+        "context": undefined,
+        "ctx": [Circular],
+        "listening": undefined,
+      },
+    ],
+  },
   "getBack": [Function],
   "getBottom": [Function],
   "getFaces": [Function],
@@ -47,7 +70,11 @@ Mesh {
   "getLeft": [Function],
   "getRight": [Function],
   "getTop": [Function],
-  "removeEventListener": [Function],
+  "listenTo": [Function],
+  "listenToOnce": [Function],
+  "off": [Function],
+  "on": [Function],
+  "once": [Function],
   "serialize": [Function],
   "setBack": [Function],
   "setBottom": [Function],
@@ -56,13 +83,23 @@ Mesh {
   "setLeft": [Function],
   "setRight": [Function],
   "setTop": [Function],
-  "triggerEvent": [Function],
+  "stopListening": [Function],
+  "trigger": [Function],
 }
 `;
 
 exports[`Voxel can get and set mesh 3`] = `
 Mesh {
-  "addEventListener": [Function],
+  "_events": Object {
+    "change": Array [
+      Object {
+        "callback": [Function],
+        "context": undefined,
+        "ctx": [Circular],
+        "listening": undefined,
+      },
+    ],
+  },
   "getBack": [Function],
   "getBottom": [Function],
   "getFaces": [Function],
@@ -70,7 +107,11 @@ Mesh {
   "getLeft": [Function],
   "getRight": [Function],
   "getTop": [Function],
-  "removeEventListener": [Function],
+  "listenTo": [Function],
+  "listenToOnce": [Function],
+  "off": [Function],
+  "on": [Function],
+  "once": [Function],
   "serialize": [Function],
   "setBack": [Function],
   "setBottom": [Function],
@@ -79,13 +120,23 @@ Mesh {
   "setLeft": [Function],
   "setRight": [Function],
   "setTop": [Function],
-  "triggerEvent": [Function],
+  "stopListening": [Function],
+  "trigger": [Function],
 }
 `;
 
 exports[`Voxel can get and set mesh 4`] = `
 Mesh {
-  "addEventListener": [Function],
+  "_events": Object {
+    "change": Array [
+      Object {
+        "callback": [Function],
+        "context": undefined,
+        "ctx": [Circular],
+        "listening": undefined,
+      },
+    ],
+  },
   "getBack": [Function],
   "getBottom": [Function],
   "getFaces": [Function],
@@ -93,7 +144,11 @@ Mesh {
   "getLeft": [Function],
   "getRight": [Function],
   "getTop": [Function],
-  "removeEventListener": [Function],
+  "listenTo": [Function],
+  "listenToOnce": [Function],
+  "off": [Function],
+  "on": [Function],
+  "once": [Function],
   "serialize": [Function],
   "setBack": [Function],
   "setBottom": [Function],
@@ -102,7 +157,8 @@ Mesh {
   "setLeft": [Function],
   "setRight": [Function],
   "setTop": [Function],
-  "triggerEvent": [Function],
+  "stopListening": [Function],
+  "trigger": [Function],
 }
 `;
 
@@ -112,7 +168,16 @@ Array [
     "TopClick",
     Object {
       "target": Voxel {
-        "addEventListener": [Function],
+        "_events": Object {
+          "move": Array [
+            Object {
+              "callback": [Function],
+              "context": undefined,
+              "ctx": [Circular],
+              "listening": undefined,
+            },
+          ],
+        },
         "addToScene": [Function],
         "animDown": [Function],
         "animUp": [Function],
@@ -125,7 +190,11 @@ Array [
         "getPositionX": [Function],
         "getPositionY": [Function],
         "getPositionZ": [Function],
-        "removeEventListener": [Function],
+        "listenTo": [Function],
+        "listenToOnce": [Function],
+        "off": [Function],
+        "on": [Function],
+        "once": [Function],
         "removeFromScene": [Function],
         "removeParentScene": [Function],
         "setDimension": [Function],
@@ -135,11 +204,12 @@ Array [
         "setPositionX": [Function],
         "setPositionY": [Function],
         "setPositionZ": [Function],
+        "stopListening": [Function],
         "translate": [Function],
         "translateX": [Function],
         "translateY": [Function],
         "translateZ": [Function],
-        "triggerEvent": [Function],
+        "trigger": [Function],
         "updateLightSource": [Function],
       },
     },
@@ -148,7 +218,16 @@ Array [
     "BottomClick",
     Object {
       "target": Voxel {
-        "addEventListener": [Function],
+        "_events": Object {
+          "move": Array [
+            Object {
+              "callback": [Function],
+              "context": undefined,
+              "ctx": [Circular],
+              "listening": undefined,
+            },
+          ],
+        },
         "addToScene": [Function],
         "animDown": [Function],
         "animUp": [Function],
@@ -161,7 +240,11 @@ Array [
         "getPositionX": [Function],
         "getPositionY": [Function],
         "getPositionZ": [Function],
-        "removeEventListener": [Function],
+        "listenTo": [Function],
+        "listenToOnce": [Function],
+        "off": [Function],
+        "on": [Function],
+        "once": [Function],
         "removeFromScene": [Function],
         "removeParentScene": [Function],
         "setDimension": [Function],
@@ -171,11 +254,12 @@ Array [
         "setPositionX": [Function],
         "setPositionY": [Function],
         "setPositionZ": [Function],
+        "stopListening": [Function],
         "translate": [Function],
         "translateX": [Function],
         "translateY": [Function],
         "translateZ": [Function],
-        "triggerEvent": [Function],
+        "trigger": [Function],
         "updateLightSource": [Function],
       },
     },
@@ -184,7 +268,16 @@ Array [
     "FrontClick",
     Object {
       "target": Voxel {
-        "addEventListener": [Function],
+        "_events": Object {
+          "move": Array [
+            Object {
+              "callback": [Function],
+              "context": undefined,
+              "ctx": [Circular],
+              "listening": undefined,
+            },
+          ],
+        },
         "addToScene": [Function],
         "animDown": [Function],
         "animUp": [Function],
@@ -197,7 +290,11 @@ Array [
         "getPositionX": [Function],
         "getPositionY": [Function],
         "getPositionZ": [Function],
-        "removeEventListener": [Function],
+        "listenTo": [Function],
+        "listenToOnce": [Function],
+        "off": [Function],
+        "on": [Function],
+        "once": [Function],
         "removeFromScene": [Function],
         "removeParentScene": [Function],
         "setDimension": [Function],
@@ -207,11 +304,12 @@ Array [
         "setPositionX": [Function],
         "setPositionY": [Function],
         "setPositionZ": [Function],
+        "stopListening": [Function],
         "translate": [Function],
         "translateX": [Function],
         "translateY": [Function],
         "translateZ": [Function],
-        "triggerEvent": [Function],
+        "trigger": [Function],
         "updateLightSource": [Function],
       },
     },
@@ -220,7 +318,16 @@ Array [
     "BackClick",
     Object {
       "target": Voxel {
-        "addEventListener": [Function],
+        "_events": Object {
+          "move": Array [
+            Object {
+              "callback": [Function],
+              "context": undefined,
+              "ctx": [Circular],
+              "listening": undefined,
+            },
+          ],
+        },
         "addToScene": [Function],
         "animDown": [Function],
         "animUp": [Function],
@@ -233,7 +340,11 @@ Array [
         "getPositionX": [Function],
         "getPositionY": [Function],
         "getPositionZ": [Function],
-        "removeEventListener": [Function],
+        "listenTo": [Function],
+        "listenToOnce": [Function],
+        "off": [Function],
+        "on": [Function],
+        "once": [Function],
         "removeFromScene": [Function],
         "removeParentScene": [Function],
         "setDimension": [Function],
@@ -243,11 +354,12 @@ Array [
         "setPositionX": [Function],
         "setPositionY": [Function],
         "setPositionZ": [Function],
+        "stopListening": [Function],
         "translate": [Function],
         "translateX": [Function],
         "translateY": [Function],
         "translateZ": [Function],
-        "triggerEvent": [Function],
+        "trigger": [Function],
         "updateLightSource": [Function],
       },
     },
@@ -256,7 +368,16 @@ Array [
     "LeftClick",
     Object {
       "target": Voxel {
-        "addEventListener": [Function],
+        "_events": Object {
+          "move": Array [
+            Object {
+              "callback": [Function],
+              "context": undefined,
+              "ctx": [Circular],
+              "listening": undefined,
+            },
+          ],
+        },
         "addToScene": [Function],
         "animDown": [Function],
         "animUp": [Function],
@@ -269,7 +390,11 @@ Array [
         "getPositionX": [Function],
         "getPositionY": [Function],
         "getPositionZ": [Function],
-        "removeEventListener": [Function],
+        "listenTo": [Function],
+        "listenToOnce": [Function],
+        "off": [Function],
+        "on": [Function],
+        "once": [Function],
         "removeFromScene": [Function],
         "removeParentScene": [Function],
         "setDimension": [Function],
@@ -279,11 +404,12 @@ Array [
         "setPositionX": [Function],
         "setPositionY": [Function],
         "setPositionZ": [Function],
+        "stopListening": [Function],
         "translate": [Function],
         "translateX": [Function],
         "translateY": [Function],
         "translateZ": [Function],
-        "triggerEvent": [Function],
+        "trigger": [Function],
         "updateLightSource": [Function],
       },
     },
@@ -292,7 +418,16 @@ Array [
     "RightClick",
     Object {
       "target": Voxel {
-        "addEventListener": [Function],
+        "_events": Object {
+          "move": Array [
+            Object {
+              "callback": [Function],
+              "context": undefined,
+              "ctx": [Circular],
+              "listening": undefined,
+            },
+          ],
+        },
         "addToScene": [Function],
         "animDown": [Function],
         "animUp": [Function],
@@ -305,7 +440,11 @@ Array [
         "getPositionX": [Function],
         "getPositionY": [Function],
         "getPositionZ": [Function],
-        "removeEventListener": [Function],
+        "listenTo": [Function],
+        "listenToOnce": [Function],
+        "off": [Function],
+        "on": [Function],
+        "once": [Function],
         "removeFromScene": [Function],
         "removeParentScene": [Function],
         "setDimension": [Function],
@@ -315,11 +454,12 @@ Array [
         "setPositionX": [Function],
         "setPositionY": [Function],
         "setPositionZ": [Function],
+        "stopListening": [Function],
         "translate": [Function],
         "translateX": [Function],
         "translateY": [Function],
         "translateZ": [Function],
-        "triggerEvent": [Function],
+        "trigger": [Function],
         "updateLightSource": [Function],
       },
     },
@@ -333,7 +473,16 @@ Array [
     "MeshChange",
     Object {
       "mesh": Mesh {
-        "addEventListener": [Function],
+        "_events": Object {
+          "change": Array [
+            Object {
+              "callback": [Function],
+              "context": undefined,
+              "ctx": [Circular],
+              "listening": undefined,
+            },
+          ],
+        },
         "getBack": [Function],
         "getBottom": [Function],
         "getFaces": [Function],
@@ -341,7 +490,11 @@ Array [
         "getLeft": [Function],
         "getRight": [Function],
         "getTop": [Function],
-        "removeEventListener": [Function],
+        "listenTo": [Function],
+        "listenToOnce": [Function],
+        "off": [Function],
+        "on": [Function],
+        "once": [Function],
         "serialize": [Function],
         "setBack": [Function],
         "setBottom": [Function],
@@ -350,10 +503,20 @@ Array [
         "setLeft": [Function],
         "setRight": [Function],
         "setTop": [Function],
-        "triggerEvent": [Function],
+        "stopListening": [Function],
+        "trigger": [Function],
       },
       "target": Voxel {
-        "addEventListener": [Function],
+        "_events": Object {
+          "move": Array [
+            Object {
+              "callback": [Function],
+              "context": undefined,
+              "ctx": [Circular],
+              "listening": undefined,
+            },
+          ],
+        },
         "addToScene": [Function],
         "animDown": [Function],
         "animUp": [Function],
@@ -366,7 +529,11 @@ Array [
         "getPositionX": [Function],
         "getPositionY": [Function],
         "getPositionZ": [Function],
-        "removeEventListener": [Function],
+        "listenTo": [Function],
+        "listenToOnce": [Function],
+        "off": [Function],
+        "on": [Function],
+        "once": [Function],
         "removeFromScene": [Function],
         "removeParentScene": [Function],
         "setDimension": [Function],
@@ -376,11 +543,12 @@ Array [
         "setPositionX": [Function],
         "setPositionY": [Function],
         "setPositionZ": [Function],
+        "stopListening": [Function],
         "translate": [Function],
         "translateX": [Function],
         "translateY": [Function],
         "translateZ": [Function],
-        "triggerEvent": [Function],
+        "trigger": [Function],
         "updateLightSource": [Function],
       },
     },
@@ -394,7 +562,16 @@ Array [
     "VoxelClick",
     Object {
       "target": Voxel {
-        "addEventListener": [Function],
+        "_events": Object {
+          "move": Array [
+            Object {
+              "callback": [Function],
+              "context": undefined,
+              "ctx": [Circular],
+              "listening": undefined,
+            },
+          ],
+        },
         "addToScene": [Function],
         "animDown": [Function],
         "animUp": [Function],
@@ -407,7 +584,11 @@ Array [
         "getPositionX": [Function],
         "getPositionY": [Function],
         "getPositionZ": [Function],
-        "removeEventListener": [Function],
+        "listenTo": [Function],
+        "listenToOnce": [Function],
+        "off": [Function],
+        "on": [Function],
+        "once": [Function],
         "removeFromScene": [Function],
         "removeParentScene": [Function],
         "setDimension": [Function],
@@ -417,11 +598,12 @@ Array [
         "setPositionX": [Function],
         "setPositionY": [Function],
         "setPositionZ": [Function],
+        "stopListening": [Function],
         "translate": [Function],
         "translateX": [Function],
         "translateY": [Function],
         "translateZ": [Function],
-        "triggerEvent": [Function],
+        "trigger": [Function],
         "updateLightSource": [Function],
       },
     },

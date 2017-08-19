@@ -21,7 +21,6 @@ exports[`World can export voxels 1`] = `"[{\\"position\\":{\\"x\\":0,\\"y\\":0,\
 exports[`World can get scene and voxels 1`] = `
 Scene {
   "add": [Function],
-  "addEventListener": [Function],
   "addLightSource": [Function],
   "attach": [Function],
   "bind": [Function],
@@ -47,12 +46,16 @@ Scene {
   "getVoxels": [Function],
   "getZoom": [Function],
   "isAttached": [Function],
+  "listenTo": [Function],
+  "listenToOnce": [Function],
+  "off": [Function],
+  "on": [Function],
+  "once": [Function],
   "pan": [Function],
   "panX": [Function],
   "panY": [Function],
   "panZ": [Function],
   "remove": [Function],
-  "removeEventListener": [Function],
   "removeLightSource": [Function],
   "rotate": [Function],
   "rotateX": [Function],
@@ -67,7 +70,8 @@ Scene {
   "setRotationY": [Function],
   "setRotationZ": [Function],
   "setZoom": [Function],
-  "triggerEvent": [Function],
+  "stopListening": [Function],
+  "trigger": [Function],
   "unbind": [Function],
   "zoom": [Function],
 }
@@ -76,7 +80,16 @@ Scene {
 exports[`World can get scene and voxels 2`] = `
 Array [
   Voxel {
-    "addEventListener": [Function],
+    "_events": Object {
+      "move": Array [
+        Object {
+          "callback": [Function],
+          "context": undefined,
+          "ctx": [Circular],
+          "listening": undefined,
+        },
+      ],
+    },
     "addToScene": [Function],
     "animDown": [Function],
     "animUp": [Function],
@@ -89,7 +102,11 @@ Array [
     "getPositionX": [Function],
     "getPositionY": [Function],
     "getPositionZ": [Function],
-    "removeEventListener": [Function],
+    "listenTo": [Function],
+    "listenToOnce": [Function],
+    "off": [Function],
+    "on": [Function],
+    "once": [Function],
     "removeFromScene": [Function],
     "removeParentScene": [Function],
     "setDimension": [Function],
@@ -99,11 +116,12 @@ Array [
     "setPositionX": [Function],
     "setPositionY": [Function],
     "setPositionZ": [Function],
+    "stopListening": [Function],
     "translate": [Function],
     "translateX": [Function],
     "translateY": [Function],
     "translateZ": [Function],
-    "triggerEvent": [Function],
+    "trigger": [Function],
     "updateLightSource": [Function],
   },
 ]
@@ -118,7 +136,16 @@ exports[`World can import voxels 3`] = `"[]"`;
 exports[`World can load from the browser 1`] = `
 Array [
   Voxel {
-    "addEventListener": [Function],
+    "_events": Object {
+      "move": Array [
+        Object {
+          "callback": [Function],
+          "context": undefined,
+          "ctx": [Circular],
+          "listening": undefined,
+        },
+      ],
+    },
     "addToScene": [Function],
     "animDown": [Function],
     "animUp": [Function],
@@ -131,7 +158,11 @@ Array [
     "getPositionX": [Function],
     "getPositionY": [Function],
     "getPositionZ": [Function],
-    "removeEventListener": [Function],
+    "listenTo": [Function],
+    "listenToOnce": [Function],
+    "off": [Function],
+    "on": [Function],
+    "once": [Function],
     "removeFromScene": [Function],
     "removeParentScene": [Function],
     "setDimension": [Function],
@@ -141,11 +172,12 @@ Array [
     "setPositionX": [Function],
     "setPositionY": [Function],
     "setPositionZ": [Function],
+    "stopListening": [Function],
     "translate": [Function],
     "translateX": [Function],
     "translateY": [Function],
     "translateZ": [Function],
-    "triggerEvent": [Function],
+    "trigger": [Function],
     "updateLightSource": [Function],
   },
 ]
@@ -154,7 +186,16 @@ Array [
 exports[`World can load from the browser 2`] = `
 Array [
   Voxel {
-    "addEventListener": [Function],
+    "_events": Object {
+      "move": Array [
+        Object {
+          "callback": [Function],
+          "context": undefined,
+          "ctx": [Circular],
+          "listening": undefined,
+        },
+      ],
+    },
     "addToScene": [Function],
     "animDown": [Function],
     "animUp": [Function],
@@ -167,7 +208,11 @@ Array [
     "getPositionX": [Function],
     "getPositionY": [Function],
     "getPositionZ": [Function],
-    "removeEventListener": [Function],
+    "listenTo": [Function],
+    "listenToOnce": [Function],
+    "off": [Function],
+    "on": [Function],
+    "once": [Function],
     "removeFromScene": [Function],
     "removeParentScene": [Function],
     "setDimension": [Function],
@@ -177,11 +222,12 @@ Array [
     "setPositionX": [Function],
     "setPositionY": [Function],
     "setPositionZ": [Function],
+    "stopListening": [Function],
     "translate": [Function],
     "translateX": [Function],
     "translateY": [Function],
     "translateZ": [Function],
-    "triggerEvent": [Function],
+    "trigger": [Function],
     "updateLightSource": [Function],
   },
 ]

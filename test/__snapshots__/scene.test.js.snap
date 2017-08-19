@@ -3,25 +3,47 @@
 exports[`Scene can add and remove light sources 1`] = `
 Array [
    {
-    "addEventListener": [Function],
+    "_events": Object {
+      "change": Array [
+        Object {
+          "callback": [Function],
+          "context": undefined,
+          "ctx": [Circular],
+          "listening": undefined,
+        },
+      ],
+      "move": Array [
+        Object {
+          "callback": [Function],
+          "context": undefined,
+          "ctx": [Circular],
+          "listening": undefined,
+        },
+      ],
+    },
     "getBrightness": [Function],
     "getPosition": [Function],
     "getPositionX": [Function],
     "getPositionY": [Function],
     "getPositionZ": [Function],
     "getTravelDistance": [Function],
-    "removeEventListener": [Function],
+    "listenTo": [Function],
+    "listenToOnce": [Function],
+    "off": [Function],
+    "on": [Function],
+    "once": [Function],
     "setBrightness": [Function],
     "setPosition": [Function],
     "setPositionX": [Function],
     "setPositionY": [Function],
     "setPositionZ": [Function],
     "setTravelDistance": [Function],
+    "stopListening": [Function],
     "translate": [Function],
     "translateX": [Function],
     "translateY": [Function],
     "translateZ": [Function],
-    "triggerEvent": [Function],
+    "trigger": [Function],
   },
 ]
 `;
@@ -29,7 +51,16 @@ Array [
 exports[`Scene can add and remove voxels 1`] = `
 Array [
   Voxel {
-    "addEventListener": [Function],
+    "_events": Object {
+      "move": Array [
+        Object {
+          "callback": [Function],
+          "context": undefined,
+          "ctx": [Circular],
+          "listening": undefined,
+        },
+      ],
+    },
     "addToScene": [Function],
     "animDown": [Function],
     "animUp": [Function],
@@ -42,7 +73,11 @@ Array [
     "getPositionX": [Function],
     "getPositionY": [Function],
     "getPositionZ": [Function],
-    "removeEventListener": [Function],
+    "listenTo": [Function],
+    "listenToOnce": [Function],
+    "off": [Function],
+    "on": [Function],
+    "once": [Function],
     "removeFromScene": [Function],
     "removeParentScene": [Function],
     "setDimension": [Function],
@@ -52,11 +87,12 @@ Array [
     "setPositionX": [Function],
     "setPositionY": [Function],
     "setPositionZ": [Function],
+    "stopListening": [Function],
     "translate": [Function],
     "translateX": [Function],
     "translateY": [Function],
     "translateZ": [Function],
-    "triggerEvent": [Function],
+    "trigger": [Function],
     "updateLightSource": [Function],
   },
 ]
