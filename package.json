@@ -38,7 +38,6 @@
         "babel-cli": "^6.24.1",
         "babel-preset-env": "^1.6.0",
         "babel-preset-minify": "^0.2.0",
-        "bluebird": "^3.5.0",
         "browserify": "^14.4.0",
         "browserify-css": "^0.11.0",
         "chalk": "^2.0.1",
@@ -54,13 +53,13 @@
         "jest-localstorage-mock": "^1.2.0",
         "jsdoc": "^3.5.3",
         "minami": "^1.2.3",
-        "nightmare": "^2.10.0",
         "postcss": "^6.0.8",
         "postcss-cli": "^4.1.0",
         "postcss-cssnext": "^3.0.2",
         "postcss-import": "^10.0.0",
         "postcss-reporter": "^5.0.0",
         "postcss-safe-parser": "^3.0.1",
+        "puppeteer": "^0.9.0",
         "watch": "^1.0.2"
     },
     "scripts": {
