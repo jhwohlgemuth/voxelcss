@@ -18,7 +18,7 @@ let panRight = () => scene.pan(-1 * 100);
 let zoomIn = () => scene.zoom(1 / 2);
 let zoomOut = () => scene.zoom(-1 / 2);
 
-let actions = [].concat(// every row restores initial state
+let actions = [].concat(/* eslint-disable no-magic-numbers */
     repeat(rotateX, 4),
     repeat(rotateY, 4),
     repeat(rotateZ, 4),
@@ -26,7 +26,7 @@ let actions = [].concat(// every row restores initial state
     [panRight, panLeft],
     [zoomIn, zoomOut],
     [zoomOut, zoomIn]
-);
+);/* eslint-enable no-magic-numbers */
 /* eslint-disable no-console */
 captureScreenshots({url, prefix, actions}).then(msg => console.log(bold(green('✔ ') + bold(msg))));
 /* eslint-enable no-console */

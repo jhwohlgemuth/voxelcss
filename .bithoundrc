@@ -3,6 +3,7 @@
     "lint": {"engine": "eslint"}
   },
   "ignore": [
+    "test/lib/common.js",
     "dist/**",
     "docs/**",
     "**/deps/**",
