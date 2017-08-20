@@ -1,0 +1,188 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Events Module can be used with other on/off interfaces 1`] = `
+Object {
+  "l9": Listening {
+    "_events": Object {
+      "foo": Array [
+        Object {
+          "callback": [Function],
+          "context": undefined,
+          "ctx": [Circular],
+          "listening": undefined,
+        },
+      ],
+    },
+    "count": 0,
+    "id": "l10",
+    "interop": true,
+    "listener": Object {
+      "_listenId": "l10",
+      "_listeningTo": [Circular],
+      "listenTo": [Function],
+      "listenToOnce": [Function],
+      "off": [Function],
+      "on": [Function],
+      "once": [Function],
+      "stopListening": [Function],
+      "trigger": [Function],
+    },
+    "obj": Object {
+      "_listenId": "l9",
+      "off": [Function],
+      "on": [Function],
+      "trigger": [Function],
+    },
+  },
+}
+`;
+
+exports[`Events Module can be used with other on/off interfaces 2`] = `
+Object {
+  "l9": Listening {
+    "_events": Object {},
+    "count": 0,
+    "id": "l10",
+    "interop": true,
+    "listener": Object {
+      "_listenId": "l10",
+      "_listeningTo": [Circular],
+      "listenTo": [Function],
+      "listenToOnce": [Function],
+      "off": [Function],
+      "on": [Function],
+      "once": [Function],
+      "stopListening": [Function],
+      "trigger": [Function],
+    },
+    "obj": Object {
+      "_listenId": "l9",
+      "off": [Function],
+      "on": [Function],
+      "trigger": [Function],
+    },
+  },
+}
+`;
+
+exports[`Events Module can bind triggering with context 1`] = `
+Object {
+  "count": 1,
+}
+`;
+
+exports[`Events Module can bind triggering with context 2`] = `
+Object {
+  "count": 3,
+}
+`;
+
+exports[`Events Module can clean up all listeners with off 1`] = `
+Object {
+  "l16": Listening {
+    "_events": undefined,
+    "count": 1,
+    "id": "l16",
+    "interop": false,
+    "listener": Object {
+      "_events": Object {
+        "foo": Array [
+          Object {
+            "callback": [Function],
+            "context": [Circular],
+            "ctx": [Circular],
+            "listening": [Circular],
+          },
+        ],
+      },
+      "_listenId": "l16",
+      "_listeners": [Circular],
+      "_listeningTo": Object {
+        "l16": [Circular],
+      },
+      "listenTo": [Function],
+      "listenToOnce": [Function],
+      "off": [Function],
+      "on": [Function],
+      "once": [Function],
+      "stopListening": [Function],
+      "trigger": [Function],
+    },
+    "obj": Object {
+      "_events": Object {
+        "foo": Array [
+          Object {
+            "callback": [Function],
+            "context": [Circular],
+            "ctx": [Circular],
+            "listening": [Circular],
+          },
+        ],
+      },
+      "_listenId": "l16",
+      "_listeners": [Circular],
+      "_listeningTo": Object {
+        "l16": [Circular],
+      },
+      "listenTo": [Function],
+      "listenToOnce": [Function],
+      "off": [Function],
+      "on": [Function],
+      "once": [Function],
+      "stopListening": [Function],
+      "trigger": [Function],
+    },
+  },
+}
+`;
+
+exports[`Events Module can do nothing with stopListening is called with no listeners 1`] = `
+Object {
+  "listenTo": [Function],
+  "listenToOnce": [Function],
+  "off": [Function],
+  "on": [Function],
+  "once": [Function],
+  "stopListening": [Function],
+  "trigger": [Function],
+}
+`;
+
+exports[`Events Module can handle failed on during listenTo 1`] = `"a.on is not a function"`;
+
+exports[`Events Module can only listen to defined objects 1`] = `
+Object {
+  "listenTo": [Function],
+  "listenToOnce": [Function],
+  "off": [Function],
+  "on": [Function],
+  "once": [Function],
+  "stopListening": [Function],
+  "trigger": [Function],
+}
+`;
+
+exports[`Events Module can pass data with event triggers 1`] = `
+Array [
+  Array [
+    "foo was triggered",
+  ],
+  Array [
+    "foo was triggered",
+    "foo was triggered",
+  ],
+  Array [
+    "foo was triggered",
+    "foo was triggered",
+    "foo was triggered",
+  ],
+  Array [
+    "foo was triggered",
+    "foo was triggered",
+    "foo was triggered",
+    "foo was triggered",
+  ],
+]
+`;
+
+exports[`Events Module can throw an error with "truthy" non-function callbacks 1`] = `"(intermediate value)(intermediate value).callback.call is not a function"`;

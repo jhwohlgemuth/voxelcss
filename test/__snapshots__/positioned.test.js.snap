@@ -7,3 +7,17 @@ Object {
   "z": 6,
 }
 `;
+
+exports[`Positioned module can trigger move when setting position 1`] = `
+Array [
+  Array [
+    "move",
+  ],
+  Array [
+    "move",
+  ],
+  Array [
+    "move",
+  ],
+]
+`;

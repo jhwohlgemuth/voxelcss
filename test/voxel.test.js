@@ -55,28 +55,28 @@ describe('Voxel', function() {
         let leftClick = new window.MouseEvent('click');
         let scene = new Scene();
         let a = new Voxel();
-        a.triggerEvent = jest.fn();
+        a.trigger = jest.fn();
         scene.add(a);
         a.getAnimatedElement().childNodes.forEach(face => face.dispatchEvent(leftClick));
-        expect(a.triggerEvent).toHaveBeenCalledTimes(NUMBER_OF_SIDES);
-        expect(a.triggerEvent.mock.calls).toMatchSnapshot();
+        expect(a.trigger).toHaveBeenCalledTimes(NUMBER_OF_SIDES);
+        expect(a.trigger.mock.calls).toMatchSnapshot();
     });
     it('can handle right click events', () => {
         let rightClick = new window.MouseEvent('contextmenu');
         let scene = new Scene();
         let a = new Voxel();
-        a.triggerEvent = jest.fn();
+        a.trigger = jest.fn();
         scene.add(a);
         a.getAnimatedElement().childNodes[0].dispatchEvent(rightClick);
-        expect(a.triggerEvent).toHaveBeenCalledTimes(1);
-        expect(a.triggerEvent.mock.calls).toMatchSnapshot();
+        expect(a.trigger).toHaveBeenCalledTimes(1);
+        expect(a.trigger.mock.calls).toMatchSnapshot();
     });
     it('can handle mesh change events', () => {
         let a = new Voxel();
         let mesh = a.getMesh();
-        a.triggerEvent = jest.fn();
-        mesh.triggerEvent('change');
-        expect(a.triggerEvent.mock.calls).toMatchSnapshot();
+        a.trigger = jest.fn();
+        mesh.trigger('change');
+        expect(a.trigger.mock.calls).toMatchSnapshot();
     });
     it('can be added to a scene via animUp', () => {
         expect(() => {
