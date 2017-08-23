@@ -165,7 +165,7 @@ Mesh {
 exports[`Voxel can handle left click events 1`] = `
 Array [
   Array [
-    "TopClick",
+    "click:top",
     Object {
       "target": Voxel {
         "_events": Object {
@@ -215,7 +215,7 @@ Array [
     },
   ],
   Array [
-    "BottomClick",
+    "click:bottom",
     Object {
       "target": Voxel {
         "_events": Object {
@@ -265,7 +265,7 @@ Array [
     },
   ],
   Array [
-    "FrontClick",
+    "click:front",
     Object {
       "target": Voxel {
         "_events": Object {
@@ -315,7 +315,7 @@ Array [
     },
   ],
   Array [
-    "BackClick",
+    "click:back",
     Object {
       "target": Voxel {
         "_events": Object {
@@ -365,7 +365,7 @@ Array [
     },
   ],
   Array [
-    "LeftClick",
+    "click:left",
     Object {
       "target": Voxel {
         "_events": Object {
@@ -415,7 +415,7 @@ Array [
     },
   ],
   Array [
-    "RightClick",
+    "click:right",
     Object {
       "target": Voxel {
         "_events": Object {
@@ -470,7 +470,7 @@ Array [
 exports[`Voxel can handle mesh change events 1`] = `
 Array [
   Array [
-    "MeshChange",
+    "change:mesh",
     Object {
       "mesh": Mesh {
         "_events": Object {
@@ -559,7 +559,7 @@ Array [
 exports[`Voxel can handle right click events 1`] = `
 Array [
   Array [
-    "VoxelClick",
+    "contextmenu",
     Object {
       "target": Voxel {
         "_events": Object {

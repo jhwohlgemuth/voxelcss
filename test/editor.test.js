@@ -7,16 +7,16 @@ const World  = require('../lib/World');
 const Editor = require('../lib/Editor');
 
 const sideClickEvents = [
-    'TopClick',
-    'BottomClick',
-    'FrontClick',
-    'BackClick',
-    'LeftClick',
-    'RightClick'
+    'click:top',
+    'click:bottom',
+    'click:front',
+    'click:back',
+    'click:left',
+    'click:right'
 ];
 const allEvents = sideClickEvents.concat(
-    'MeshChange',
-    'VoxelClick'
+    'change:mesh',
+    'contextmenu'
 );
 
 describe('Editor', function() {
@@ -92,11 +92,11 @@ describe('Editor', function() {
         b.on = jest.fn();
         editor.add(a);
         expect(world.save).not.toHaveBeenCalled();
-        expect(a.on).toHaveBeenCalledTimes(allEvents.length);
+        expect(a.on).toHaveBeenCalledTimes(1);
         editor.enableAutoSave();
         editor.add(b);
         expect(world.save).toHaveBeenCalled();
-        expect(b.on).toHaveBeenCalledTimes(allEvents.length);
+        expect(b.on).toHaveBeenCalledTimes(1);
     });
     it('can remove voxels', () => {
         let a = new Voxel();
