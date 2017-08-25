@@ -140,15 +140,7 @@ Object {
     "x": 0,
     "y": 0,
   },
-  "lastMove": Object {
-    "x": 0,
-    "y": 0,
-  },
   "shiftDown": false,
-  "start": Object {
-    "x": 0,
-    "y": 0,
-  },
 }
 `;
 
@@ -158,15 +150,7 @@ Object {
     "x": 1000,
     "y": 1000,
   },
-  "lastMove": Object {
-    "x": 0,
-    "y": 0,
-  },
   "shiftDown": false,
-  "start": Object {
-    "x": 1000,
-    "y": 1000,
-  },
 }
 `;
 
@@ -176,15 +160,7 @@ Object {
     "x": 1000,
     "y": 1000,
   },
-  "lastMove": Object {
-    "x": 0,
-    "y": 0,
-  },
   "shiftDown": false,
-  "start": Object {
-    "x": 1000,
-    "y": 1000,
-  },
 }
 `;
 
@@ -202,15 +178,7 @@ Object {
     "x": 1000,
     "y": 1000,
   },
-  "lastMove": Object {
-    "x": 0,
-    "y": 0,
-  },
   "shiftDown": false,
-  "start": Object {
-    "x": 1000,
-    "y": 1000,
-  },
 }
 `;
 
@@ -244,15 +212,7 @@ Object {
     "x": 1000,
     "y": 1000,
   },
-  "lastMove": Object {
-    "dx": 100,
-    "dy": 100,
-  },
   "shiftDown": true,
-  "start": Object {
-    "x": 1000,
-    "y": 1000,
-  },
 }
 `;
 
@@ -278,15 +238,7 @@ Object {
     "x": 0,
     "y": 0,
   },
-  "lastMove": Object {
-    "x": 0,
-    "y": 0,
-  },
   "shiftDown": false,
-  "start": Object {
-    "x": 0,
-    "y": 0,
-  },
 }
 `;
 
