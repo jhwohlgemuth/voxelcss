@@ -130,6 +130,38 @@ exports[`Scene can get and set zoom 2`] = `1010`;
 
 exports[`Scene can get and set zoom 3`] = `1010`;
 
+exports[`Scene can pan scene with three-finger drag 1`] = `
+Object {
+  "x": 0,
+  "y": 0,
+  "z": 0,
+}
+`;
+
+exports[`Scene can pan scene with three-finger drag 2`] = `
+Object {
+  "x": 0,
+  "y": 0,
+  "z": 0,
+}
+`;
+
+exports[`Scene can pan scene with three-finger drag 3`] = `
+Object {
+  "x": 100,
+  "y": 100,
+  "z": 0,
+}
+`;
+
+exports[`Scene can pan scene with three-finger drag 4`] = `
+Object {
+  "x": 0,
+  "y": 0,
+  "z": 0,
+}
+`;
+
 exports[`Scene can respond to mouse interaction 1`] = `5`;
 
 exports[`Scene can respond to mouse interaction 2`] = `5`;
@@ -140,15 +172,7 @@ Object {
     "x": 0,
     "y": 0,
   },
-  "lastMove": Object {
-    "x": 0,
-    "y": 0,
-  },
   "shiftDown": false,
-  "start": Object {
-    "x": 0,
-    "y": 0,
-  },
 }
 `;
 
@@ -158,15 +182,7 @@ Object {
     "x": 1000,
     "y": 1000,
   },
-  "lastMove": Object {
-    "x": 0,
-    "y": 0,
-  },
   "shiftDown": false,
-  "start": Object {
-    "x": 1000,
-    "y": 1000,
-  },
 }
 `;
 
@@ -176,15 +192,7 @@ Object {
     "x": 1000,
     "y": 1000,
   },
-  "lastMove": Object {
-    "x": 0,
-    "y": 0,
-  },
   "shiftDown": false,
-  "start": Object {
-    "x": 1000,
-    "y": 1000,
-  },
 }
 `;
 
@@ -202,15 +210,7 @@ Object {
     "x": 1000,
     "y": 1000,
   },
-  "lastMove": Object {
-    "x": 0,
-    "y": 0,
-  },
   "shiftDown": false,
-  "start": Object {
-    "x": 1000,
-    "y": 1000,
-  },
 }
 `;
 
@@ -244,15 +244,7 @@ Object {
     "x": 1000,
     "y": 1000,
   },
-  "lastMove": Object {
-    "dx": 100,
-    "dy": 100,
-  },
   "shiftDown": true,
-  "start": Object {
-    "x": 1000,
-    "y": 1000,
-  },
 }
 `;
 
@@ -278,18 +270,78 @@ Object {
     "x": 0,
     "y": 0,
   },
-  "lastMove": Object {
-    "x": 0,
-    "y": 0,
-  },
   "shiftDown": false,
-  "start": Object {
-    "x": 0,
-    "y": 0,
-  },
+}
+`;
+
+exports[`Scene can rotate scene with one-finger drag 1`] = `
+Object {
+  "x": 0,
+  "y": 0,
+  "z": 0,
+}
+`;
+
+exports[`Scene can rotate scene with one-finger drag 2`] = `
+Object {
+  "x": 0,
+  "y": 0,
+  "z": 0,
+}
+`;
+
+exports[`Scene can rotate scene with one-finger drag 3`] = `
+Object {
+  "x": 0,
+  "y": 0,
+  "z": 0,
+}
+`;
+
+exports[`Scene can rotate scene with one-finger drag 4`] = `
+Object {
+  "x": -1.636246173744684,
+  "y": 1.227184630308513,
+  "z": 0,
 }
 `;
 
 exports[`Scene can throw error when trying to attach when already attached 1`] = `undefined`;
 
 exports[`Scene can throw error when trying to detach when already detached 1`] = `undefined`;
+
+exports[`Scene can zoom scene with two-finger pinch 1`] = `
+Object {
+  "x": 0,
+  "y": 0,
+  "z": 0,
+}
+`;
+
+exports[`Scene can zoom scene with two-finger pinch 2`] = `
+Object {
+  "x": 0,
+  "y": 0,
+  "z": 0,
+}
+`;
+
+exports[`Scene can zoom scene with two-finger pinch 3`] = `1`;
+
+exports[`Scene can zoom scene with two-finger pinch 4`] = `
+Object {
+  "x": 0,
+  "y": 0,
+  "z": 0,
+}
+`;
+
+exports[`Scene can zoom scene with two-finger pinch 5`] = `
+Object {
+  "x": 0,
+  "y": 0,
+  "z": 0,
+}
+`;
+
+exports[`Scene can zoom scene with two-finger pinch 6`] = `0.999`;

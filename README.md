@@ -61,12 +61,24 @@ Examples
 
 Features
 --------
-- ~~Completely~~ *Mostly* compatible with [voxel.css](https://github.com/HunterLarco/voxel.css)
+- ~~Completely~~ [*Mostly*](https://github.com/jhwohlgemuth/voxelcss/pull/10) compatible with [voxel.css](https://github.com/HunterLarco/voxel.css)
+- [Touch support](#supported-touch-gestures)
 - JavaScript and CSS are all bundled together into one file!
 - CSS is processed by [cssnext](http://cssnext.io/) and minified with [cssnano](http://cssnano.co/) to provide auto-prefixed styles with a minimal footprint and maximum compatibility.
 - Code functionality is verified by tests written using [Jest](https://facebook.github.io/jest/)
 - Code standards are enforced by [ESLint](http://eslint.org/)
 - Functionality and standards are enforced locally and on remote CI servers (including visual regression tests)!
+
+Supported Touch Gestures
+------------------------
+|     Gesture    |    Action    |
+| :------------: | :----------: |
+| Tap            | Add voxel    |
+| Long touch     | Remove voxel |
+| 1-finger drag  | Rotate scene |
+| 2-finger pinch | Zoom scene   |
+| 3-finger drag  | Pan scene    |
+
 
 Contributing
 ------------

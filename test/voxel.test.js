@@ -7,6 +7,8 @@ const Scene     = require('../lib/Scene');
 
 const DEFAULT_SIZE = 50;
 
+jest.useFakeTimers();
+
 describe('Voxel', function() {
     let voxel;
     beforeEach(() => {
@@ -69,6 +71,27 @@ describe('Voxel', function() {
         scene.add(a);
         a.getAnimatedElement().childNodes[0].dispatchEvent(rightClick);
         expect(a.trigger).toHaveBeenCalledTimes(1);
+        expect(a.trigger.mock.calls).toMatchSnapshot();
+    });
+    it('can handle short and long touch events', () => {
+        const LONG_PRESS_DURATION = 250;
+        let touches = [{
+            pageX: 0,
+            pageY: 0
+        }];
+        let touchstart = new window.UIEvent('touchstart');
+        let touchend = new window.UIEvent('touchend');
+        touchstart.touches = touches;
+        let a = new Voxel();
+        a.trigger = jest.fn();
+        let scene = new Scene();
+        a.addToScene(scene);
+        const wrapper = a.getAnimatedElement().childNodes[0];
+        wrapper.dispatchEvent(touchstart);
+        wrapper.dispatchEvent(touchend);
+        expect(a.trigger.mock.calls).toMatchSnapshot();
+        wrapper.dispatchEvent(touchstart);
+        jest.runTimersToTime(LONG_PRESS_DURATION + 1);
         expect(a.trigger.mock.calls).toMatchSnapshot();
     });
     it('can handle mesh change events', () => {
