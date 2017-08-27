@@ -12,7 +12,7 @@ let screenshotDirectory = join(__dirname, 'lib', 'screenshots');
 let hasPngExtension = name => (name.split('').slice(-1 * '.png'.length).join('') === '.png');
 
 describe('Voxelcss', function() {
-    it('can rotate, pan, and zoom', () => {
+    it('can rotate, pan, zoom, and add/remove voxels', () => {
         return readdir(screenshotDirectory)
             .filter(hasPngExtension)
             .map(name => join(screenshotDirectory, name))
