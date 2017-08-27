@@ -47,11 +47,16 @@
 'use strict';
 
 const {assign} = Object;
-const {isNumber, isShiftKey, not} = require('./common');
+const {getDistance, isNumber, isShiftKey, not} = require('./common');
 const events = require('./events');
 
-let getX = (e) => (e.x || e.clientX);
-let getY = (e) => (e.y || e.clientY);
+const ZOOM_SCALING_FACTOR = 500;// larger --> slower zoom
+const ZOOM_SCALING_FACTOR_MOBILE = 100;// larger --> slower zoom
+
+const getX = e => (e.x || e.clientX || e.touches[0].pageX);
+const getY = e => (e.y || e.clientY || e.touches[0].pageY);
+
+// let setDebugText = val => (document.getElementById('debug').textContent = val);
 
 module.exports = Scene;
 
@@ -83,11 +88,10 @@ function Scene() {
     let _pan = {x, y, z};
     let _zoom = 1;
     let mouse = {
-        start: {x, y},
         current: {x, y},
-        lastMove: {x, y},
         shiftDown: false
     };
+    let initialPinchDistance = 0;
     let canRotate = true;
     let canPan = true;
     let canZoom = true;
@@ -154,6 +158,7 @@ function Scene() {
     createSceneElement();
     bindMouse();
     bindKeyboard();
+
     function rotate(x, y, z) {
         rotateDimension('x', x);
         rotateDimension('y', y);
@@ -283,23 +288,12 @@ function Scene() {
         zoomElement.appendChild(cameraElement);
     }
     function onMouseDown(event) {
-        let x = getX(event);
-        let y = getY(event);
-        mouse.start = {x, y};
-        mouse.current = {x, y};
+        updateMousePosition(event);
         window.addEventListener('mousemove', onMouseMove);
         window.addEventListener('mouseup', onMouseUp);
     }
     function onMouseUp() {
         unbindMouse();
-    }
-    function getData() {
-        return {
-            rotation: getRotation(),
-            pan: getPan(),
-            zoom: getZoom(),
-            target: self
-        };
     }
     function onMouseMove(event) {
         let x = getX(event);
@@ -307,7 +301,6 @@ function Scene() {
         let dx = x - mouse.current.x;
         let dy = y - mouse.current.y;
         mouse.current = {x, y};
-        mouse.lastMove = {dx, dy};
         if (canPan &amp;&amp; mouse.shiftDown) {
             pan(dx, dy);
             updateSceneTransforms();
@@ -321,9 +314,44 @@ function Scene() {
             self.trigger('rotate', getData());
         }
     }
+    function onTouchStart(event) {
+        event.preventDefault();
+        const touches = event.touches;
+        updateMousePosition(event);
+        window.addEventListener('touchmove', onTouchMove, {passive: false});
+        if (touches.length > 1) {
+            initialPinchDistance = getTouchDistance(touches);
+        }
+    }
+    function onTouchMove(event) {
+        event.preventDefault();
+        let x = getX(event);
+        let y = getY(event);
+        let dx = x - mouse.current.x;
+        let dy = y - mouse.current.y;
+        mouse.current = {x, y};
+        const touches = event.touches;
+        if ((touches.length === 1) &amp;&amp; canRotate) {
+            const rotations = 2;
+            const ROTATION_SCALING_FACTOR = Math.PI * 2 * rotations;
+            rotation.y += dx / window.innerWidth * ROTATION_SCALING_FACTOR;
+            rotation.x -= dy / window.innerHeight * ROTATION_SCALING_FACTOR;
+            updateSceneTransforms();
+            self.trigger('rotate', getData());
+        } else if ((touches.length === 2) &amp;&amp; canZoom) {
+            const currentPinchDistance = getTouchDistance(touches);
+            const zoomIn = (currentPinchDistance - initialPinchDistance) > 0;
+            const sign = zoomIn ? 1 : -1;
+            zoom(sign * currentPinchDistance / (initialPinchDistance * ZOOM_SCALING_FACTOR_MOBILE));
+            initialPinchDistance = currentPinchDistance;
+        } else if ((touches.length === 3) &amp;&amp; canPan) {
+            pan(dx, dy);
+            updateSceneTransforms();
+            self.trigger('pan', getData());
+        }
+    }
     function onScroll(event) {
         if (canZoom) {
-            const ZOOM_SCALING_FACTOR = 500;// larger --> slower zoom
             zoom(event.deltaY / ZOOM_SCALING_FACTOR);
             event.preventDefault();
             self.trigger('zoom', getData());
@@ -334,6 +362,7 @@ function Scene() {
         sceneElement.addEventListener('mousedown', onMouseDown);
         sceneElement.addEventListener('mousewheel', onScroll);
         sceneElement.addEventListener('wheel', onScroll);
+        sceneElement.addEventListener('touchstart', onTouchStart);
     }
     function bindKeyboard() {
         window.addEventListener('keydown', onKeyDown);
@@ -353,6 +382,22 @@ function Scene() {
     function onKeyUp(event) {
         mouse.shiftDown = not(isShiftKey)(event);
     }
+    function getData() {
+        return {
+            rotation: getRotation(),
+            pan: getPan(),
+            zoom: getZoom(),
+            target: self
+        };
+    }
+    function getTouchDistance(touches) {
+        const methods = [getX, getY];
+        const [x0, y0] = methods.map(method => method(touches.item(0)));
+        const [x1, y1] = methods.map(method => method(touches.item(1)));
+        const dX = x1 - x0;
+        const dY = y1 - y0;
+        return getDistance(dX, dY);
+    }
     function updateSceneTransforms() {
         let {x, y, z} = getRotation();
         let zoom = getZoom();
@@ -365,6 +410,11 @@ function Scene() {
         if (lightSources.length !== 0) {
             voxels.forEach(voxel => voxel.updateLightSource(lightSources));
         }
+    }
+    function updateMousePosition(event) {
+        const x = getX(event);
+        const y = getY(event);
+        mouse.current = {x, y};
     }
 }
 </code></pre>
@@ -379,7 +429,7 @@ function Scene() {
 <br class="clear">
 
 <footer>
-    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.3</a> on Wed Aug 23 2017 16:41:29 GMT-0500 (CDT) using the Minami theme.
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.3</a> on Sun Aug 27 2017 14:55:49 GMT-0500 (CDT) using the Minami theme.
 </footer>
 
 <script>prettyPrint();</script>
