@@ -1,5 +1,6 @@
 'use strict';
 
+const {mapValues} = require('../lib/common');
 const LightSource = require('../lib/LightSource');
 const Voxel       = require('../lib/Voxel');
 const Scene       = require('../lib/Scene');
@@ -16,6 +17,7 @@ let releaseShift = new window.KeyboardEvent('keyup', {keyCode});
 
 describe('Scene', function() {
     let scene;
+    let touchend = new window.UIEvent('touchend');
     beforeEach(() => {
         scene = new Scene();
     });
@@ -231,5 +233,72 @@ describe('Scene', function() {
         window.dispatchEvent(mousemove);
         expect(scene.getPan()).toMatchSnapshot();
         expect(scene.getRotation()).toMatchSnapshot();
+    });
+    it('can rotate scene with one-finger drag', () => {
+        let touches = [{
+            pageX: 0,
+            pageY: 0
+        }];
+        let touchstart = new window.UIEvent('touchstart');
+        let touchmove = new window.UIEvent('touchmove');
+        touchstart.touches = touches;
+        touchmove.touches = touches.map(touch => mapValues(touch, val => val + 100));
+        expect(scene.getPan()).toMatchSnapshot();
+        expect(scene.getRotation()).toMatchSnapshot();
+        scene.getElement().dispatchEvent(touchstart);
+        window.dispatchEvent(touchmove);
+        expect(scene.getPan()).toMatchSnapshot();
+        expect(scene.getRotation()).toMatchSnapshot();
+        window.dispatchEvent(touchend);
+    });
+    it('can zoom scene with two-finger pinch', () => {
+        let touchArrayStart = [
+            {pageX: 0, pageY: 0},
+            {pageX: 100, pageY: 100}
+        ];
+        let touchArrayEnd = [
+            {pageX: 0, pageY: 0},
+            {pageX: 10, pageY: 10}
+        ];
+        let touches = type => {
+            let arr = (type === 'start') ? touchArrayStart : touchArrayEnd;
+            return {
+                '0': arr[0],
+                '1': arr[1],
+                length: 2,
+                item: i => ({touches: [arr[i]]})
+            };
+        };
+        let touchstart = new window.UIEvent('touchstart');
+        let touchmove = new window.UIEvent('touchmove');
+        touchstart.touches = touches('start');
+        touchmove.touches = touches('end');
+        expect(scene.getPan()).toMatchSnapshot();
+        expect(scene.getRotation()).toMatchSnapshot();
+        expect(scene.getZoom()).toMatchSnapshot();
+        scene.getElement().dispatchEvent(touchstart);
+        window.dispatchEvent(touchmove);
+        expect(scene.getPan()).toMatchSnapshot();
+        expect(scene.getRotation()).toMatchSnapshot();
+        expect(scene.getZoom()).toMatchSnapshot();
+        window.dispatchEvent(touchend);
+    });
+    it('can pan scene with three-finger drag', () => {
+        let touches = [
+            {pageX: 0, pageY: 0},
+            {pageX: 10, pageY: 10},
+            {pageX: 100, pageY: 100}
+        ];
+        let touchstart = new window.UIEvent('touchstart');
+        let touchmove = new window.UIEvent('touchmove');
+        touchstart.touches = touches;
+        touchmove.touches = touches.map(touch => mapValues(touch, val => val + 100));
+        expect(scene.getPan()).toMatchSnapshot();
+        expect(scene.getRotation()).toMatchSnapshot();
+        scene.getElement().dispatchEvent(touchstart);
+        window.dispatchEvent(touchmove);
+        expect(scene.getPan()).toMatchSnapshot();
+        expect(scene.getRotation()).toMatchSnapshot();
+        window.dispatchEvent(touchend);
     });
 });
