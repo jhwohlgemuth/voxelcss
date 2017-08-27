@@ -44,10 +44,10 @@ function captureScreenshots(options) {
         await clickVoxel(index, 'left');
         await clickVoxel(index, 'front');
         await screenshot(`${prefix}-${i++}`);
-        await page.hover(`${voxel(24)}top`);
+        await page.hover(`${voxel(index)}top`);
         await screenshot(`${prefix}-${i++}`);
         await mouseout();
-        await clickVoxel(24, 'top', {button: 'right'});
+        await clickVoxel(index, 'top', {button: 'right'});
         await mouseout();
         await screenshot(`${prefix}-${i++}`);
         browser.close();
