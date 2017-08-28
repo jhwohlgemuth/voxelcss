@@ -71,14 +71,33 @@ Features
 
 Supported Touch Gestures
 ------------------------
-|     Gesture    |    Action    |
-| :------------: | :----------: |
-| Tap            | Add voxel    |
-| Long touch     | Remove voxel |
-| 1-finger drag  | Rotate scene |
-| 2-finger pinch | Zoom scene   |
-| 3-finger drag  | Pan scene    |
-
+<table style="text-align:center;">
+<tr>
+    <td><img src="https://raw.githubusercontent.com/jhwohlgemuth/voxelcss/master/media/gestures/one_finger_tap.png" height=80></img></td>
+    <td>Tap</td>
+    <td>Add voxel</td>
+</tr>
+<tr>
+    <td><img src="https://raw.githubusercontent.com/jhwohlgemuth/voxelcss/master/media/gestures/one_finger_hold.png" height=80></img></td>
+    <td>Long touch</td>
+    <td>Remove voxel</td>
+</tr>
+<tr>
+    <td><img src="https://raw.githubusercontent.com/jhwohlgemuth/voxelcss/master/media/gestures/one_finger_drag.png" height=80></img></td>
+    <td>1-finger drag</td>
+    <td>Rotate scene</td>
+</tr>
+<tr>
+    <td><img src="https://raw.githubusercontent.com/jhwohlgemuth/voxelcss/master/media/gestures/two_finger_scale.png" height=80></img></td>
+    <td>2-finger pinch</td>
+    <td>Zoom scene</td>
+</tr>
+<tr>
+    <td><img src="https://raw.githubusercontent.com/jhwohlgemuth/voxelcss/master/media/gestures/three_finger_drag.png" height=80></img></td>
+    <td>3-finger drag</td>
+    <td>Pan scene</td>
+</tr>
+</table>
 
 Contributing
 ------------
