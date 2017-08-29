@@ -57,7 +57,7 @@ define(function(require) {
 
 Examples
 --------
-> Under construction
+[demo](https://voxelcss.js.org/examples/demo)
 
 Features
 --------

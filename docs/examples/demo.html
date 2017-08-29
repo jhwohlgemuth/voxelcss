@@ -2,15 +2,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Voxelcss Demo</title>
-    <!-- <script type="text/javascript" src="justice.min.js"></script> -->
-    <script type="text/javascript" src='../../dist/voxelcss.js'></script>
+    <script type="text/javascript" src="justice.min.js"></script>
+    <script type="text/javascript" src='voxelcss.js'></script>
     <script>
         /* global voxelcss */
         'use strict';
-        //
-        // un-comment to view page metrics (fps, etc...)
-        //
-        // Justice.init();
+        Justice.init();
         const {abs, PI} = Math;
         const {
             ColorFace,
@@ -89,10 +86,6 @@
     </script>
 </head>
 <body>
-<script id="__bs_script__">//<![CDATA[
-    'use strict';
-    document.write('<script async src="http://HOST:1337/browser-sync/browser-sync-client.js?v=2.18.12"><\/script>'.replace('HOST', location.hostname));
-//]]></script>
 <div id="debug" style="position:fixed;bottom:0;padding:16px;"></div>
 </body>
 </html>
