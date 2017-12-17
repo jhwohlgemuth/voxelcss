@@ -60,7 +60,7 @@
         "postcss-import": "^11.0.0",
         "postcss-reporter": "^5.0.0",
         "postcss-safe-parser": "^3.0.1",
-        "puppeteer": "^0.11.0",
+        "puppeteer": "^0.13.0",
         "watch": "^1.0.2"
     },
     "scripts": {
