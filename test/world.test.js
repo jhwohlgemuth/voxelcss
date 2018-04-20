@@ -28,7 +28,7 @@ describe('World', function() {
         expect(localStorage.setItem).toHaveBeenLastCalledWith('savedWorld<*>', '[]');
     });
     it('can save and delete state', () => {
-        let formName = `savedWorld<${label}>`;
+        const formName = `savedWorld<${label}>`;
         world.isSaved();
         expect(localStorage.getItem).toHaveBeenLastCalledWith(formName);
         world.save();
@@ -43,7 +43,7 @@ describe('World', function() {
     });
     it('can import voxels', () => {
         world.add(new Voxel());
-        let voxelString = world.export();
+        const voxelString = world.export();
         world.import(voxelString);
         expect(world.export()).toEqual(voxelString);
         expect(() => {
@@ -57,8 +57,8 @@ describe('World', function() {
         expect(world.export()).toMatchSnapshot();
     });
     it('can load from the browser', () => {
-        let formName = `savedWorld<${label}>`;
-        let voxel = new Voxel();
+        const formName = `savedWorld<${label}>`;
+        const voxel = new Voxel();
         world.add(voxel);
         expect(world.getVoxels()).toMatchSnapshot();
         world.save();
@@ -78,10 +78,10 @@ describe('World', function() {
         expect(world.getVoxels()).toMatchSnapshot();
     });
     it('can add and remove voxels', () => {
-        let voxel = new Voxel();
+        const voxel = new Voxel();
         world.add(voxel);
         expect(world).toMatchSnapshot();
-        let success = world.remove(voxel);
+        const success = world.remove(voxel);
         expect(success).toBeTruthy();
         expect(world.export()).toEqual('[]');
         expect(world.remove()).toBeFalsy();

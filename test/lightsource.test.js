@@ -4,7 +4,7 @@ const LightSource = require('../lib/LightSource');
 
 describe('Light Source', function() {
     let lightsource;
-    let position = [1, 2, 3];
+    const position = [1, 2, 3];
     beforeEach(function() {
         lightsource = new LightSource(position);
     });

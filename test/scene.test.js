@@ -10,14 +10,14 @@ const INITIAL_PAN = {x: 0, y: 0, z: 0};
 const INITIAL_ROTATION = {x: 0, y: 0, z: 0};
 const SHIFT_KEYCODE = 16;
 
-let keyCode = SHIFT_KEYCODE;
-let which = SHIFT_KEYCODE;
+const keyCode = SHIFT_KEYCODE;
+const which = SHIFT_KEYCODE;
 let pressShift = new window.KeyboardEvent('keydown', {keyCode});
 let releaseShift = new window.KeyboardEvent('keyup', {keyCode});
 
 describe('Scene', function() {
     let scene;
-    let touchend = new window.UIEvent('touchend');
+    const touchend = new window.UIEvent('touchend');
     beforeEach(() => {
         scene = new Scene();
     });
@@ -60,7 +60,7 @@ describe('Scene', function() {
         });
     });
     it('can attach and detach', () => {
-        let elem = {appendChild: () => {}};
+        const elem = {appendChild: () => {}};
         expect(scene.isAttached()).toBeFalsy();
         scene.attach(elem);
         expect(scene.isAttached()).toBeTruthy();
@@ -69,7 +69,7 @@ describe('Scene', function() {
         expect(scene.isAttached()).toBeFalsy();
     });
     it('can throw error when trying to attach when already attached', () => {
-        let elem = {appendChild: () => {}};
+        const elem = {appendChild: () => {}};
         expect(scene.isAttached()).toBeFalsy();
         scene.attach(elem);
         expect(scene.isAttached()).toBeTruthy();
@@ -104,10 +104,10 @@ describe('Scene', function() {
 
     });
     it('can apply pan', () => {
-        let x = 1;
-        let y = 2;
-        let z = 3;
-        let voxel = new Voxel([0, 0, 0], 10);
+        const x = 1;
+        const y = 2;
+        const z = 3;
+        const voxel = new Voxel([0, 0, 0], 10);
         scene.add(voxel);
         expect(scene.getPan()).toEqual(INITIAL_PAN);
         scene.setPan();
@@ -116,7 +116,7 @@ describe('Scene', function() {
         expect(scene.getPan()).toMatchSnapshot();
     });
     it('can get and set pan', () => {
-        let voxel = new Voxel([0, 0, 0], 10);
+        const voxel = new Voxel([0, 0, 0], 10);
         scene.add(voxel);
         expect(scene.getPan()).toEqual(INITIAL_PAN);
         scene.pan();
@@ -137,12 +137,12 @@ describe('Scene', function() {
         expect(scene.getZoom()).toMatchSnapshot();
     });
     it('can add and remove light sources', () => {
-        let dim = 300;
-        let position = [dim, dim, dim];
-        let distance = 750;
-        let dark = 0.2;
-        let light = 1;
-        let lightSource = new LightSource(position, distance, dark, light);
+        const dim = 300;
+        const position = [dim, dim, dim];
+        const distance = 750;
+        const dark = 0.2;
+        const light = 1;
+        const lightSource = new LightSource(position, distance, dark, light);
         expect(scene.getLightSources()).toEqual([]);
         scene.addLightSource(lightSource);
         expect(scene.getLightSources()).not.toEqual([]);
@@ -151,13 +151,13 @@ describe('Scene', function() {
         expect(scene.getLightSources()).toEqual([]);
     });
     it('can add and remove voxels', () => {
-        let voxel = new Voxel([10, 10, 10], 10);
-        let dim = 300;
-        let position = [dim, dim, dim];
-        let distance = 750;
-        let dark = 0.2;
-        let light = 1;
-        let lightSource = new LightSource(position, distance, dark, light);
+        const voxel = new Voxel([10, 10, 10], 10);
+        const dim = 300;
+        const position = [dim, dim, dim];
+        const distance = 750;
+        const dark = 0.2;
+        const light = 1;
+        const lightSource = new LightSource(position, distance, dark, light);
         expect(scene.getVoxels()).toEqual([]);
         scene.add(voxel);
         scene.addLightSource(lightSource);
@@ -185,8 +185,8 @@ describe('Scene', function() {
         //
         // Mouse scroll --> zoom
         //
-        let mousewheel = new window.MouseEvent('mousewheel');
-        let wheel = new window.MouseEvent('wheel');
+        const mousewheel = new window.MouseEvent('mousewheel');
+        const wheel = new window.MouseEvent('wheel');
         mousewheel.deltaY = 1000;
         wheel.deltaY = 1000;
         expect(scene.getZoom()).toEqual(1);
@@ -197,11 +197,11 @@ describe('Scene', function() {
         scene.getElement().dispatchEvent(mousewheel);
         scene.getElement().dispatchEvent(wheel);
         expect(scene.getZoom()).toMatchSnapshot();
-        let x = 1000;
-        let y = 1000;
-        let d = 100;
-        let mousedown = new window.MouseEvent('mousedown');
-        let mouseup = new window.MouseEvent('mouseup');
+        const x = 1000;
+        const y = 1000;
+        const d = 100;
+        const mousedown = new window.MouseEvent('mousedown');
+        const mouseup = new window.MouseEvent('mouseup');
         Object.assign(mousedown, {x, y});
         Object.assign(mouseup, {x, y});
         expect(scene.getInteractionState()).toMatchSnapshot();
@@ -212,7 +212,7 @@ describe('Scene', function() {
         //
         // Mouse down & Mouse move --> rotate
         //
-        let mousemove = new window.MouseEvent('mousemove');
+        const mousemove = new window.MouseEvent('mousemove');
         expect(scene.getPan()).toEqual(INITIAL_PAN);
         expect(scene.getRotation()).toMatchSnapshot();
         scene.getElement().dispatchEvent(mousedown);
@@ -235,12 +235,12 @@ describe('Scene', function() {
         expect(scene.getRotation()).toMatchSnapshot();
     });
     it('can rotate scene with one-finger drag', () => {
-        let touches = [{
+        const touches = [{
             pageX: 0,
             pageY: 0
         }];
-        let touchstart = new window.UIEvent('touchstart');
-        let touchmove = new window.UIEvent('touchmove');
+        const touchstart = new window.UIEvent('touchstart');
+        const touchmove = new window.UIEvent('touchmove');
         touchstart.touches = touches;
         touchmove.touches = touches.map(touch => mapValues(touch, val => val + 100));
         expect(scene.getPan()).toMatchSnapshot();
@@ -252,25 +252,25 @@ describe('Scene', function() {
         window.dispatchEvent(touchend);
     });
     it('can zoom scene with two-finger pinch', () => {
-        let touchArrayStart = [
+        const touchArrayStart = [
             {pageX: 0, pageY: 0},
             {pageX: 100, pageY: 100}
         ];
-        let touchArrayEnd = [
+        const touchArrayEnd = [
             {pageX: 0, pageY: 0},
             {pageX: 10, pageY: 10}
         ];
-        let touches = type => {
-            let arr = (type === 'start') ? touchArrayStart : touchArrayEnd;
+        const touches = type => {
+            const arr = (type === 'start') ? touchArrayStart : touchArrayEnd;
             return {
-                '0': arr[0],
-                '1': arr[1],
+                0: arr[0],
+                1: arr[1],
                 length: 2,
                 item: i => ({touches: [arr[i]]})
             };
         };
-        let touchstart = new window.UIEvent('touchstart');
-        let touchmove = new window.UIEvent('touchmove');
+        const touchstart = new window.UIEvent('touchstart');
+        const touchmove = new window.UIEvent('touchmove');
         touchstart.touches = touches('start');
         touchmove.touches = touches('end');
         expect(scene.getPan()).toMatchSnapshot();
@@ -284,13 +284,13 @@ describe('Scene', function() {
         window.dispatchEvent(touchend);
     });
     it('can pan scene with three-finger drag', () => {
-        let touches = [
+        const touches = [
             {pageX: 0, pageY: 0},
             {pageX: 10, pageY: 10},
             {pageX: 100, pageY: 100}
         ];
-        let touchstart = new window.UIEvent('touchstart');
-        let touchmove = new window.UIEvent('touchmove');
+        const touchstart = new window.UIEvent('touchstart');
+        const touchmove = new window.UIEvent('touchmove');
         touchstart.touches = touches;
         touchmove.touches = touches.map(touch => mapValues(touch, val => val + 100));
         expect(scene.getPan()).toMatchSnapshot();

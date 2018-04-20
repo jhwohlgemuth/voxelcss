@@ -6,7 +6,7 @@ const positioned = require('../lib/positioned');
 
 describe('Positioned module', function() {
     let item;
-    let position = [1, 2, 3];
+    const position = [1, 2, 3];
     beforeEach(() => {
         item = positioned(assign({}, events));
     });
@@ -29,7 +29,7 @@ describe('Positioned module', function() {
         item.setPosition(position);
         item.translate(1, 2, 3);
         expect(item.getPosition()).toMatchSnapshot();
-        let restore = [1, 2, 3].map(val => (-1 * 2 * val));
+        const restore = [1, 2, 3].map(val => (-1 * 2 * val));
         item.translate(...restore);
         expect(item.getPosition()).toEqual({x: 0, y: 0, z: 0});
     });

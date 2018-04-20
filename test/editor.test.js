@@ -22,7 +22,7 @@ const allEvents = sideClickEvents.concat(
 describe('Editor', function() {
     let editor;
     let world;
-    let voxels = [
+    const voxels = [
         new Voxel(),
         new Voxel(),
         new Voxel()
@@ -75,19 +75,19 @@ describe('Editor', function() {
     it('can import and export world', () => {
         editor.export();
         expect(world.export).toHaveBeenCalledTimes(1);
-        let newScene = new Scene();
-        let newWorld = new World(newScene);
+        const newScene = new Scene();
+        const newWorld = new World(newScene);
         voxels.forEach(voxel => {
             newWorld.add(voxel);
         });
-        let serializedWorld = newWorld.export();
+        const serializedWorld = newWorld.export();
         expect(serializedWorld).toMatchSnapshot();
         editor.import(serializedWorld);
         expect(editor.getWorld().getVoxels().length).toEqual(voxels.length);
     });
     it('can add voxels', () => {
-        let a = new Voxel();
-        let b = new Voxel();
+        const a = new Voxel();
+        const b = new Voxel();
         a.on = jest.fn();
         b.on = jest.fn();
         editor.add(a);
@@ -99,8 +99,8 @@ describe('Editor', function() {
         expect(b.on).toHaveBeenCalledTimes(1);
     });
     it('can remove voxels', () => {
-        let a = new Voxel();
-        let b = new Voxel();
+        const a = new Voxel();
+        const b = new Voxel();
         a.off = jest.fn();
         b.off = jest.fn();
         editor.add(a);
@@ -114,8 +114,8 @@ describe('Editor', function() {
         expect(b.off).toHaveBeenCalledTimes(2);
     });
     it('can bind and unbind event handlers to voxels', () => {
-        let voxel = new Voxel();
-        let target = createVoxelMock();
+        const voxel = new Voxel();
+        const target = createVoxelMock();
         editor.add(voxel);
         allEvents.forEach(name => voxel.trigger(name, {target}));
         expect(world.save).not.toHaveBeenCalled();
@@ -127,8 +127,8 @@ describe('Editor', function() {
         target.translate.mockClear();
     });
     it('will only handle click events when enabled', () => {
-        let voxel = new Voxel();
-        let target = createVoxelMock();
+        const voxel = new Voxel();
+        const target = createVoxelMock();
         editor.disable();
         editor.add(voxel);
         allEvents.forEach(name => voxel.trigger(name, {target}));
