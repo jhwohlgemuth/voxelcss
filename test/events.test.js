@@ -50,7 +50,7 @@ describe('Events Module', function() {
     });
     it('can bind triggering with context', () => {
         function increment() {this.count += 1;}
-        let context = {count: 0};
+        const context = {count: 0};
         o.on({increment}, context);
         o.trigger('increment');
         expect(context).toMatchSnapshot();
@@ -90,7 +90,7 @@ describe('Events Module', function() {
         }).toThrowErrorMatchingSnapshot();
     });
     it('can remove events for specific context', () => {
-        let context = {count: 0};
+        const context = {count: 0};
         o.on('foo', foo);
         o.on('foo', foo, context);
         o.on('bar', bar, context);
@@ -100,7 +100,7 @@ describe('Events Module', function() {
         expect(bar).not.toHaveBeenCalled();
     });
     it('can remove events for specific context (map syntax)', () => {
-        let context = {count: 0};
+        const context = {count: 0};
         o.on({foo});
         o.on({foo}, context);
         o.on({bar}, context);
@@ -117,7 +117,7 @@ describe('Events Module', function() {
         expect(baz).toHaveBeenCalledTimes(1);
     });
     it('can pass data with event triggers', () => {
-        let data = 'foo was triggered';
+        const data = 'foo was triggered';
         let payload = [];
         o.on('foo', foo);
         [0, 1, 2, 3].forEach(() => {
@@ -127,7 +127,7 @@ describe('Events Module', function() {
         expect(foo.mock.calls).toMatchSnapshot();
     });
     it('can use "this" as default context', () => {
-        let a = assign({count: 0}, events);
+        const a = assign({count: 0}, events);
         function inc() {this.count += 1;}
         a.on({inc});
         a.trigger('inc');
@@ -135,8 +135,8 @@ describe('Events Module', function() {
         expect(a.count).toEqual(2);
     });
     it('can remove listeners in midst of triggering', () => {
-        let a = assign({count: 0}, events);
-        let inc = () => {
+        const a = assign({count: 0}, events);
+        const inc = () => {
             a.count += 1;
             a.off();
         };
@@ -177,8 +177,8 @@ describe('Events Module', function() {
     it('can listen to other objects', () => {
         let countA = 0;
         let countB = 0;
-        let a = assign({}, events);
-        let b = assign({}, events);
+        const a = assign({}, events);
+        const b = assign({}, events);
         a.listenTo(b, 'foo', foo);
         b.listenTo(a, 'baz', baz);
         a.trigger('baz');
@@ -197,8 +197,8 @@ describe('Events Module', function() {
     it('can listen to other objects (using map syntax)', () => {
         let countA = 0;
         let countB = 0;
-        let a = assign({}, events);
-        let b = assign({}, events);
+        const a = assign({}, events);
+        const b = assign({}, events);
         a.listenTo(b, {foo});
         b.listenTo(a, {baz});
         a.trigger('baz');
@@ -218,7 +218,7 @@ describe('Events Module', function() {
         expect(o.listenTo(undefined, 'foo')).toMatchSnapshot();
     });
     it('can handle failed on during listenTo', () => {
-        let a = assign({}, events);
+        const a = assign({}, events);
         expect(() => {
             a.listenTo(new Error(), 'foo');
         }).toThrowErrorMatchingSnapshot();
@@ -227,20 +227,20 @@ describe('Events Module', function() {
         expect(o.stopListening()).toMatchSnapshot();
     });
     it('can listen to other objects (once)', () => {
-        let a = assign({}, events);
-        let b = assign({}, events);
+        const a = assign({}, events);
+        const b = assign({}, events);
         a.listenToOnce(b, 'foo', foo);
         b.trigger('foo');
         b.trigger('foo');
         expect(foo).toHaveBeenCalledTimes(1);
     });
     it('can be used with other on/off interfaces', () => {
-        let _events = {};
-        let other = {
+        const _events = {};
+        const other = {
             on: (name, callback) => (_events[name] = callback),
             off: name => (_events[name] = null),
             trigger: (name, args) => {
-                let cb = _events[name];
+                const cb = _events[name];
                 typeof cb === 'function' && cb(args);
             }
         };
@@ -254,8 +254,8 @@ describe('Events Module', function() {
         expect(foo).toHaveBeenCalledTimes(1);
     });
     it('can listen to all events on another object', () => {
-        let a = assign({}, events);
-        let b = assign({}, events);
+        const a = assign({}, events);
+        const b = assign({}, events);
         a.listenTo(b, 'all', foo);
         b.trigger('foo');
         b.trigger('bar');

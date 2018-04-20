@@ -18,16 +18,16 @@ describe('Voxel', function() {
         expect(voxel.getDimension()).toEqual(DEFAULT_SIZE);
     });
     it('can create clones', function() {
-        let x = 123;
-        let y = 456;
-        let z = 789;
-        let original = new Voxel([x, y, z]);
-        let clone = original.clone();
+        const x = 123;
+        const y = 456;
+        const z = 789;
+        const original = new Voxel([x, y, z]);
+        const clone = original.clone();
         expect(clone.getPosition()).toMatchSnapshot();
     });
     it('can get and set mesh', () => {
-        let oldmesh = voxel.getMesh();
-        let newMesh = new Mesh(new ColorFace('#333'));
+        const oldmesh = voxel.getMesh();
+        const newMesh = new Mesh(new ColorFace('#333'));
         expect(oldmesh).toMatchSnapshot();
         voxel.setMesh(newMesh);
         expect(voxel.getMesh()).toMatchSnapshot();
@@ -40,7 +40,7 @@ describe('Voxel', function() {
         expect(() => {
             voxel.addToScene();
         }).toThrowErrorMatchingSnapshot();
-        let scene = {
+        const scene = {
             add: jest.fn(),
             remove: jest.fn()
         };
@@ -54,9 +54,9 @@ describe('Voxel', function() {
     });
     it('can handle left click events', () => {
         const NUMBER_OF_SIDES = 6;
-        let leftClick = new window.MouseEvent('click');
-        let scene = new Scene();
-        let a = new Voxel();
+        const leftClick = new window.MouseEvent('click');
+        const scene = new Scene();
+        const a = new Voxel();
         a.trigger = jest.fn();
         scene.add(a);
         a.getAnimatedElement().childNodes.forEach(face => face.dispatchEvent(leftClick));
@@ -64,9 +64,9 @@ describe('Voxel', function() {
         expect(a.trigger.mock.calls).toMatchSnapshot();
     });
     it('can handle right click events', () => {
-        let rightClick = new window.MouseEvent('contextmenu');
-        let scene = new Scene();
-        let a = new Voxel();
+        const rightClick = new window.MouseEvent('contextmenu');
+        const scene = new Scene();
+        const a = new Voxel();
         a.trigger = jest.fn();
         scene.add(a);
         a.getAnimatedElement().childNodes[0].dispatchEvent(rightClick);
@@ -75,18 +75,18 @@ describe('Voxel', function() {
     });
     it('can handle short and long touch events', () => {
         const LONG_PRESS_DURATION = 250;
-        let touches = [{
+        const touches = [{
             pageX: 0,
             pageY: 0
         }];
-        let touchstart = new window.UIEvent('touchstart');
-        let touchend = new window.UIEvent('touchend');
+        const touchstart = new window.UIEvent('touchstart');
+        const touchend = new window.UIEvent('touchend');
         touchstart.touches = touches;
-        let a = new Voxel();
+        const a = new Voxel();
         a.trigger = jest.fn();
-        let scene = new Scene();
+        const scene = new Scene();
         a.addToScene(scene);
-        const wrapper = a.getAnimatedElement().childNodes[0];
+        const [wrapper] = a.getAnimatedElement().childNodes;
         wrapper.dispatchEvent(touchstart);
         wrapper.dispatchEvent(touchend);
         expect(a.trigger.mock.calls).toMatchSnapshot();
@@ -95,8 +95,8 @@ describe('Voxel', function() {
         expect(a.trigger.mock.calls).toMatchSnapshot();
     });
     it('can handle mesh change events', () => {
-        let a = new Voxel();
-        let mesh = a.getMesh();
+        const a = new Voxel();
+        const mesh = a.getMesh();
         a.trigger = jest.fn();
         mesh.trigger('change');
         expect(a.trigger.mock.calls).toMatchSnapshot();
@@ -105,7 +105,7 @@ describe('Voxel', function() {
         expect(() => {
             voxel.animUp();
         }).toThrowErrorMatchingSnapshot();
-        let scene = {
+        const scene = {
             add: jest.fn(),
             remove: jest.fn()
         };
@@ -116,7 +116,7 @@ describe('Voxel', function() {
         expect(() => {
             voxel.animDown();
         }).toThrowErrorMatchingSnapshot();
-        let scene = {
+        const scene = {
             add: jest.fn(),
             remove: jest.fn()
         };
@@ -124,7 +124,7 @@ describe('Voxel', function() {
         expect(scene.add).toHaveBeenCalledWith(voxel);
     });
     it('can get and set dimensions', () => {
-        let dim = 42;
+        const dim = 42;
         expect(voxel.getDimension()).toEqual(DEFAULT_SIZE);
         voxel.setDimension(dim);
         expect(voxel.getDimension()).toEqual(dim);

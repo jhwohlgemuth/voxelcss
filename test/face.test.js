@@ -26,7 +26,7 @@ describe('ColorFace', function() {
         expect(face.getColor()).toMatchSnapshot();
     });
     it('can be cloned', () => {
-        let newFace = face.clone();
+        const newFace = face.clone();
         expect(newFace.getColor()).toMatchSnapshot();
     });
 });
@@ -39,7 +39,7 @@ describe('ImageFace', function() {
         expect(face.getSource()).toMatchSnapshot();
     });
     it('can be cloned', function() {
-        let newFace = face.clone();
+        const newFace = face.clone();
         expect(newFace.getSource()).toMatchSnapshot();
     });
 });

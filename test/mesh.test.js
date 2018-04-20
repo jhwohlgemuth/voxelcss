@@ -16,8 +16,8 @@ describe('Mesh', function() {
         expect(mesh.serialize()).toMatchSnapshot();
     });
     it('can be loaded from serialized string', () => {
-        let testMesh = new Mesh(new ColorFace('#333'));
-        let meshString = testMesh.serialize();
+        const testMesh = new Mesh(new ColorFace('#333'));
+        const meshString = testMesh.serialize();
         mesh = Mesh.loadFromSerial(meshString);
         expect(mesh.serialize()).toEqual(meshString);
     });
@@ -31,7 +31,7 @@ describe('Mesh', function() {
         expect(mesh.getBottom()).toMatchSnapshot();
     });
     it('can do nothing when invalid face data is passed', function() {
-        let invalidFaceData = 'Not a valid face';
+        const invalidFaceData = 'Not a valid face';
         mesh.setFront(invalidFaceData);
         mesh.setBack(invalidFaceData);
         mesh.setLeft(invalidFaceData);
@@ -41,14 +41,14 @@ describe('Mesh', function() {
         expect(mesh.trigger).not.toHaveBeenCalled();
     });
     it('can trigger change event when a face is changed', function() {
-        let faces = mesh.getFaces();
-        let front = mesh.getFront();
+        const faces = mesh.getFaces();
+        const front = mesh.getFront();
         expect(mesh.setFaces()).toMatchSnapshot();
         mesh.setFaces(faces);
         mesh.setFront(front);
         expect(mesh.getFront()).toEqual(front);
         mesh.trigger = jest.fn();
-        let setMethods = [
+        const setMethods = [
             'setFront',
             'setBack',
             'setLeft',
@@ -56,7 +56,7 @@ describe('Mesh', function() {
             'setTop',
             'setBottom'
         ];
-        let getMethods = [
+        const getMethods = [
             'getFront',
             'getBack',
             'getLeft',

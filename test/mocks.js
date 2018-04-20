@@ -23,8 +23,8 @@ function createVoxelMock() {
     });
 }
 function createWorldMock() {
-    let scene = new Scene();
-    let world = new World(scene);
+    const scene = new Scene();
+    const world = new World(scene);
     return assign(world, {
         save: jest.fn(),
         deleteSave: jest.fn(),
