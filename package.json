@@ -70,7 +70,7 @@
     "docs": "jsdoc ./lib/*.js --destination ./docs --readme ./README.md --template ./node_modules/minami",
     "lint": "eslint -c ./.eslintrc.js ./lib/*.js --fix",
     "lint:watch": "watch 'npm run lint' ./lib",
-    "lint:tests": "eslint -c ./.eslintrc.js ./test/*.js ./test/demo/index.html --fix",
+    "lint:tests": "eslint -c ./.eslintrc.js ./test/*.js ./test/demo/index.html",
     "test": "jest .*.test.js",
     "pretest:visual": "npm run capture",
     "test:visual": "jest visual-regression",

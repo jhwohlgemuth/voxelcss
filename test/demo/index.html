@@ -28,10 +28,10 @@
         let editor;
         let lightSource;
         document.addEventListener('DOMContentLoaded', () => {
-            let x = 300;
-            let y = 300;
-            let z = 300;
-            let distance = 750;
+            const x = 300;
+            const y = 300;
+            const z = 300;
+            const distance = 750;
             lightSource = new LightSource([x, y, z], distance);
             scene = new Scene();/* eslint-disable no-magic-numbers */
             world = new World(scene, 'Demo World');
@@ -55,14 +55,14 @@
             }
         });
         function buildCube() {
-            let size = 50;/* eslint-disable no-magic-numbers */
-            let sides = [-3, -2, -1, 0, 1, 2, 3];/* eslint-enable no-magic-numbers */
-            let mesh = new Mesh(new ColorFace('#1CAF55'));
+            const size = 50;/* eslint-disable no-magic-numbers */
+            const sides = [-3, -2, -1, 0, 1, 2, 3];/* eslint-enable no-magic-numbers */
+            const mesh = new Mesh(new ColorFace('#1CAF55'));
             sides.forEach(x => {
                 sides.forEach(y => {
                     sides.forEach(z => {
                         if ([x, y, z].filter(val => (abs(val) === 3)).length >= 2) {
-                            let position = [x, y, z].map(val => (size * val));
+                            const position = [x, y, z].map(val => (size * val));
                             editor.add(new Voxel(position, size, {mesh}));
                         }
                     });
@@ -70,12 +70,12 @@
             });
         }
         function testMeshes() {/* eslint-disable no-magic-numbers */
-            let size = 50;
-            let r = 102;
-            let g = 201;
-            let b = 215;
-            let color = {r, g, b};
-            let {grass, dirt, treeTrunk, treeLeaves, water, waterFall, waterFallTop, waterFallCrash} = meshes;
+            const size = 50;
+            const r = 102;
+            const g = 201;
+            const b = 215;
+            const color = {r, g, b};
+            const {grass, dirt, treeTrunk, treeLeaves, water, waterFall, waterFallTop, waterFallCrash} = meshes;
             editor.add(new Voxel([-200, 0, 0], size, {mesh: grass}));
             editor.add(new Voxel([-150, 0, 0], size, {mesh: dirt}));
             editor.add(new Voxel([-100, 0, 0], size, {mesh: treeTrunk}));
