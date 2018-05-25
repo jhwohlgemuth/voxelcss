@@ -50,7 +50,7 @@
     "eslint-plugin-compat": "^1.0.4",
     "eslint-plugin-html": "^4.0.0",
     "http-server": "^0.10.0",
-    "jest": "^20.0.4",
+    "jest": "^23.0.0",
     "jest-image-snapshot": "^2.0.0",
     "jest-localstorage-mock": "^2.0.0",
     "jsdoc": "^3.5.3",
