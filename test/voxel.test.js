@@ -9,7 +9,7 @@ const DEFAULT_SIZE = 50;
 
 jest.useFakeTimers();
 
-describe('Voxel', function() {
+describe('Voxel', () => {
     let voxel;
     beforeEach(() => {
         voxel = new Voxel();
@@ -17,7 +17,7 @@ describe('Voxel', function() {
     it('can be instantiated with dimension default size', () => {
         expect(voxel.getDimension()).toEqual(DEFAULT_SIZE);
     });
-    it('can create clones', function() {
+    it('can create clones', () => {
         const x = 123;
         const y = 456;
         const z = 789;

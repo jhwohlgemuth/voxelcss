@@ -4,7 +4,7 @@ const Voxel = require('../lib/Voxel');
 const Scene = require('../lib/Scene');
 const World = require('../lib/World');
 
-describe('World', function() {
+describe('World', () => {
     let label;
     let scene;
     let world;

@@ -14,7 +14,7 @@ const {
 } = require('../lib/common');
 const {PI} = Math;
 
-describe('Common utilities', function() {
+describe('Common utilities', () => {
     const o = {
         a: 'A',
         b: 'B',

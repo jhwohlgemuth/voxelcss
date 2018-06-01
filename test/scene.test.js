@@ -15,13 +15,13 @@ const which = SHIFT_KEYCODE;
 let pressShift = new window.KeyboardEvent('keydown', {keyCode});
 let releaseShift = new window.KeyboardEvent('keyup', {keyCode});
 
-describe('Scene', function() {
+describe('Scene', () => {
     let scene;
     const touchend = new window.UIEvent('touchend');
     beforeEach(() => {
         scene = new Scene();
     });
-    afterEach(function() {
+    afterEach(() => {
         scene.unbind();
     });
     it('can enable and disable pan', () => {

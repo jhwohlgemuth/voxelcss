@@ -4,7 +4,7 @@ const {assign}   = Object;
 const events     = require('../lib/events');
 const positioned = require('../lib/positioned');
 
-describe('Positioned module', function() {
+describe('Positioned module', () => {
     let item;
     const position = [1, 2, 3];
     beforeEach(() => {

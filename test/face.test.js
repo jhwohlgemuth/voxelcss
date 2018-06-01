@@ -3,7 +3,7 @@
 const ColorFace = require('../lib/ColorFace');
 const ImageFace = require('../lib/ImageFace');
 
-describe('ColorFace', function() {
+describe('ColorFace', () => {
     let face;
     beforeEach(() => {
         face = new ColorFace('#333');
@@ -16,7 +16,7 @@ describe('ColorFace', function() {
         expect(face.getHex()).toMatchSnapshot();
         expect(face.getColor()).toMatchSnapshot();
     });
-    it('will only update valid RGBA values', function() {
+    it('will only update valid RGBA values', () => {
         expect(face.getColor()).toMatchSnapshot();
         expect(() => {
             face.setColor({r: 1, g: 'not valid', b: 3});
@@ -30,15 +30,15 @@ describe('ColorFace', function() {
         expect(newFace.getColor()).toMatchSnapshot();
     });
 });
-describe('ImageFace', function() {
+describe('ImageFace', () => {
     let face;
     beforeEach(() => {
         face = new ImageFace();
     });
-    it('can be created with default image', function() {
+    it('can be created with default image', () => {
         expect(face.getSource()).toMatchSnapshot();
     });
-    it('can be cloned', function() {
+    it('can be cloned', () => {
         const newFace = face.clone();
         expect(newFace.getSource()).toMatchSnapshot();
     });

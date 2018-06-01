@@ -19,7 +19,7 @@ const allEvents = sideClickEvents.concat(
     'contextmenu'
 );
 
-describe('Editor', function() {
+describe('Editor', () => {
     let editor;
     let world;
     const voxels = [

@@ -3,7 +3,7 @@
 const {assign} = Object;
 const events   = require('../lib/events');
 
-describe('Events Module', function() {
+describe('Events Module', () => {
     let o;
     let foo;
     let bar;

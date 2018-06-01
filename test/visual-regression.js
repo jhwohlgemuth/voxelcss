@@ -11,7 +11,7 @@ expect.extend({toMatchImageSnapshot});
 const screenshotDirectory = join(__dirname, 'lib', 'screenshots');
 const hasPngExtension = name => (name.split('').slice(-1 * '.png'.length).join('') === '.png');
 
-describe('Voxelcss', function() {
+describe('Voxelcss', () => {
     it('can rotate, pan, zoom, and add/remove voxels', () => readdir(screenshotDirectory)
         .filter(hasPngExtension)
         .map(name => join(screenshotDirectory, name))

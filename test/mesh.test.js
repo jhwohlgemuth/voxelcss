@@ -3,7 +3,7 @@
 const ColorFace = require('../lib/ColorFace');
 const Mesh      = require('../lib/Mesh');
 
-describe('Mesh', function() {
+describe('Mesh', () => {
     let mesh;
     beforeEach(() => {
         mesh = new Mesh();
@@ -30,7 +30,7 @@ describe('Mesh', function() {
         expect(mesh.getTop()).toMatchSnapshot();
         expect(mesh.getBottom()).toMatchSnapshot();
     });
-    it('can do nothing when invalid face data is passed', function() {
+    it('can do nothing when invalid face data is passed', () => {
         const invalidFaceData = 'Not a valid face';
         mesh.setFront(invalidFaceData);
         mesh.setBack(invalidFaceData);
@@ -40,7 +40,7 @@ describe('Mesh', function() {
         mesh.setBottom(invalidFaceData);
         expect(mesh.trigger).not.toHaveBeenCalled();
     });
-    it('can trigger change event when a face is changed', function() {
+    it('can trigger change event when a face is changed', () => {
         const faces = mesh.getFaces();
         const front = mesh.getFront();
         expect(mesh.setFaces()).toMatchSnapshot();
