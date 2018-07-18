@@ -44,7 +44,7 @@
     "browserify-css": "^0.14.0",
     "chalk": "^2.0.1",
     "coveralls": "^3.0.0",
-    "cssnano": "^3.10.0",
+    "cssnano": "^4.0.3",
     "eslint": "^4.2.0",
     "eslint-config-omaha-prime-grade": "^10.0.0",
     "eslint-plugin-compat": "^1.0.4",
