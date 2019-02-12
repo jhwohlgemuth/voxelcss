@@ -55,7 +55,7 @@
     "jest-localstorage-mock": "^2.0.0",
     "jsdoc": "^3.5.3",
     "minami": "^1.2.3",
-    "postcss": "^6.0.8",
+    "postcss": "^7.0.14",
     "postcss-cli": "^5.0.0",
     "postcss-cssnext": "^3.0.2",
     "postcss-import": "^11.0.0",
