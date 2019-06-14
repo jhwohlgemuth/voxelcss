@@ -47,7 +47,7 @@
     "cssnano": "^3.10.0",
     "eslint": "^4.2.0",
     "eslint-config-omaha-prime-grade": "^10.0.0",
-    "eslint-plugin-compat": "^1.0.4",
+    "eslint-plugin-compat": "^3.1.2",
     "eslint-plugin-html": "^4.0.0",
     "http-server": "^0.10.0",
     "jest": "^20.0.4",
