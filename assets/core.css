@@ -33,6 +33,7 @@
             }
         }
     }
+    & .animated,
     & .animated-up,
     & .animated-down {
         transform-style: preserve-3d;

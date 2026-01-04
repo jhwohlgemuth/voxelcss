@@ -185,4 +185,4 @@ Array [
 ]
 `;
 
-exports[`Events Module can throw an error with "truthy" non-function callbacks 1`] = `"(intermediate value)(intermediate value).callback.call is not a function"`;
+exports[`Events Module can throw an error with "truthy" non-function callbacks 1`] = `"c.callback.call is not a function"`;
