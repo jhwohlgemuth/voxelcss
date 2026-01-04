@@ -1,0 +1,42 @@
+
+> voxelcss@1.1.0 design
+> npm run build && npm run browsersync
+
+
+> voxelcss@1.1.0 prebuild
+> postcss ./assets/voxelcss.css -d ./dist
+
+Warning: postcss-cssnext found a duplicate plugin ('autoprefixer') in your postcss plugins. This might be inefficient. You should remove 'autoprefixer' from your postcss plugin list since it's already included by postcss-cssnext.
+Note: If, for a really specific reason, postcss-cssnext warnings are irrelevant for your use case, and you really know what you are doing, you can disable this warnings by setting  'warnForDuplicates' option of postcss-cssnext to 'false'.
+
+> voxelcss@1.1.0 build
+> npm run bundle
+
+
+> voxelcss@1.1.0 bundle
+> browserify -g browserify-css -e ./lib/index.js ./lib/index.js --standalone voxelcss -o ./dist/voxelcss.js
+
+
+> voxelcss@1.1.0 postbuild
+> npm run transpile
+
+
+> voxelcss@1.1.0 transpile
+> babel ./dist/voxelcss.js --out-file ./dist/voxelcss.js
+
+
+> voxelcss@1.1.0 browsersync
+> browser-sync start --server ./test/demo --serveStatic . --files test/demo --open ./test/demo/index.html --port 1337
+
+(node:5722) [DEP0060] DeprecationWarning: The `util._extend` API is deprecated. Please use Object.assign() instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[Browsersync] Access URLs:
+ ------------------------------------
+       Local: http://localhost:1337
+    External: http://192.168.0.2:1337
+ ------------------------------------
+          UI: http://localhost:3001
+ UI External: http://192.168.0.2:3001
+ ------------------------------------
+[Browsersync] Serving files from: ./test/demo
+[Browsersync] Watching files...
